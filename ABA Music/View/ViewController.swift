@@ -4,6 +4,7 @@ import UIKit
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ArtistCollectionViewCellDelegate {
     var artists: [Artist] = []
     var tableView: UITableView!
+    let repository: SearchByArtist = SearchRepository(service: iTunesService())
     lazy var collectionView: UICollectionView = {
         let cv = UICollectionView(frame: .zero, collectionViewLayout: self.layout)
         return cv
@@ -51,52 +52,16 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
 
     func fetchData(term: String) {
-        if let urlString = "https://itunes.apple.com/search?term=\(term)&media=musicVideo&entity=musicVideo&attribute=artistTerm&limit=200".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
-            if let url = URL(string: urlString) {
-                let task = URLSession.shared.dataTask(with: url) { data, _, error in
-                    guard let data = data else { return }
-                    do {
-                        if let dict = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                            if let results = dict["results"] as? [[String: Any]] {
-                                results.forEach { track in
-                                    self.addTracks(track: track)
-                                }
-                                self.artists.sorted(by: { (a1, b1) -> Bool in
-                                    a1.artistName.compare(b1.artistName) == .orderedAscending
-                                })
-                                DispatchQueue.main.async {
-                                    self.collectionView.reloadData()
-                                }
-                            }
-                        }
-
-                    } catch var error {
-                        print(error.localizedDescription)
-                    }
+        repository.searchMusicVideos(term) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let artists):
+                self.artists = artists.sorted()
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
                 }
-                task.resume()
-            }
-        }
-    }
-
-    func addTracks(track: [String: Any]) {
-        if let artistId = track["artistId"] as? Int,
-            let artistName = track["artistName"] as? String,
-            let trackId = track["trackId"] as? Int,
-            let trackName = track["trackName"] as? String,
-            let previewUrl = track["previewUrl"] as? String,
-            let artworkUrl100 = track["artworkUrl100"] as? String,
-            let primaryGenreName = track["primaryGenreName"] as? String,
-            let country = track["country"] as? String,
-            let releaseDate = track["releaseDate"] as? String {
-            let artist = Artist(artistId: artistId, artistName: artistName, tracks: [])
-            let track = Track(trackId: trackId, artist: artist, artistName: artistName, trackName: trackName, previewUrl: previewUrl, artworkUrl100: artworkUrl100, primaryGenreName: primaryGenreName, country: country, releaseDate: releaseDate)
-
-            if let foundArtist = (artists.filter { $0.artistId == artist.artistId }).first {
-                foundArtist.tracks.append(track)
-            } else {
-                artist.tracks.append(track)
-                artists.append(artist)
+            case .failure(let error):
+                print(error)
             }
         }
     }

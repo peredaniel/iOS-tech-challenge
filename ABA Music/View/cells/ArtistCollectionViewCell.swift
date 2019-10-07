@@ -31,7 +31,7 @@ class ArtistCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
 
     var artist: Artist? {
         didSet {
-            artistNameLabel.text = artist!.artistName
+            artistNameLabel.text = artist!.name
             collectionView.reloadData()
         }
     }
