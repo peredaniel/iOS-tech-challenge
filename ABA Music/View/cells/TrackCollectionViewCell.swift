@@ -1,31 +1,29 @@
-import UIKit
 import AlamofireImage
+import UIKit
 
 protocol TrackCollectionViewCellDelegate {
     func didPressTrack(_ track: Track)
 }
 
 class TrackCollectionViewCell: UICollectionViewCell {
-    
     var delegate: TrackCollectionViewCellDelegate?
-    
+
     lazy var trackNameLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         label.textColor = .white
         label.textAlignment = .center
-        label.font = UIFont.init(name: "Verdana", size: 8.0)
+        label.font = UIFont(name: "Verdana", size: 8.0)
         return label
     }()
-    
-    
+
     lazy var trackImageView: UIImageView = {
         let trackImageView = UIImageView()
         trackImageView.layer.cornerRadius = 5
         trackImageView.clipsToBounds = true
         return trackImageView
     }()
-    
+
     var track: Track? {
         didSet {
             trackNameLabel.text = track!.trackName
@@ -34,7 +32,7 @@ class TrackCollectionViewCell: UICollectionViewCell {
             self.addGestureRecognizer(gesture)
         }
     }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(trackImageView)
@@ -51,15 +49,15 @@ class TrackCollectionViewCell: UICollectionViewCell {
         trackNameLabel.rightAnchor.constraint(equalTo: trackImageView.rightAnchor, constant: 0).isActive = true
         backgroundColor = UIColor.lightGray
     }
-    
-    required init?(coder aDecoder: NSCoder) {
+
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     @objc func pressTrack() {
         delegate?.didPressTrack(track!)
     }
- 
+
     override func layoutSubviews() {
         super.layoutSubviews()
         layer.cornerRadius = 5

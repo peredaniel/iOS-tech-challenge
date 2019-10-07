@@ -1,28 +1,27 @@
 import UIKit
 
 class TrackViewController: UIViewController {
-
     var track: Track
     var playerView: PlayerView
     var stackView: UIStackView
-    
+
     init(track: Track) {
         self.track = track
-        self.stackView = UIStackView()
-        self.stackView.axis = .vertical
-        self.stackView.alignment = .fill
-        self.stackView.spacing = 10
-        self.stackView.distribution = .equalSpacing
-        self.playerView = PlayerView()
-        self.playerView.prepare(with: URL(string: track.previewUrl)!)
+        stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.alignment = .fill
+        stackView.spacing = 10
+        stackView.distribution = .equalSpacing
+        playerView = PlayerView()
+        playerView.prepare(with: URL(string: track.previewUrl)!)
         super.init(nibName: nil, bundle: nil)
         title = track.trackName
     }
-    
-    required init?(coder aDecoder: NSCoder) {
+
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         playerView.translatesAutoresizingMaskIntoConstraints = false
@@ -54,19 +53,18 @@ class TrackViewController: UIViewController {
         }
         view.backgroundColor = UIColor.lightGray
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         playerView.play()
     }
-    
+
     func addLabel(text: String, size: CGFloat) {
         let label = UILabel()
         label.textColor = UIColor.white
-        label.font = UIFont.init(name: "Helvetica Neue", size: size)
+        label.font = UIFont(name: "Helvetica Neue", size: size)
         label.text = text
         label.numberOfLines = 0
         stackView.addArrangedSubview(label)
     }
-    
 }
