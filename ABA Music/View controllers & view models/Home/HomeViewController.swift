@@ -1,19 +1,23 @@
 import Foundation
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ArtistCollectionViewCellDelegate {
-    var artists: [Artist] = []
+class HomeViewController: UIViewController {
     var tableView: UITableView!
-    let repository: SearchByArtist = SearchRepository(service: iTunesService())
-    lazy var collectionView: UICollectionView = {
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: self.layout)
-        return cv
+    
+    private lazy var viewModel: HomeViewModelType = {
+        return HomeViewModel(delegate: self)
     }()
 
-    lazy var layout: UICollectionViewFlowLayout = {
+    private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        return layout
+        let collectionView = UICollectionView(
+            frame: .zero,
+            collectionViewLayout: layout
+        )
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        return collectionView
     }()
 
     init() {
@@ -37,53 +41,27 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collectionView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
         collectionView.backgroundColor = UIColor.lightGray
         collectionView.register(ArtistCollectionViewCell.self, forCellWithReuseIdentifier: "artistCell")
-        collectionView.delegate = self
-        collectionView.dataSource = self
         collectionView.showsVerticalScrollIndicator = false
-        fetchData(term: "Jackson")
-    }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        viewModel.fetchData(term: "Jackson")
     }
+}
 
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-    }
-
-    func fetchData(term: String) {
-        repository.searchMusicVideos(term) { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success(let artists):
-                self.artists = artists.sorted()
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-
+extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
-        return artists.count
+        return viewModel.modelCount
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "artistCell", for: indexPath) as! ArtistCollectionViewCell
-        cell.artist = artists[indexPath.item]
-        cell.delegate = self
+        cell.viewModel = viewModel.viewModel(forRowAt: indexPath)
         return cell
     }
+}
 
+extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt _: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: 180)
-    }
-
-    func didPressTrack(_ track: Track) {
-        let trackViewController = TrackViewController(track: track)
-        navigationController?.pushViewController(trackViewController, animated: true)
     }
 
     func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, minimumLineSpacingForSectionAt _: Int) -> CGFloat {
@@ -92,5 +70,24 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
     func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, minimumInteritemSpacingForSectionAt _: Int) -> CGFloat {
         return 0
+    }
+}
+
+
+extension HomeViewController: HomeViewModelDelegate {
+    func viewModel(_: HomeViewModel, didFetchData success: Bool) {
+        if success {
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        } else {
+            // TODO: Implement error message
+        }
+    }
+
+    func viewModel(_: HomeViewModel, didSelectItemWith viewModel: TrackDetailsViewModelType) {
+        let trackViewController = TrackDetailsViewController()
+        trackViewController.viewModel = viewModel
+        navigationController?.pushViewController(trackViewController, animated: true)
     }
 }

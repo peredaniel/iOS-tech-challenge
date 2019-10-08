@@ -1,10 +1,6 @@
 import UIKit
 
-protocol ArtistCollectionViewCellDelegate {
-    func didPressTrack(_ track: Track)
-}
-
-class ArtistCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, TrackCollectionViewCellDelegate {
+class ArtistCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     lazy var artistNameLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
@@ -27,12 +23,9 @@ class ArtistCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
         return layout
     }()
 
-    var delegate: ArtistCollectionViewCellDelegate?
-
-    var artist: Artist? {
+    var viewModel: ArtistCellViewModelType! {
         didSet {
-            artistNameLabel.text = artist!.name
-            collectionView.reloadData()
+            refreshView()
         }
     }
 
@@ -50,28 +43,31 @@ class ArtistCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
         collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0).isActive = true
         collectionView.leftAnchor.constraint(equalTo: leftAnchor, constant: 0).isActive = true
         collectionView.rightAnchor.constraint(equalTo: rightAnchor, constant: 0).isActive = true
-        collectionView.register(TrackCollectionViewCell.self, forCellWithReuseIdentifier: "trackCell")
+        collectionView.register(TrackCell.self, forCellWithReuseIdentifier: "trackCell")
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.backgroundColor = UIColor.lightGray
+        collectionView.backgroundColor = .lightGray
     }
 
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
+    func refreshView() {
+        artistNameLabel.text = viewModel?.name
+        collectionView.reloadData()
+    }
+}
+
+extension ArtistCell: UICollectionViewDataSource {
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
-        if let artist = artist {
-            return artist.tracks.count
-        }
-        return 0
+        return viewModel.tracksCount
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "trackCell", for: indexPath) as! TrackCollectionViewCell
-        cell.track = artist!.tracks[indexPath.row]
-        cell.delegate = self
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "trackCell", for: indexPath) as! TrackCell
+        cell.viewModel = viewModel.viewModel(forObjectAt: indexPath)
         cell.layer.borderColor = UIColor.blue.cgColor
         cell.layer.borderWidth = 1.0
         return cell
@@ -79,9 +75,5 @@ class ArtistCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
 
     func collectionView(_ collectionView: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt _: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width * 0.25, height: collectionView.frame.height / 1.5)
-    }
-
-    func didPressTrack(_ track: Track) {
-        delegate?.didPressTrack(track)
     }
 }
