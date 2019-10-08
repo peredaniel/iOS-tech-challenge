@@ -89,7 +89,16 @@ extension HomeViewController: HomeViewModelDelegate {
                 self.collectionView.reloadData()
             }
         } else {
-            // TODO: Implement error message
+            let alertController = UIAlertController(title: nil, message: "An error occurred while executing your search. Do you wish to try again?", preferredStyle: .alert)
+            let retryAction = UIAlertAction(title: "Retry", style: .default) { [weak self] _ in
+                self?.dismiss(animated: true) {
+                    self?.viewModel.fetchData(term: "Jackson")
+                }
+            }
+            alertController.addAction(retryAction)
+            DispatchQueue.main.async {
+                self.present(alertController, animated: true, completion: nil)
+            }
         }
     }
 
