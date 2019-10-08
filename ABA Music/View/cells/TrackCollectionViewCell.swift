@@ -26,7 +26,7 @@ class TrackCollectionViewCell: UICollectionViewCell {
 
     var track: Track? {
         didSet {
-            trackNameLabel.text = track!.trackName
+            trackNameLabel.text = track!.name
             trackImageView.af_setImage(withURL: URL(string: track!.artworkUrl100)!)
             let gesture = UITapGestureRecognizer(target: self, action: #selector(pressTrack))
             self.addGestureRecognizer(gesture)
