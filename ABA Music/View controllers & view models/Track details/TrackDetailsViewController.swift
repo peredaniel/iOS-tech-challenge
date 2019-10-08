@@ -3,7 +3,7 @@ import UIKit
 class TrackDetailsViewController: UIViewController {
     var playerView: PlayerView!
     var stackView: UIStackView!
-    
+
     var viewModel: TrackDetailsViewModelType?
 
     init() {
@@ -29,7 +29,7 @@ class TrackDetailsViewController: UIViewController {
             playerView.prepare(with: url)
         }
         title = viewModel.trackName
-        
+
         playerView.translatesAutoresizingMaskIntoConstraints = false
         stackView.translatesAutoresizingMaskIntoConstraints = false
         playerView.layer.borderColor = UIColor.blue.cgColor
@@ -53,7 +53,7 @@ class TrackDetailsViewController: UIViewController {
         }
         view.backgroundColor = .lightGray
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         playerView.play()

@@ -21,8 +21,9 @@ class TrackDetailsViewModel {
         dateFormatter.dateFormat = "MMM dd,yyyy"
         return dateFormatter
     }()
+
     private let track: Track
-    
+
     init(track: Track) {
         self.track = track
     }
@@ -32,26 +33,26 @@ extension TrackDetailsViewModel: TrackDetailsViewModelType {
     var artistName: String {
         return track.artist.name
     }
-    
+
     var previewUrl: URL? {
         return URL(string: track.previewUrl)
     }
-    
+
     var releaseDate: String? {
         guard let date = inputDateFormatter.date(from: track.releaseDate) else {
             return nil
         }
         return outputDateFormatter.string(from: date)
     }
-    
+
     var trackCountry: String {
         return track.country
     }
-    
+
     var trackGenre: String {
         return track.primaryGenreName
     }
-    
+
     var trackName: String {
         return track.name
     }

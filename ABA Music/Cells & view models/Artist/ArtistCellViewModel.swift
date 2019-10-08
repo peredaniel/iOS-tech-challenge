@@ -15,7 +15,6 @@ class ArtistCellViewModel {
     private let artist: Artist
     private weak var delegate: ArtistCellViewModelDelegate?
 
-
     init(artist: Artist, delegate: ArtistCellViewModelDelegate?) {
         self.artist = artist
         self.delegate = delegate

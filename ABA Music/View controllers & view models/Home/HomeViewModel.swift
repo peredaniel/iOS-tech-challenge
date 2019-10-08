@@ -46,14 +46,13 @@ extension HomeViewModel: HomeViewModelType {
             }
         }
     }
-    
+
     func viewModel(forRowAt indexPath: IndexPath) -> ArtistCellViewModelType? {
         guard indexPath.row < artists.count else { return nil }
         let artist = artists[indexPath.row]
         return ArtistCellViewModel(artist: artist, delegate: self)
     }
 }
-
 
 extension HomeViewModel: ArtistCellViewModelDelegate {
     func didPressTrack(_ track: Track) {

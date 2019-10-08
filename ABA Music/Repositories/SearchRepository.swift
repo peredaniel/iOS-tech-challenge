@@ -5,6 +5,7 @@ class SearchRepository {
         static let attribute = "artistTerm"
         static let limit: Int = 200
     }
+
     private let service: SearchService
 
     init(service: SearchService) {

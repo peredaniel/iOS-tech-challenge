@@ -3,9 +3,9 @@ import UIKit
 
 class HomeViewController: UIViewController {
     var tableView: UITableView!
-    
+
     private lazy var viewModel: HomeViewModelType = {
-        return HomeViewModel(delegate: self)
+        HomeViewModel(delegate: self)
     }()
 
     private lazy var collectionView: UICollectionView = {
@@ -72,7 +72,6 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         return 0
     }
 }
-
 
 extension HomeViewController: HomeViewModelDelegate {
     func viewModel(_: HomeViewModel, didFetchData success: Bool) {
