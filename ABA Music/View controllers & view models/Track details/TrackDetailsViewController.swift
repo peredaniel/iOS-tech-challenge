@@ -61,7 +61,7 @@ class TrackDetailsViewController: UIViewController {
 
     func addLabel(text: String, size: CGFloat) {
         let label = UILabel()
-        label.textColor = UIColor.white
+        label.textColor = .white
         label.font = UIFont(name: "Helvetica Neue", size: size)
         label.text = text
         label.numberOfLines = 0

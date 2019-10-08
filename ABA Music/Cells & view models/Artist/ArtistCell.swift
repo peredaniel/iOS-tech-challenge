@@ -13,16 +13,13 @@ class ArtistCell: UICollectionViewCell, Reusable {
     }()
 
     lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: self.layout)
-        return collectionView
-    }()
-
-    lazy var layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
-        return layout
+
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        return collectionView
     }()
 
     var viewModel: ArtistCellViewModelType! {
@@ -37,14 +34,14 @@ class ArtistCell: UICollectionViewCell, Reusable {
         addSubview(artistNameLabel)
         artistNameLabel.translatesAutoresizingMaskIntoConstraints = false
         artistNameLabel.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        artistNameLabel.bottomAnchor.constraint(equalTo: collectionView.topAnchor, constant: 0).isActive = true
-        artistNameLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 0).isActive = true
-        artistNameLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: 0).isActive = true
+        artistNameLabel.bottomAnchor.constraint(equalTo: collectionView.topAnchor).isActive = true
+        artistNameLabel.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        artistNameLabel.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         artistNameLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0).isActive = true
-        collectionView.leftAnchor.constraint(equalTo: leftAnchor, constant: 0).isActive = true
-        collectionView.rightAnchor.constraint(equalTo: rightAnchor, constant: 0).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        collectionView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        collectionView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         TrackCell.register(in: collectionView)
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -71,7 +68,10 @@ extension ArtistCell: UICollectionViewDataSource {
         return viewModel.tracksCount
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: TrackCell.identifier,
             for: indexPath
@@ -84,7 +84,11 @@ extension ArtistCell: UICollectionViewDataSource {
 }
 
 extension ArtistCell: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt _: IndexPath) -> CGSize {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout _: UICollectionViewLayout,
+        sizeForItemAt _: IndexPath
+    ) -> CGSize {
         return CGSize(width: collectionView.frame.width * 0.25, height: collectionView.frame.height / 1.5)
     }
 }

@@ -184,11 +184,11 @@
 		8BC33F4821944CDE00E3759C /* ABA Music */ = {
 			isa = PBXGroup;
 			children = (
-				9F0A2C0C234C9874008ECED3 /* Reusable views */,
 				8B0CEE4721B5723300C39C58 /* Application */,
 				9F0A2C0D234C9884008ECED3 /* Cells & view models */,
 				8B0CEE4621B54C8800C39C58 /* Domain models */,
 				9F964614234BBBDB00EAA3F2 /* Repositories */,
+				9F0A2C0C234C9874008ECED3 /* Reusable views */,
 				9F6896EC234BAF0500502EC8 /* Services */,
 				8B0CEE4521B54C6900C39C58 /* View controllers & view models */,
 				8BC33F5021944CDF00E3759C /* Assets.xcassets */,
@@ -242,8 +242,8 @@
 		9F0A2C0D234C9884008ECED3 /* Cells & view models */ = {
 			isa = PBXGroup;
 			children = (
-				9F0A2C18234CB91C008ECED3 /* Track */,
 				9F0A2C16234CB909008ECED3 /* Artist */,
+				9F0A2C18234CB91C008ECED3 /* Track */,
 				9FC65DD0234CC7E000728BD0 /* Reusable.swift */,
 			);
 			path = "Cells & view models";

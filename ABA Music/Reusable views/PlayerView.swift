@@ -35,11 +35,10 @@ class PlayerView: UIView {
 
     func play() {
         guard let movieURL = movieURL else { return }
-
-        if let _ = player.currentItem {
-            player.seek(to: CMTime.zero) { [weak self] _ in
-                guard let strongSelf = self else { return }
-                strongSelf.player.play()
+        if player.currentItem != nil {
+            player.seek(to: .zero) { [weak self] _ in
+                guard let self = self else { return }
+                self.player.play()
             }
         } else {
             let asset = AVURLAsset(url: movieURL, options: nil)

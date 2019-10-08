@@ -35,10 +35,10 @@ class TrackCell: UICollectionViewCell, Reusable {
         imageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         imageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 0).isActive = true
-        nameLabel.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 0).isActive = true
-        nameLabel.leftAnchor.constraint(equalTo: imageView.leftAnchor, constant: 0).isActive = true
-        nameLabel.rightAnchor.constraint(equalTo: imageView.rightAnchor, constant: 0).isActive = true
+        nameLabel.topAnchor.constraint(equalTo: imageView.topAnchor).isActive = true
+        nameLabel.bottomAnchor.constraint(equalTo: imageView.bottomAnchor).isActive = true
+        nameLabel.leftAnchor.constraint(equalTo: imageView.leftAnchor).isActive = true
+        nameLabel.rightAnchor.constraint(equalTo: imageView.rightAnchor).isActive = true
         backgroundColor = UIColor.lightGray
     }
 
