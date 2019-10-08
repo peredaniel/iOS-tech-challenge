@@ -1,21 +1,13 @@
 import UIKit
 
-class TrackViewController: UIViewController {
-    var track: Track
-    var playerView: PlayerView
-    var stackView: UIStackView
+class TrackDetailsViewController: UIViewController {
+    var playerView: PlayerView!
+    var stackView: UIStackView!
 
-    init(track: Track) {
-        self.track = track
-        stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.alignment = .fill
-        stackView.spacing = 10
-        stackView.distribution = .equalSpacing
-        playerView = PlayerView()
-        playerView.prepare(with: URL(string: track.previewUrl)!)
+    var viewModel: TrackDetailsViewModelType?
+
+    init() {
         super.init(nibName: nil, bundle: nil)
-        title = track.name
     }
 
     required init?(coder _: NSCoder) {
@@ -24,6 +16,20 @@ class TrackViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard let viewModel = viewModel else {
+            fatalError("This screen's view model should be provided by the previous screen")
+        }
+        stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.alignment = .fill
+        stackView.spacing = 10
+        stackView.distribution = .equalSpacing
+        playerView = PlayerView()
+        if let url = viewModel.previewUrl {
+            playerView.prepare(with: url)
+        }
+        title = viewModel.trackName
+
         playerView.translatesAutoresizingMaskIntoConstraints = false
         stackView.translatesAutoresizingMaskIntoConstraints = false
         playerView.layer.borderColor = UIColor.blue.cgColor
@@ -38,20 +44,14 @@ class TrackViewController: UIViewController {
         stackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 10).isActive = true
         stackView.topAnchor.constraint(equalTo: playerView.bottomAnchor, constant: 10).isActive = true
         playerView.backgroundColor = UIColor.black
-        addLabel(text: track.artist.name, size: 25)
-        addLabel(text: track.name, size: 15)
-        addLabel(text: track.primaryGenreName, size: 15)
-        addLabel(text: track.country, size: 10)
-        let dateFormatterGet = DateFormatter()
-        dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        let dateFormatterPrint = DateFormatter()
-        dateFormatterPrint.dateFormat = "MMM dd,yyyy"
-        if let date = dateFormatterGet.date(from: track.releaseDate) {
-            addLabel(text: dateFormatterPrint.string(from: date), size: 10)
-        } else {
-            print("There was an error decoding the string")
+        addLabel(text: viewModel.artistName, size: 25)
+        addLabel(text: viewModel.trackName, size: 15)
+        addLabel(text: viewModel.trackGenre, size: 15)
+        addLabel(text: viewModel.trackCountry, size: 10)
+        if let releaseDate = viewModel.releaseDate {
+            addLabel(text: releaseDate, size: 10)
         }
-        view.backgroundColor = UIColor.lightGray
+        view.backgroundColor = .lightGray
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -61,7 +61,7 @@ class TrackViewController: UIViewController {
 
     func addLabel(text: String, size: CGFloat) {
         let label = UILabel()
-        label.textColor = UIColor.white
+        label.textColor = .white
         label.font = UIFont(name: "Helvetica Neue", size: size)
         label.text = text
         label.numberOfLines = 0

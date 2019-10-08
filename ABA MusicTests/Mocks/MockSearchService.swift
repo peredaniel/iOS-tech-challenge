@@ -4,10 +4,10 @@ import Foundation
 class MockSearchService: SearchService {
     func search(
         _ term: String,
-        media: String = "",
-        entity: String = "",
-        attribute: String = "",
-        limit: Int = 0,
+        media _: String = "",
+        entity _: String = "",
+        attribute _: String = "",
+        limit _: Int = 0,
         completion: @escaping (Result<SearchResponse, Error>) -> Void
     ) {
         guard let data = loadFromBundle(term),
