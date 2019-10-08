@@ -32,6 +32,7 @@
 		9F964619234BC76000EAA3F2 /* SearchRepositoryTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F964618234BC76000EAA3F2 /* SearchRepositoryTypes.swift */; };
 		9F96461B234BCA5C00EAA3F2 /* Artist+Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F96461A234BCA5C00EAA3F2 /* Artist+Mapper.swift */; };
 		9F96461D234BCA7900EAA3F2 /* Track+Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F96461C234BCA7900EAA3F2 /* Track+Mapper.swift */; };
+		9FC65DD1234CC7E000728BD0 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC65DD0234CC7E000728BD0 /* Reusable.swift */; };
 		9FE92AC2234C86C500BD4AA1 /* MockSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE92AC1234C86C500BD4AA1 /* MockSearchService.swift */; };
 		9FE92AC9234C86CD00BD4AA1 /* SearchRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE92AC4234C86CD00BD4AA1 /* SearchRepositoryTests.swift */; };
 		9FE92ACA234C86CD00BD4AA1 /* Beatles.json in Resources */ = {isa = PBXBuildFile; fileRef = 9FE92AC6234C86CD00BD4AA1 /* Beatles.json */; };
@@ -91,6 +92,7 @@
 		9F964618234BC76000EAA3F2 /* SearchRepositoryTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoryTypes.swift; sourceTree = "<group>"; };
 		9F96461A234BCA5C00EAA3F2 /* Artist+Mapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Artist+Mapper.swift"; sourceTree = "<group>"; };
 		9F96461C234BCA7900EAA3F2 /* Track+Mapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Track+Mapper.swift"; sourceTree = "<group>"; };
+		9FC65DD0234CC7E000728BD0 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		9FE92AC1234C86C500BD4AA1 /* MockSearchService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockSearchService.swift; sourceTree = "<group>"; };
 		9FE92AC4234C86CD00BD4AA1 /* SearchRepositoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchRepositoryTests.swift; sourceTree = "<group>"; };
 		9FE92AC6234C86CD00BD4AA1 /* Beatles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Beatles.json; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 			children = (
 				9F0A2C18234CB91C008ECED3 /* Track */,
 				9F0A2C16234CB909008ECED3 /* Artist */,
+				9FC65DD0234CC7E000728BD0 /* Reusable.swift */,
 			);
 			path = "Cells & view models";
 			sourceTree = "<group>";
@@ -588,6 +591,7 @@
 				9F6896F6234BB27100502EC8 /* SearchResponse.swift in Sources */,
 				8BC33F4C21944CDE00E3759C /* HomeViewController.swift in Sources */,
 				9F0A2C11234C9A10008ECED3 /* HomeViewModel.swift in Sources */,
+				9FC65DD1234CC7E000728BD0 /* Reusable.swift in Sources */,
 				9F96461B234BCA5C00EAA3F2 /* Artist+Mapper.swift in Sources */,
 				9F6896F3234BB21E00502EC8 /* Track.swift in Sources */,
 				9F964616234BBC3E00EAA3F2 /* SearchRepository.swift in Sources */,

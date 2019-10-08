@@ -1,6 +1,8 @@
 import UIKit
 
-class ArtistCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class ArtistCell: UICollectionViewCell, Reusable {
+    static let identifier = "artistCell"
+
     lazy var artistNameLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
@@ -43,7 +45,7 @@ class ArtistCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0).isActive = true
         collectionView.leftAnchor.constraint(equalTo: leftAnchor, constant: 0).isActive = true
         collectionView.rightAnchor.constraint(equalTo: rightAnchor, constant: 0).isActive = true
-        collectionView.register(TrackCell.self, forCellWithReuseIdentifier: "trackCell")
+        TrackCell.register(in: collectionView)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.showsHorizontalScrollIndicator = false
@@ -58,6 +60,10 @@ class ArtistCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         artistNameLabel.text = viewModel?.name
         collectionView.reloadData()
     }
+
+    static func register(in collectionView: UICollectionView) {
+        collectionView.register(ArtistCell.self, forCellWithReuseIdentifier: identifier)
+    }
 }
 
 extension ArtistCell: UICollectionViewDataSource {
@@ -66,13 +72,18 @@ extension ArtistCell: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "trackCell", for: indexPath) as! TrackCell
+        let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: TrackCell.identifier,
+            for: indexPath
+        ) as! TrackCell
         cell.viewModel = viewModel.viewModel(forObjectAt: indexPath)
         cell.layer.borderColor = UIColor.blue.cgColor
         cell.layer.borderWidth = 1.0
         return cell
     }
+}
 
+extension ArtistCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt _: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width * 0.25, height: collectionView.frame.height / 1.5)
     }

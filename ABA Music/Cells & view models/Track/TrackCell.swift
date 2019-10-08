@@ -1,7 +1,8 @@
 import AlamofireImage
 import UIKit
 
-class TrackCell: UICollectionViewCell {
+class TrackCell: UICollectionViewCell, Reusable {
+    static let identifier = "trackCell"
     lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
@@ -63,5 +64,9 @@ class TrackCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         layer.cornerRadius = 5
+    }
+
+    static func register(in collectionView: UICollectionView) {
+        collectionView.register(TrackCell.self, forCellWithReuseIdentifier: identifier)
     }
 }

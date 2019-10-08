@@ -39,8 +39,8 @@ class HomeViewController: UIViewController {
         collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
         collectionView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
         collectionView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
-        collectionView.backgroundColor = UIColor.lightGray
-        collectionView.register(ArtistCollectionViewCell.self, forCellWithReuseIdentifier: "artistCell")
+        collectionView.backgroundColor = .lightGray
+        ArtistCell.register(in: collectionView)
         collectionView.showsVerticalScrollIndicator = false
 
         viewModel.fetchData(term: "Jackson")
@@ -53,7 +53,10 @@ extension HomeViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "artistCell", for: indexPath) as! ArtistCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: ArtistCell.identifier,
+            for: indexPath
+        ) as! ArtistCell
         cell.viewModel = viewModel.viewModel(forRowAt: indexPath)
         return cell
     }
