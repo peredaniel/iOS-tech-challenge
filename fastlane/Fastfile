@@ -1,0 +1,38 @@
+default_platform(:ios)
+
+####################################################################################################
+####################################################################################################
+
+##############
+# Test lanes #
+##############
+
+desc "Runs app's unit tests in the specified device."
+desc "Usage example: fastlane unit_test device:'iPhone 8' ios_version:'12.4'"
+lane :unit_test do |options| 
+	raise "Missing 'device' parameter. Usage: fastlane unit_test device:DEVICE ios_version:IOS_VERSION" unless options[:device]
+	raise "Missing 'ios_version' parameter. Usage: fastlane unit_test device:DEVICE ios_version:IOS_VERSION" unless options[:ios_version]
+	ios_version = options[:ios_version]
+	scan(
+	    scheme: "ABA MusicTests",
+	    device: options[:device],
+	    sdk: "iphonesimulator" + "#{ios_version}",
+	    clean: true,
+	    disable_concurrent_testing: true
+  	)
+end
+
+desc "Runs app's UI tests in the specified device."
+desc "Usage example: fastlane ui_test device:'iPhone 8' ios_version:'12.4'"
+lane :ui_test do |options| 
+	raise "Missing 'device' parameter. Usage: fastlane ui_test device:DEVICE ios_version:IOS_VERSION" unless options[:device]
+	raise "Missing 'ios_version' parameter. Usage: fastlane ui_test device:DEVICE ios_version:IOS_VERSION" unless options[:ios_version]
+	ios_version = options[:ios_version]
+	scan(
+	    scheme: "ABA MusicUITests",
+	    device: options[:device],
+	    sdk: "iphonesimulator" + "#{ios_version}",
+	    clean: true,
+	    disable_concurrent_testing: true
+  	)
+end
