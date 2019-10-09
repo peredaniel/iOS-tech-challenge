@@ -1,0 +1,18 @@
+language: swift
+osx_image: xcode10.3
+
+cache: bundler
+
+jobs:
+  include:
+  - stage: test
+    name: "Running unit tests"
+    script: bundle exec fastlane unit_test device:'iPhone 8' ios_version:'12.4'
+
+  - stage: test
+    name: "Running UI tests"
+    script: bundle exec fastlane ui_test device:'iPhone 8' ios_version:'12.4'
+
+stages:
+- name: test
+  if: (type = pull_request OR type = push) AND (branch = master OR branch = develop)
