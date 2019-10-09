@@ -413,6 +413,7 @@
 				8BC33F6121944CDF00E3759C /* Sources */,
 				8BC33F6221944CDF00E3759C /* Frameworks */,
 				8BC33F6321944CDF00E3759C /* Resources */,
+				48BEC950591CE8A8C672D59B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -436,13 +437,16 @@
 				TargetAttributes = {
 					8BC33F4521944CDE00E3759C = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1110;
 					};
 					8BC33F5921944CDF00E3759C = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1110;
 						TestTargetID = 8BC33F4521944CDE00E3759C;
 					};
 					8BC33F6421944CDF00E3759C = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1110;
 						TestTargetID = 8BC33F4521944CDE00E3759C;
 					};
 				};
@@ -539,6 +543,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		48BEC950591CE8A8C672D59B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ABA MusicUITests/Pods-ABA MusicUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ABA MusicUITests/Pods-ABA MusicUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ABA MusicUITests/Pods-ABA MusicUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		51028B6A99A2CFAD3917951F /* [CP] Embed Pods Frameworks */ = {
@@ -784,7 +805,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.abaenglish.ABA-Music";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -803,7 +824,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.abaenglish.ABA-Music";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -812,7 +833,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5559EF89746914D3CD9937D8 /* Pods-ABA MusicTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -824,7 +844,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.abaenglish.ABA-MusicTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ABA Music.app/ABA Music";
 			};
@@ -834,7 +854,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 581F2A21C841711C6B8A69A9 /* Pods-ABA MusicTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -846,7 +865,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.abaenglish.ABA-MusicTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ABA Music.app/ABA Music";
 			};
@@ -856,7 +875,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1464AEF378D341A8EE5DA71D /* Pods-ABA MusicUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "ABA MusicUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -866,7 +884,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.abaenglish.ABA-MusicUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "ABA Music";
 			};
@@ -876,7 +894,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 45ED02C84F597252B53B6A63 /* Pods-ABA MusicUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "ABA MusicUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -886,7 +903,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.abaenglish.ABA-MusicUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "ABA Music";
 			};
