@@ -32,3 +32,18 @@ class Track: Equatable {
         return lhs.identifier == rhs.identifier
     }
 }
+
+extension Track {
+    static var fallback: Track {
+        return Track(
+            identifier: 0,
+            artist: .fallback,
+            name: "",
+            previewUrl: "",
+            artworkUrl100: "",
+            primaryGenreName: "",
+            country: "",
+            releaseDate: ""
+        )
+    }
+}

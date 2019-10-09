@@ -21,3 +21,9 @@ class Artist: Equatable, Comparable {
         return lhs.name.compare(rhs.name) == .orderedAscending
     }
 }
+
+extension Artist {
+    static var fallback: Artist {
+        return Artist(identifier: 0, name: "", tracks: [])
+    }
+}

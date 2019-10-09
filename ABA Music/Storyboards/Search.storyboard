@@ -32,34 +32,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="szJ-ox-Jur">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="318" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vGo-tF-rK7">
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="NPr-1t-V0I">
-                                    <size key="itemSize" width="50" height="180"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells/>
-                                <connections>
-                                    <outlet property="dataSource" destination="WR0-2g-Swi" id="8PK-gs-Js8"/>
-                                    <outlet property="delegate" destination="WR0-2g-Swi" id="zQp-c8-VtL"/>
-                                </connections>
-                            </collectionView>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="j9Z-Gy-hdg" firstAttribute="bottom" secondItem="szJ-ox-Jur" secondAttribute="bottom" id="BGP-CB-MZw"/>
-                            <constraint firstItem="szJ-ox-Jur" firstAttribute="leading" secondItem="j9Z-Gy-hdg" secondAttribute="leading" id="LnK-qP-ovN"/>
-                            <constraint firstItem="j9Z-Gy-hdg" firstAttribute="trailing" secondItem="szJ-ox-Jur" secondAttribute="trailing" id="Tdy-Qk-RSR"/>
-                            <constraint firstItem="szJ-ox-Jur" firstAttribute="top" secondItem="j9Z-Gy-hdg" secondAttribute="top" id="wKd-IX-bJR"/>
+                            <constraint firstItem="vGo-tF-rK7" firstAttribute="top" secondItem="j9Z-Gy-hdg" secondAttribute="top" id="4W6-St-D41"/>
+                            <constraint firstItem="vGo-tF-rK7" firstAttribute="leading" secondItem="j9Z-Gy-hdg" secondAttribute="leading" id="5BC-If-IXU"/>
+                            <constraint firstItem="j9Z-Gy-hdg" firstAttribute="trailing" secondItem="vGo-tF-rK7" secondAttribute="trailing" id="63Z-tH-VIZ"/>
+                            <constraint firstItem="j9Z-Gy-hdg" firstAttribute="bottom" secondItem="vGo-tF-rK7" secondAttribute="bottom" id="dJ2-xA-BaY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="j9Z-Gy-hdg"/>
                     </view>
                     <navigationItem key="navigationItem" id="1Br-PD-Cx4"/>
                     <connections>
-                        <outlet property="collectionView" destination="szJ-ox-Jur" id="gSa-OZ-UdQ"/>
+                        <outlet property="tableView" destination="vGo-tF-rK7" id="aaa-SY-neD"/>
                         <segue destination="oRE-97-3qs" kind="show" identifier="trackDetailsSegue" id="w7V-Pz-tJE"/>
                     </connections>
                 </viewController>

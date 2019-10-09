@@ -1,21 +1,31 @@
+import DataSourceController
 import Foundation
 
 protocol HomeViewModelDelegate: AnyObject {
-    func viewModel(_: HomeViewModel, didSelectItemWith viewModel: TrackDetailsViewModelType)
-    func viewModel(_: HomeViewModel, didFetchData success: Bool)
+    func viewModelFailedToFetchData(_: HomeViewModel)
 }
 
 protocol HomeViewModelType {
-    var modelCount: Int { get }
+    var dataSource: DataSourceController { get }
     func detailsViewModel(forObjectAt _: IndexPath) -> TrackDetailsViewModelType?
     func fetchData(term: String)
-    func viewModel(forRowAt _: IndexPath) -> ArtistCellViewModelType?
 }
 
 class HomeViewModel {
-    private var artists: [Artist]
+    private var artists: [Artist] {
+        didSet {
+            dataSource.removeAllSections(notify: false)
+            dataSource.add(section: Section(rows: artists))
+        }
+    }
     private weak var delegate: HomeViewModelDelegate?
     private let repository: SearchByArtist
+
+    lazy var dataSource: DataSourceController = {
+        let dataSource = DataSourceController(rows: [])
+        dataSource.register(dataController: SearchResultTableViewModel.self, for: Artist.self)
+        return dataSource
+    }()
 
     init(delegate: HomeViewModelDelegate?) {
         self.delegate = delegate
@@ -25,12 +35,9 @@ class HomeViewModel {
 }
 
 extension HomeViewModel: HomeViewModelType {
-    var modelCount: Int {
-        return artists.count
-    }
-
-    func detailsViewModel(forObjectAt _: IndexPath) -> TrackDetailsViewModelType? {
-        return nil
+    func detailsViewModel(forObjectAt indexPath: IndexPath) -> TrackDetailsViewModelType? {
+        guard let track = dataSource.modelObject(at: indexPath) as? Track else { return nil }
+        return TrackDetailsViewModel(track: track)
     }
 
     func fetchData(term: String) {
@@ -39,26 +46,10 @@ extension HomeViewModel: HomeViewModelType {
             switch result {
             case .success(let artists):
                 self.artists = artists.sorted()
-                self.delegate?.viewModel(self, didFetchData: true)
             case .failure(let error):
-                self.delegate?.viewModel(self, didFetchData: false)
+                self.delegate?.viewModelFailedToFetchData(self)
                 print(error)
             }
         }
-    }
-
-    func viewModel(forRowAt indexPath: IndexPath) -> ArtistCellViewModelType? {
-        guard indexPath.row < artists.count else { return nil }
-        let artist = artists[indexPath.row]
-        return ArtistCellViewModel(artist: artist, delegate: self)
-    }
-}
-
-extension HomeViewModel: ArtistCellViewModelDelegate {
-    func didPressTrack(_ track: Track) {
-        delegate?.viewModel(
-            self,
-            didSelectItemWith: TrackDetailsViewModel(track: track)
-        )
     }
 }
