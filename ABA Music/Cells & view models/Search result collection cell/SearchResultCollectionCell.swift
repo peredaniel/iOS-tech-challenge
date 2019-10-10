@@ -6,6 +6,11 @@ class SearchResultCollectionCell: UICollectionViewCell, NibReusable {
     static let identifier = "SearchResultCollectionCell"
     static let nibName = "SearchResultCollectionCell"
 
+    private enum Constant {
+        static let animationDuration: TimeInterval = 0.2
+        static let placeholderImageName = "track-placeholder"
+    }
+
     @IBOutlet private var imageView: UIImageView!
     @IBOutlet private var nameLabel: UILabel!
 
@@ -17,10 +22,20 @@ class SearchResultCollectionCell: UICollectionViewCell, NibReusable {
         guard let viewModel = viewModel else { return }
         nameLabel.text = viewModel.name
         if let url = viewModel.artworkUrl {
-            imageView.af_setImage(withURL: url)
+            imageView.af_setImage(
+                withURL: url,
+                placeholderImage: UIImage(named: Constant.placeholderImageName),
+                imageTransition: .crossDissolve(Constant.animationDuration),
+                runImageTransitionIfCached: true
+            )
         } else {
-            imageView.image = nil
+            imageView.image = UIImage(named: Constant.placeholderImageName)
         }
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageView.image = nil
     }
 }
 
