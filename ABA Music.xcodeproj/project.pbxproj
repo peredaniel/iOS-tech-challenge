@@ -37,12 +37,19 @@
 		9F96461B234BCA5C00EAA3F2 /* Artist+Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F96461A234BCA5C00EAA3F2 /* Artist+Mapper.swift */; };
 		9F96461D234BCA7900EAA3F2 /* Track+Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F96461C234BCA7900EAA3F2 /* Track+Mapper.swift */; };
 		9FA39600234F131900C7D9E8 /* SearchResultTableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA395FF234F131900C7D9E8 /* SearchResultTableModel.swift */; };
+		9FA39603234F3A3000C7D9E8 /* DateFormatter+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA39602234F3A3000C7D9E8 /* DateFormatter+Format.swift */; };
+		9FA39607234FACE900C7D9E8 /* Jackson_albumTerm.json in Resources */ = {isa = PBXBuildFile; fileRef = 9FA39606234FACE900C7D9E8 /* Jackson_albumTerm.json */; };
+		9FA39609234FB03C00C7D9E8 /* Rebirth_albumTerm.json in Resources */ = {isa = PBXBuildFile; fileRef = 9FA39608234FB03C00C7D9E8 /* Rebirth_albumTerm.json */; };
+		9FA3960B234FB07000C7D9E8 /* EmptyResponse_albumTerm.json in Resources */ = {isa = PBXBuildFile; fileRef = 9FA3960A234FB07000C7D9E8 /* EmptyResponse_albumTerm.json */; };
+		9FA3960D234FB97800C7D9E8 /* Jackson_songTerm.json in Resources */ = {isa = PBXBuildFile; fileRef = 9FA3960C234FB97800C7D9E8 /* Jackson_songTerm.json */; };
+		9FA3960F234FBB3B00C7D9E8 /* Lady Madonna_songTerm.json in Resources */ = {isa = PBXBuildFile; fileRef = 9FA3960E234FBB3B00C7D9E8 /* Lady Madonna_songTerm.json */; };
+		9FA39611234FBB6900C7D9E8 /* EmptyResponse_songTerm.json in Resources */ = {isa = PBXBuildFile; fileRef = 9FA39610234FBB6900C7D9E8 /* EmptyResponse_songTerm.json */; };
 		9FC65DD1234CC7E000728BD0 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC65DD0234CC7E000728BD0 /* Reusable.swift */; };
 		9FE92AC2234C86C500BD4AA1 /* MockSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE92AC1234C86C500BD4AA1 /* MockSearchService.swift */; };
 		9FE92AC9234C86CD00BD4AA1 /* SearchRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE92AC4234C86CD00BD4AA1 /* SearchRepositoryTests.swift */; };
-		9FE92ACA234C86CD00BD4AA1 /* Beatles.json in Resources */ = {isa = PBXBuildFile; fileRef = 9FE92AC6234C86CD00BD4AA1 /* Beatles.json */; };
-		9FE92ACB234C86CD00BD4AA1 /* EmptyResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 9FE92AC7234C86CD00BD4AA1 /* EmptyResponse.json */; };
-		9FE92ACC234C86CD00BD4AA1 /* Jackson.json in Resources */ = {isa = PBXBuildFile; fileRef = 9FE92AC8234C86CD00BD4AA1 /* Jackson.json */; };
+		9FE92ACA234C86CD00BD4AA1 /* Beatles_artistTerm.json in Resources */ = {isa = PBXBuildFile; fileRef = 9FE92AC6234C86CD00BD4AA1 /* Beatles_artistTerm.json */; };
+		9FE92ACB234C86CD00BD4AA1 /* EmptyResponse_artistTerm.json in Resources */ = {isa = PBXBuildFile; fileRef = 9FE92AC7234C86CD00BD4AA1 /* EmptyResponse_artistTerm.json */; };
+		9FE92ACC234C86CD00BD4AA1 /* Jackson_artistTerm.json in Resources */ = {isa = PBXBuildFile; fileRef = 9FE92AC8234C86CD00BD4AA1 /* Jackson_artistTerm.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,12 +109,19 @@
 		9F96461A234BCA5C00EAA3F2 /* Artist+Mapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Artist+Mapper.swift"; sourceTree = "<group>"; };
 		9F96461C234BCA7900EAA3F2 /* Track+Mapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Track+Mapper.swift"; sourceTree = "<group>"; };
 		9FA395FF234F131900C7D9E8 /* SearchResultTableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableModel.swift; sourceTree = "<group>"; };
+		9FA39602234F3A3000C7D9E8 /* DateFormatter+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Format.swift"; sourceTree = "<group>"; };
+		9FA39606234FACE900C7D9E8 /* Jackson_albumTerm.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Jackson_albumTerm.json; sourceTree = "<group>"; };
+		9FA39608234FB03C00C7D9E8 /* Rebirth_albumTerm.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Rebirth_albumTerm.json; sourceTree = "<group>"; };
+		9FA3960A234FB07000C7D9E8 /* EmptyResponse_albumTerm.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = EmptyResponse_albumTerm.json; sourceTree = "<group>"; };
+		9FA3960C234FB97800C7D9E8 /* Jackson_songTerm.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Jackson_songTerm.json; sourceTree = "<group>"; };
+		9FA3960E234FBB3B00C7D9E8 /* Lady Madonna_songTerm.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "Lady Madonna_songTerm.json"; sourceTree = "<group>"; };
+		9FA39610234FBB6900C7D9E8 /* EmptyResponse_songTerm.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = EmptyResponse_songTerm.json; sourceTree = "<group>"; };
 		9FC65DD0234CC7E000728BD0 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		9FE92AC1234C86C500BD4AA1 /* MockSearchService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockSearchService.swift; sourceTree = "<group>"; };
 		9FE92AC4234C86CD00BD4AA1 /* SearchRepositoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchRepositoryTests.swift; sourceTree = "<group>"; };
-		9FE92AC6234C86CD00BD4AA1 /* Beatles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Beatles.json; sourceTree = "<group>"; };
-		9FE92AC7234C86CD00BD4AA1 /* EmptyResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = EmptyResponse.json; sourceTree = "<group>"; };
-		9FE92AC8234C86CD00BD4AA1 /* Jackson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Jackson.json; sourceTree = "<group>"; };
+		9FE92AC6234C86CD00BD4AA1 /* Beatles_artistTerm.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Beatles_artistTerm.json; sourceTree = "<group>"; };
+		9FE92AC7234C86CD00BD4AA1 /* EmptyResponse_artistTerm.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = EmptyResponse_artistTerm.json; sourceTree = "<group>"; };
+		9FE92AC8234C86CD00BD4AA1 /* Jackson_artistTerm.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Jackson_artistTerm.json; sourceTree = "<group>"; };
 		A3CC18A205AAE9C8AE379516 /* Pods_ABA_MusicTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ABA_MusicTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E05B3E277D1E98033BCBA05D /* Pods_ABA_Music.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ABA_Music.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1325838F46456027B52F079 /* Pods_ABA_MusicUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ABA_MusicUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -198,6 +212,7 @@
 				8B0CEE4721B5723300C39C58 /* Application */,
 				9F0A2C0D234C9884008ECED3 /* Cells & view models */,
 				8B0CEE4621B54C8800C39C58 /* Domain models */,
+				9FA39601234F39FF00C7D9E8 /* Extensions */,
 				9F964614234BBBDB00EAA3F2 /* Repositories */,
 				9F6896EC234BAF0500502EC8 /* Services */,
 				9F12F809234E1DE600CECB1A /* Storyboards */,
@@ -351,6 +366,14 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		9FA39601234F39FF00C7D9E8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9FA39602234F3A3000C7D9E8 /* DateFormatter+Format.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		9FE92AC0234C86C500BD4AA1 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
@@ -370,9 +393,15 @@
 		9FE92AC5234C86CD00BD4AA1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				9FE92AC6234C86CD00BD4AA1 /* Beatles.json */,
-				9FE92AC7234C86CD00BD4AA1 /* EmptyResponse.json */,
-				9FE92AC8234C86CD00BD4AA1 /* Jackson.json */,
+				9FE92AC6234C86CD00BD4AA1 /* Beatles_artistTerm.json */,
+				9FE92AC7234C86CD00BD4AA1 /* EmptyResponse_artistTerm.json */,
+				9FA3960A234FB07000C7D9E8 /* EmptyResponse_albumTerm.json */,
+				9FA39610234FBB6900C7D9E8 /* EmptyResponse_songTerm.json */,
+				9FA39606234FACE900C7D9E8 /* Jackson_albumTerm.json */,
+				9FE92AC8234C86CD00BD4AA1 /* Jackson_artistTerm.json */,
+				9FA3960C234FB97800C7D9E8 /* Jackson_songTerm.json */,
+				9FA39608234FB03C00C7D9E8 /* Rebirth_albumTerm.json */,
+				9FA3960E234FBB3B00C7D9E8 /* Lady Madonna_songTerm.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -511,9 +540,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9FE92ACB234C86CD00BD4AA1 /* EmptyResponse.json in Resources */,
-				9FE92ACA234C86CD00BD4AA1 /* Beatles.json in Resources */,
-				9FE92ACC234C86CD00BD4AA1 /* Jackson.json in Resources */,
+				9FA3960F234FBB3B00C7D9E8 /* Lady Madonna_songTerm.json in Resources */,
+				9FA3960B234FB07000C7D9E8 /* EmptyResponse_albumTerm.json in Resources */,
+				9FE92ACB234C86CD00BD4AA1 /* EmptyResponse_artistTerm.json in Resources */,
+				9FA3960D234FB97800C7D9E8 /* Jackson_songTerm.json in Resources */,
+				9FA39611234FBB6900C7D9E8 /* EmptyResponse_songTerm.json in Resources */,
+				9FE92ACA234C86CD00BD4AA1 /* Beatles_artistTerm.json in Resources */,
+				9FE92ACC234C86CD00BD4AA1 /* Jackson_artistTerm.json in Resources */,
+				9FA39607234FACE900C7D9E8 /* Jackson_albumTerm.json in Resources */,
+				9FA39609234FB03C00C7D9E8 /* Rebirth_albumTerm.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -653,6 +688,7 @@
 				9F03E989234E2B13000E0BA6 /* TrackPlayerViewModel.swift in Sources */,
 				9F03E99E234E764A000E0BA6 /* SearchResultTableViewModel.swift in Sources */,
 				9F6896EE234BAF3000502EC8 /* iTunesService.swift in Sources */,
+				9FA39603234F3A3000C7D9E8 /* DateFormatter+Format.swift in Sources */,
 				9F03E99B234E750F000E0BA6 /* SearchResultTableCell.swift in Sources */,
 				9F96461D234BCA7900EAA3F2 /* Track+Mapper.swift in Sources */,
 				9FA39600234F131900C7D9E8 /* SearchResultTableModel.swift in Sources */,
@@ -754,7 +790,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -809,7 +845,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -827,6 +863,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "ABA Music/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -846,6 +883,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "ABA Music/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

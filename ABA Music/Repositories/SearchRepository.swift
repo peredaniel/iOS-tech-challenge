@@ -1,9 +1,14 @@
 class SearchRepository {
-    private enum DefaultSearchParameters {
+    private enum SearchParameters {
         static let media = "musicVideo"
         static let entity = "musicVideo"
-        static let attribute = "artistTerm"
         static let limit: Int = 200
+    }
+
+    enum SearchScope: String {
+        case album = "albumTerm"
+        case artist = "artistTerm"
+        case song = "songTerm"
     }
 
     private let service: SearchService
@@ -13,34 +18,84 @@ class SearchRepository {
     }
 }
 
-extension SearchRepository: SearchByArtist {
+extension SearchRepository: SearchRepositoryType {
     func searchMusicVideos(
-        _ artist: String,
+        album: String,
         completion: @escaping (Result<[Artist], Error>) -> Void
     ) {
         service.search(
-            artist,
-            media: DefaultSearchParameters.media,
-            entity: DefaultSearchParameters.entity,
-            attribute: DefaultSearchParameters.attribute,
-            limit: DefaultSearchParameters.limit
-        ) { response in
+            album,
+            media: SearchParameters.media,
+            entity: SearchParameters.entity,
+            attribute: SearchScope.album.rawValue,
+            limit: SearchParameters.limit
+        ) { [weak self] response in
+            guard let self = self else { return }
             switch response {
             case .success(let searchResult):
-                var artists: [Artist] = []
-                for result in searchResult.results {
-                    let artist = Artist(searchResult: result)
-                    if let foundArtist = artists.first(where: { $0.identifier == artist.identifier }) {
-                        foundArtist.tracks.append(Track(searchResult: result))
-                    } else {
-                        artist.tracks.append(Track(searchResult: result))
-                        artists.append(artist)
-                    }
-                }
-                completion(.success(artists))
+                completion(.success(self.parseSearchResults(searchResult.results)))
             case .failure(let error):
                 completion(.failure(error))
             }
         }
+    }
+
+    func searchMusicVideos(
+        artist: String,
+        completion: @escaping (Result<[Artist], Error>) -> Void
+    ) {
+        service.search(
+            artist,
+            media: SearchParameters.media,
+            entity: SearchParameters.entity,
+            attribute: SearchScope.artist.rawValue,
+            limit: SearchParameters.limit
+        ) { [weak self] response in
+            guard let self = self else { return }
+            switch response {
+            case .success(let searchResult):
+                completion(.success(self.parseSearchResults(searchResult.results)))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+
+    func searchMusicVideos(
+        song: String,
+        completion: @escaping (Result<[Artist], Error>) -> Void
+    ) {
+        service.search(
+            song,
+            media: SearchParameters.media,
+            entity: SearchParameters.entity,
+            attribute: SearchScope.song.rawValue,
+            limit: SearchParameters.limit
+        ) { [weak self] response in
+            guard let self = self else { return }
+            switch response {
+            case .success(let searchResult):
+                completion(.success(self.parseSearchResults(searchResult.results)))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+}
+
+private extension SearchRepository {
+    func parseSearchResults(_ results: [SearchResponse.Result]) -> [Artist] {
+        var artists: [Artist] = []
+        for result in results {
+            guard result.previewUrl != nil else { continue }
+            let artist = Artist(searchResult: result)
+            if let foundArtist = artists.first(where: { $0.identifier == artist.identifier }) {
+                foundArtist.tracks.append(Track(searchResult: result))
+            } else {
+                artist.tracks.append(Track(searchResult: result))
+                artists.append(artist)
+            }
+        }
+        return artists
     }
 }

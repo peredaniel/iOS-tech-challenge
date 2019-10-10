@@ -5,7 +5,6 @@ protocol TrackPlayerViewControllerDelegate: AnyObject {
 }
 
 class TrackPlayerViewController: AVPlayerViewController {
-
     var viewModel: TrackPlayerViewModelType?
     weak var playerDelegate: TrackPlayerViewControllerDelegate?
 

@@ -6,16 +6,14 @@ protocol SearchResultCollectionViewModelType {
     var name: String { get }
 }
 
-class SearchResultCollectionViewModel {
+class SearchResultCollectionViewModel: SearchResultCollectionViewModelType {
     private let track: Track
     let reuseIdentifier = SearchResultCollectionCell.identifier
 
     init(track: Track) {
         self.track = track
     }
-}
 
-extension SearchResultCollectionViewModel: SearchResultCollectionViewModelType {
     var artworkUrl: URL? {
         return URL(string: track.artworkUrl100)
     }

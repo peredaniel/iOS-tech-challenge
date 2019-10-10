@@ -5,27 +5,17 @@ class SearchResultTableCell: UITableViewCell, NibReusable {
     static let identifier = "SearchResultTableCell"
     static let nibName = "SearchResultTableCell"
 
+    @IBOutlet private var collectionView: UICollectionView!
+    @IBOutlet private var nameLabel: UILabel!
+
     var viewModel: SearchResultTableViewModelType? {
         didSet { refreshView() }
     }
-
-    @IBOutlet private var collectionView: UICollectionView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         collectionView.delegate = self
         SearchResultCollectionCell.register(in: collectionView)
-    }
-
-    @IBOutlet private var nameLabel: UILabel!
-
-    private func refreshView() {
-        guard let _ = viewModel else { return }
-        nameLabel.text = viewModel?.name
-        collectionView.dataSource = viewModel?.dataSource
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
-        }
     }
 
     override func prepareForReuse() {
@@ -37,11 +27,20 @@ class SearchResultTableCell: UITableViewCell, NibReusable {
             animated: false
         )
     }
+
+    private func refreshView() {
+        guard let _ = viewModel else { return }
+        nameLabel.text = viewModel?.name
+        collectionView.dataSource = viewModel?.dataSource
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
 }
 
 extension SearchResultTableCell: UICollectionViewDelegate {
     func collectionView(
-        _ collectionView: UICollectionView,
+        _: UICollectionView,
         didSelectItemAt indexPath: IndexPath
     ) {
         viewModel?.didSelectItem(at: indexPath)

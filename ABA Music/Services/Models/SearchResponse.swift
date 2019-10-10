@@ -4,7 +4,7 @@ struct SearchResponse: Decodable {
         let artistName: String
         let artworkUrl100: String
         let country: String
-        let previewUrl: String
+        let previewUrl: String?
         let primaryGenreName: String
         let releaseDate: String
         let trackId: Int
