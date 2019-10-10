@@ -40,7 +40,7 @@ class HomeViewModel {
 
 extension HomeViewModel: HomeViewModelType {
     func fetchData(term: String) {
-        repository.searchMusicVideos(term) { [weak self] result in
+        repository.searchMusicVideos(artist: term) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let artists):
