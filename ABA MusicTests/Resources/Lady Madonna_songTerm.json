@@ -1,0 +1,29 @@
+{
+    "resultCount": 1,
+    "results": [
+        {
+            "wrapperType": "track",
+            "kind": "music-video",
+            "artistId": 136975,
+            "trackId": 1358426502,
+            "artistName": "The Beatles",
+            "trackName": "Lady Madonna",
+            "trackCensoredName": "Lady Madonna",
+            "artistViewUrl": "https://music.apple.com/us/artist/the-beatles/136975?uo=4",
+            "trackViewUrl": "https://music.apple.com/us/music-video/lady-madonna/1358426502?uo=4",
+            "previewUrl": "https://video-ssl.itunes.apple.com/itunes-assets/Video118/v4/0e/05/be/0e05beee-f48c-852d-3c6d-770b24590fa0/mzvf_6324317284605897663.640x480.h264lc.U.p.m4v",
+            "artworkUrl30": "https://is4-ssl.mzstatic.com/image/thumb/Video128/v4/0e/27/41/0e2741c1-a69d-81af-b337-021977875327/source/30x30bb.jpg",
+            "artworkUrl60": "https://is4-ssl.mzstatic.com/image/thumb/Video128/v4/0e/27/41/0e2741c1-a69d-81af-b337-021977875327/source/60x60bb.jpg",
+            "artworkUrl100": "https://is4-ssl.mzstatic.com/image/thumb/Video128/v4/0e/27/41/0e2741c1-a69d-81af-b337-021977875327/source/100x100bb.jpg",
+            "collectionPrice": 1.99,
+            "trackPrice": 1.99,
+            "releaseDate": "1968-03-15T08:00:00Z",
+            "collectionExplicitness": "notExplicit",
+            "trackExplicitness": "notExplicit",
+            "trackTimeMillis": 154963,
+            "country": "USA",
+            "currency": "USD",
+            "primaryGenreName": "Rock"
+        }
+    ]
+}

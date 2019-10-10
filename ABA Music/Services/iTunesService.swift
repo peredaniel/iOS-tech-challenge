@@ -27,7 +27,10 @@ extension iTunesService: SearchService {
         }
 
         urlComponents.queryItems = [
-            URLQueryItem(name: QueryItemKey.term.rawValue, value: term),
+            URLQueryItem(
+                name: QueryItemKey.term.rawValue,
+                value: term.replacingOccurrences(of: " ", with: "+")
+            ),
             URLQueryItem(name: QueryItemKey.media.rawValue, value: media),
             URLQueryItem(name: QueryItemKey.entity.rawValue, value: entity),
             URLQueryItem(name: QueryItemKey.attribute.rawValue, value: attribute),

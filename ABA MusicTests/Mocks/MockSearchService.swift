@@ -6,11 +6,11 @@ class MockSearchService: SearchService {
         _ term: String,
         media _: String = "",
         entity _: String = "",
-        attribute _: String = "",
+        attribute: String = "",
         limit _: Int = 0,
         completion: @escaping (Result<SearchResponse, Error>) -> Void
     ) {
-        guard let data = loadFromBundle(term),
+        guard let data = loadFromBundle("\(term)_\(attribute)"),
             let response = try? JSONDecoder().decode(SearchResponse.self, from: data) else {
             completion(.failure(SearchError.parsingError))
             return
@@ -22,8 +22,8 @@ class MockSearchService: SearchService {
 private extension MockSearchService {
     func loadFromBundle(_ fileName: String) -> Data? {
         var file = fileName
-        if file.isEmpty {
-            file = "EmptyResponse"
+        if file.starts(with: "_") {
+            file = "EmptyResponse" + fileName
         }
         guard let url = Bundle(for: MockSearchService.self).url(forResource: file, withExtension: "json"),
             let data = try? Data(contentsOf: url) else {

@@ -1,0 +1,39 @@
+{
+    "resultCount": 1,
+    "results": [
+        {
+            "wrapperType": "track",
+            "kind": "music-video",
+            "artistId": 3340148,
+            "collectionId": 1041556118,
+            "trackId": 1041556402,
+            "artistName": "DJ Spooky & Kronos Quartet",
+            "collectionName": "Rebirth of a Nation (Deluxe Edition)",
+            "trackName": "Rebirth of a Nation",
+            "collectionCensoredName": "Rebirth of a Nation (Deluxe Edition)",
+            "trackCensoredName": "Rebirth of a Nation",
+            "collectionArtistId": 3567849,
+            "collectionArtistViewUrl": "https://music.apple.com/us/artist/kronos-quartet/3567849?uo=4",
+            "artistViewUrl": "https://music.apple.com/us/artist/dj-spooky/3340148?uo=4",
+            "collectionViewUrl": "https://music.apple.com/us/music-video/rebirth-of-a-nation/1041556402?uo=4",
+            "trackViewUrl": "https://music.apple.com/us/music-video/rebirth-of-a-nation/1041556402?uo=4",
+            "previewUrl": "https://video-ssl.itunes.apple.com/itunes-assets/Video115/v4/65/0d/e6/650de687-666c-3832-f493-442ce7fadef1/mzvf_6150929242397460834.640x480.h264lc.U.p.m4v",
+            "artworkUrl30": "https://is5-ssl.mzstatic.com/image/thumb/Video128/v4/43/97/15/43971525-2a82-3c8b-76f1-aeec6cf780f7/source/30x30bb.jpg",
+            "artworkUrl60": "https://is5-ssl.mzstatic.com/image/thumb/Video128/v4/43/97/15/43971525-2a82-3c8b-76f1-aeec6cf780f7/source/60x60bb.jpg",
+            "artworkUrl100": "https://is5-ssl.mzstatic.com/image/thumb/Video128/v4/43/97/15/43971525-2a82-3c8b-76f1-aeec6cf780f7/source/100x100bb.jpg",
+            "collectionPrice": 9.99,
+            "trackPrice": 1.49,
+            "releaseDate": "2015-08-28T07:00:00Z",
+            "collectionExplicitness": "notExplicit",
+            "trackExplicitness": "notExplicit",
+            "discCount": 1,
+            "discNumber": 1,
+            "trackCount": 20,
+            "trackNumber": 20,
+            "trackTimeMillis": 3954987,
+            "country": "USA",
+            "currency": "USD",
+            "primaryGenreName": "Soundtrack"
+        }
+    ]
+}
