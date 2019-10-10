@@ -10,6 +10,11 @@ protocol TrackDetailsViewModelType {
 }
 
 class TrackDetailsViewModel {
+    private enum Constant {
+        static let inputDateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        static let outputDateFormat = "MMM dd,yyyy"
+    }
+
     private let track: Track
 
     init(track: Track) {
@@ -27,10 +32,10 @@ extension TrackDetailsViewModel: TrackDetailsViewModelType {
     }
 
     var releaseDate: String? {
-        guard let date = DateFormatter(format: "yyyy-MM-dd'T'HH:mm:ssZ").date(from: track.releaseDate) else {
+        guard let date = DateFormatter(format: Constant.inputDateFormat).date(from: track.releaseDate) else {
             return nil
         }
-        return DateFormatter(format: "MMM dd,yyyy").string(from: date)
+        return DateFormatter(format: Constant.outputDateFormat).string(from: date)
     }
 
     var trackCountry: String {
