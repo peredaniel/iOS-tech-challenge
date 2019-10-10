@@ -87,6 +87,7 @@ private extension SearchRepository {
     func parseSearchResults(_ results: [SearchResponse.Result]) -> [Artist] {
         var artists: [Artist] = []
         for result in results {
+            guard result.previewUrl != nil else { continue }
             let artist = Artist(searchResult: result)
             if let foundArtist = artists.first(where: { $0.identifier == artist.identifier }) {
                 foundArtist.tracks.append(Track(searchResult: result))

@@ -33,28 +33,56 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="198" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vGo-tF-rK7">
-                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="147" width="375" height="520"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hBx-Hr-jJ1">
+                                <rect key="frame" x="0.0" y="44" width="375" height="103"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nMp-95-HKV">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="103"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <scopeButtonTitles>
+                                            <string>Artist</string>
+                                            <string>Song</string>
+                                            <string>Album</string>
+                                        </scopeButtonTitles>
+                                        <connections>
+                                            <outlet property="delegate" destination="WR0-2g-Swi" id="Ret-Yi-2iG"/>
+                                        </connections>
+                                    </searchBar>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="nMp-95-HKV" secondAttribute="trailing" id="0dW-Ig-LaW"/>
+                                    <constraint firstItem="nMp-95-HKV" firstAttribute="height" secondItem="hBx-Hr-jJ1" secondAttribute="height" id="AcI-ku-4uX"/>
+                                    <constraint firstItem="nMp-95-HKV" firstAttribute="leading" secondItem="hBx-Hr-jJ1" secondAttribute="leading" id="Xpx-c1-SIG"/>
+                                    <constraint firstItem="nMp-95-HKV" firstAttribute="top" secondItem="hBx-Hr-jJ1" secondAttribute="top" id="ote-0f-Bde"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="vGo-tF-rK7" firstAttribute="top" secondItem="j9Z-Gy-hdg" secondAttribute="top" id="4W6-St-D41"/>
-                            <constraint firstItem="vGo-tF-rK7" firstAttribute="leading" secondItem="j9Z-Gy-hdg" secondAttribute="leading" id="5BC-If-IXU"/>
-                            <constraint firstItem="j9Z-Gy-hdg" firstAttribute="trailing" secondItem="vGo-tF-rK7" secondAttribute="trailing" id="63Z-tH-VIZ"/>
-                            <constraint firstItem="j9Z-Gy-hdg" firstAttribute="bottom" secondItem="vGo-tF-rK7" secondAttribute="bottom" id="dJ2-xA-BaY"/>
+                            <constraint firstItem="hBx-Hr-jJ1" firstAttribute="leading" secondItem="j9Z-Gy-hdg" secondAttribute="leading" id="11f-z8-z0g"/>
+                            <constraint firstItem="vGo-tF-rK7" firstAttribute="trailing" secondItem="j9Z-Gy-hdg" secondAttribute="trailing" id="M5T-ej-VZ0"/>
+                            <constraint firstItem="j9Z-Gy-hdg" firstAttribute="trailing" secondItem="hBx-Hr-jJ1" secondAttribute="trailing" id="OQL-KM-qch"/>
+                            <constraint firstItem="vGo-tF-rK7" firstAttribute="top" secondItem="hBx-Hr-jJ1" secondAttribute="bottom" id="hei-ad-KlH"/>
+                            <constraint firstItem="vGo-tF-rK7" firstAttribute="bottom" secondItem="j9Z-Gy-hdg" secondAttribute="bottom" id="i1I-qd-2HY"/>
+                            <constraint firstItem="hBx-Hr-jJ1" firstAttribute="top" secondItem="j9Z-Gy-hdg" secondAttribute="top" id="mwP-hZ-Z2j"/>
+                            <constraint firstItem="vGo-tF-rK7" firstAttribute="leading" secondItem="j9Z-Gy-hdg" secondAttribute="leading" id="wUX-a1-RJc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="j9Z-Gy-hdg"/>
                     </view>
                     <navigationItem key="navigationItem" id="1Br-PD-Cx4"/>
                     <connections>
+                        <outlet property="searchBar" destination="nMp-95-HKV" id="p5d-qZ-fqa"/>
                         <outlet property="tableView" destination="vGo-tF-rK7" id="aaa-SY-neD"/>
                         <segue destination="oRE-97-3qs" kind="show" identifier="trackDetailsSegue" id="w7V-Pz-tJE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fZL-YA-xWQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-167" y="149"/>
+            <point key="canvasLocation" x="-167.19999999999999" y="148.87556221889056"/>
         </scene>
         <!--Track Details View Controller-->
         <scene sceneID="yfY-rD-tlj">

@@ -7,7 +7,14 @@ class HomeViewController: UIViewController {
         static let trackDetails = "trackDetailsSegue"
     }
 
+    private enum Constant {
+        static let searchDelay: TimeInterval = 0.5
+    }
+
     @IBOutlet private var tableView: UITableView!
+    @IBOutlet private var searchBar: UISearchBar!
+
+    private var timer: Timer?
 
     private lazy var viewModel: HomeViewModelType = {
         HomeViewModel(delegate: self)
@@ -16,14 +23,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "ABA Music"
+        configureSearchBar()
         configureTableView()
-        viewModel.updateSearchTerm("Jackson")
-    }
-
-    private func configureTableView() {
-        SearchResultTableCell.register(in: tableView)
-        tableView.dataSource = viewModel.dataSource
-        viewModel.dataSource.delegate = self
     }
 
     override func prepare(
@@ -38,6 +39,18 @@ class HomeViewController: UIViewController {
     }
 }
 
+private extension HomeViewController {
+    func configureTableView() {
+        SearchResultTableCell.register(in: tableView)
+        tableView.dataSource = viewModel.dataSource
+        viewModel.dataSource.delegate = self
+    }
+
+    func configureSearchBar() {
+        searchBar.selectedScopeButtonIndex = viewModel.searchScopeIndex
+    }
+}
+
 extension HomeViewController: HomeViewModelDelegate {
     func viewModelFailedToFetchData(_: HomeViewModelType) {
         let alertController = UIAlertController(
@@ -45,10 +58,11 @@ extension HomeViewController: HomeViewModelDelegate {
             message: "An error occurred while executing your search. Do you wish to try again?",
             preferredStyle: .alert
         )
-        let retryAction = UIAlertAction(title: "Retry", style: .default) { [weak self] _ in
-            self?.dismiss(animated: true) {
-                self?.viewModel.updateSearchTerm("Jackson")
-            }
+        let retryAction = UIAlertAction(
+            title: "Ok",
+            style: .default
+        ) { [weak self] _ in
+            self?.dismiss(animated: true, completion: nil)
         }
         alertController.addAction(retryAction)
         DispatchQueue.main.async {
@@ -69,5 +83,28 @@ extension HomeViewController: DataSourceControllerDelegate {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
+    }
+}
+
+extension HomeViewController: UISearchBarDelegate {
+    func searchBar(
+        _: UISearchBar,
+        textDidChange searchText: String
+    ) {
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(
+            withTimeInterval: Constant.searchDelay,
+            repeats: false
+        ) { [weak self] _ in
+            self?.viewModel.updateSearchTerm(searchText)
+            self?.timer?.invalidate()
+        }
+    }
+
+    func searchBar(
+        _ searchBar: UISearchBar,
+        selectedScopeButtonIndexDidChange selectedScope: Int
+    ) {
+        viewModel.updateSearchScope(selectedScope)
     }
 }

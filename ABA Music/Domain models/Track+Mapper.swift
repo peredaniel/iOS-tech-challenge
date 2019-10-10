@@ -4,7 +4,7 @@ extension Track {
             identifier: searchResult.trackId,
             artist: Artist(searchResult: searchResult),
             name: searchResult.trackName,
-            previewUrl: searchResult.previewUrl,
+            previewUrl: searchResult.previewUrl ?? "",
             artworkUrl100: searchResult.artworkUrl100,
             primaryGenreName: searchResult.primaryGenreName,
             country: searchResult.country,
