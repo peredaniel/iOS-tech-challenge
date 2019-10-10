@@ -15,7 +15,12 @@ class HomeViewController: UIViewController {
     @IBOutlet private var searchBar: UISearchBar!
 
     private var timer: Timer?
-
+    private var searchBarInitialLeftView: UIView?
+    private lazy var spinner: UIActivityIndicatorView = {
+        let spinner = UIActivityIndicatorView(style: .gray)
+        spinner.hidesWhenStopped = true
+        return spinner
+    }()
     private lazy var viewModel: HomeViewModelType = {
         HomeViewModel(delegate: self)
     }()
@@ -25,6 +30,11 @@ class HomeViewController: UIViewController {
         title = "ABA Music"
         configureSearchBar()
         configureTableView()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        searchBar.becomeFirstResponder()
     }
 
     override func prepare(
@@ -48,6 +58,7 @@ private extension HomeViewController {
 
     func configureSearchBar() {
         searchBar.selectedScopeButtonIndex = viewModel.searchScopeIndex
+        searchBarInitialLeftView = searchBar.searchTextField.leftView
     }
 }
 
@@ -80,8 +91,10 @@ extension HomeViewController: HomeViewModelDelegate {
 
 extension HomeViewController: DataSourceControllerDelegate {
     func dataSourceWasMutated(_: DataSourceController) {
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.reloadData()
+            self?.spinner.stopAnimating()
+            self?.searchBar.searchTextField.leftView = self?.searchBarInitialLeftView
         }
     }
 }
@@ -96,6 +109,8 @@ extension HomeViewController: UISearchBarDelegate {
             withTimeInterval: Constant.searchDelay,
             repeats: false
         ) { [weak self] _ in
+            self?.searchBar.searchTextField.leftView = self?.spinner
+            self?.spinner.startAnimating()
             self?.viewModel.updateSearchTerm(searchText)
             self?.timer?.invalidate()
         }
@@ -105,6 +120,8 @@ extension HomeViewController: UISearchBarDelegate {
         _ searchBar: UISearchBar,
         selectedScopeButtonIndexDidChange selectedScope: Int
     ) {
+        searchBar.searchTextField.leftView = spinner
+        spinner.startAnimating()
         viewModel.updateSearchScope(selectedScope)
     }
 }
