@@ -35,7 +35,7 @@ class TrackDetailsViewController: UIViewController {
         }
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
         guard let pvc = segue.destination as? TrackPlayerViewController,
             let previewUrl = viewModel?.previewUrl else {
             return

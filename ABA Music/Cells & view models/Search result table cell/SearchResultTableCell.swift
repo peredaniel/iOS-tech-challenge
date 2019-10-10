@@ -41,7 +41,7 @@ class SearchResultTableCell: UITableViewCell, NibReusable {
 
 extension SearchResultTableCell: UICollectionViewDelegate {
     func collectionView(
-        _ collectionView: UICollectionView,
+        _: UICollectionView,
         didSelectItemAt indexPath: IndexPath
     ) {
         viewModel?.didSelectItem(at: indexPath)

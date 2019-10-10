@@ -22,11 +22,13 @@ class HomeViewModel {
             dataSource.add(section: Section(rows: rowEntries))
         }
     }
+
     private weak var delegate: HomeViewModelDelegate?
     private let repository: SearchRepositoryType
     private var searchScope: SearchRepository.SearchScope = .artist {
         didSet { performSearch() }
     }
+
     private(set) var searchTerm: String? {
         didSet { performSearch() }
     }
@@ -98,7 +100,7 @@ private extension HomeViewModel {
         case .success(let artists):
             self.artists = artists.sorted()
         case .failure(let error):
-            self.delegate?.viewModelFailedToFetchData(self)
+            delegate?.viewModelFailedToFetchData(self)
             print(error)
         }
     }

@@ -21,6 +21,7 @@ class HomeViewController: UIViewController {
         spinner.hidesWhenStopped = true
         return spinner
     }()
+
     private lazy var viewModel: HomeViewModelType = {
         HomeViewModel(delegate: self)
     }()
