@@ -8,7 +8,10 @@ protocol HomeViewModelDelegate: AnyObject {
 
 protocol HomeViewModelType {
     var dataSource: DataSourceController { get }
-    func fetchData(term: String)
+    var searchScopeIndex: Int { get }
+    var searchTerm: String? { get }
+    func updateSearchTerm(_: String?)
+    func updateSearchScope(_: Int)
 }
 
 class HomeViewModel {
@@ -20,7 +23,13 @@ class HomeViewModel {
         }
     }
     private weak var delegate: HomeViewModelDelegate?
-    private let repository: SearchByArtist
+    private let repository: SearchRepositoryType
+    private var searchScope: SearchRepository.SearchScope = .artist {
+        didSet { performSearch() }
+    }
+    private(set) var searchTerm: String? {
+        didSet { performSearch() }
+    }
 
     lazy var dataSource: DataSourceController = {
         let dataSource = DataSourceController(rows: [])
@@ -39,16 +48,37 @@ class HomeViewModel {
 }
 
 extension HomeViewModel: HomeViewModelType {
-    func fetchData(term: String) {
-        repository.searchMusicVideos(artist: term) { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success(let artists):
-                self.artists = artists.sorted()
-            case .failure(let error):
-                self.delegate?.viewModelFailedToFetchData(self)
-                print(error)
+    var searchScopeIndex: Int {
+        return searchScope.invValue
+    }
+
+    func performSearch() {
+        guard let term = searchTerm else { return }
+        switch searchScope {
+        case .album:
+            repository.searchMusicVideos(album: term) { [weak self] result in
+                self?.handleSearchResult(result)
             }
+        case .artist:
+            repository.searchMusicVideos(artist: term) { [weak self] result in
+                self?.handleSearchResult(result)
+            }
+        case .song:
+            repository.searchMusicVideos(song: term) { [weak self] result in
+                self?.handleSearchResult(result)
+            }
+        }
+    }
+
+    func updateSearchTerm(_ term: String?) {
+        if let term = term {
+            searchTerm = term
+        }
+    }
+
+    func updateSearchScope(_ index: Int) {
+        if let newScope = SearchRepository.SearchScope(intValue: index) {
+            searchScope = newScope
         }
     }
 }
@@ -59,5 +89,36 @@ extension HomeViewModel: SearchResultTableDelegate {
             self,
             didSelectItemWithViewModel: TrackDetailsViewModel(track: track)
         )
+    }
+}
+
+private extension HomeViewModel {
+    func handleSearchResult(_ result: Result<[Artist], Error>) {
+        switch result {
+        case .success(let artists):
+            self.artists = artists.sorted()
+        case .failure(let error):
+            self.delegate?.viewModelFailedToFetchData(self)
+            print(error)
+        }
+    }
+}
+
+private extension SearchRepository.SearchScope {
+    init?(intValue: Int) {
+        switch intValue {
+        case 0: self = .artist
+        case 1: self = .song
+        case 2: self = .album
+        default: return nil
+        }
+    }
+
+    var invValue: Int {
+        switch self {
+        case .artist: return 0
+        case .song: return 1
+        case .album: return 2
+        }
     }
 }

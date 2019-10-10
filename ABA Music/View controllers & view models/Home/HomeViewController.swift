@@ -16,17 +16,20 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "ABA Music"
-        configureCollectionView()
-        viewModel.fetchData(term: "Jackson")
+        configureTableView()
+        viewModel.updateSearchTerm("Jackson")
     }
 
-    private func configureCollectionView() {
+    private func configureTableView() {
         SearchResultTableCell.register(in: tableView)
         tableView.dataSource = viewModel.dataSource
         viewModel.dataSource.delegate = self
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(
+        for segue: UIStoryboardSegue,
+        sender: Any?
+    ) {
         guard let tdvc = segue.destination as? TrackDetailsViewController,
             let viewModel = sender as? TrackDetailsViewModelType else {
             return
@@ -34,7 +37,6 @@ class HomeViewController: UIViewController {
         tdvc.viewModel = viewModel
     }
 }
-
 
 extension HomeViewController: HomeViewModelDelegate {
     func viewModelFailedToFetchData(_: HomeViewModelType) {
@@ -45,7 +47,7 @@ extension HomeViewController: HomeViewModelDelegate {
         )
         let retryAction = UIAlertAction(title: "Retry", style: .default) { [weak self] _ in
             self?.dismiss(animated: true) {
-                self?.viewModel.fetchData(term: "Jackson")
+                self?.viewModel.updateSearchTerm("Jackson")
             }
         }
         alertController.addAction(retryAction)
@@ -54,7 +56,10 @@ extension HomeViewController: HomeViewModelDelegate {
         }
     }
 
-    func viewModel(_: HomeViewModelType, didSelectItemWithViewModel viewModel: TrackDetailsViewModelType) {
+    func viewModel(
+        _: HomeViewModelType,
+        didSelectItemWithViewModel viewModel: TrackDetailsViewModelType
+    ) {
         performSegue(withIdentifier: Segue.trackDetails, sender: viewModel)
     }
 }

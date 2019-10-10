@@ -2,10 +2,13 @@ class SearchRepository {
     private enum SearchParameters {
         static let media = "musicVideo"
         static let entity = "musicVideo"
-        static let albumAttribute = "albumTerm"
-        static let artistAttribute = "artistTerm"
-        static let songTerm = "songTerm"
         static let limit: Int = 200
+    }
+
+    enum SearchScope: String {
+        case album = "albumTerm"
+        case artist = "artistTerm"
+        case song = "songTerm"
     }
 
     private let service: SearchService
@@ -15,7 +18,7 @@ class SearchRepository {
     }
 }
 
-extension SearchRepository: SearchByArtist {
+extension SearchRepository: SearchRepositoryType {
     func searchMusicVideos(
         album: String,
         completion: @escaping (Result<[Artist], Error>) -> Void
@@ -24,7 +27,7 @@ extension SearchRepository: SearchByArtist {
             album,
             media: SearchParameters.media,
             entity: SearchParameters.entity,
-            attribute: SearchParameters.albumAttribute,
+            attribute: SearchScope.album.rawValue,
             limit: SearchParameters.limit
         ) { [weak self] response in
             guard let self = self else { return }
@@ -45,7 +48,7 @@ extension SearchRepository: SearchByArtist {
             artist,
             media: SearchParameters.media,
             entity: SearchParameters.entity,
-            attribute: SearchParameters.artistAttribute,
+            attribute: SearchScope.artist.rawValue,
             limit: SearchParameters.limit
         ) { [weak self] response in
             guard let self = self else { return }
@@ -66,7 +69,7 @@ extension SearchRepository: SearchByArtist {
             song,
             media: SearchParameters.media,
             entity: SearchParameters.entity,
-            attribute: SearchParameters.songTerm,
+            attribute: SearchScope.song.rawValue,
             limit: SearchParameters.limit
         ) { [weak self] response in
             guard let self = self else { return }
