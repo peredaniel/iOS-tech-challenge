@@ -17,8 +17,9 @@ class HomeViewController: UIViewController {
     private var timer: Timer?
     private var searchBarInitialLeftView: UIView?
     private lazy var spinner: UIActivityIndicatorView = {
-        let spinner = UIActivityIndicatorView(style: .gray)
+        let spinner = UIActivityIndicatorView(style: .medium)
         spinner.hidesWhenStopped = true
+        spinner.color = .gray
         return spinner
     }()
 
