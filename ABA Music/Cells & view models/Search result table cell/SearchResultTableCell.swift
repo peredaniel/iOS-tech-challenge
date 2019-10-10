@@ -29,13 +29,22 @@ class SearchResultTableCell: UITableViewCell, NibReusable {
     }
 
     override func prepareForReuse() {
-        collectionView.scrollToItem(at: IndexPath.init(row: 0, section: 0), at: .left, animated: false)
+        super.prepareForReuse()
+        guard let numberOfRows = viewModel?.dataSource.totalRowCount, numberOfRows > 0 else { return }
+        collectionView.scrollToItem(
+            at: IndexPath(row: 0, section: 0),
+            at: .left,
+            animated: false
+        )
     }
 }
 
 extension SearchResultTableCell: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //TODO
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath
+    ) {
+        viewModel?.didSelectItem(at: indexPath)
     }
 }
 

@@ -37,7 +37,7 @@ class HomeViewController: UIViewController {
 
 
 extension HomeViewController: HomeViewModelDelegate {
-    func viewModelFailedToFetchData(_: HomeViewModel) {
+    func viewModelFailedToFetchData(_: HomeViewModelType) {
         let alertController = UIAlertController(
             title: nil,
             message: "An error occurred while executing your search. Do you wish to try again?",
@@ -52,6 +52,10 @@ extension HomeViewController: HomeViewModelDelegate {
         DispatchQueue.main.async {
             self.present(alertController, animated: true, completion: nil)
         }
+    }
+
+    func viewModel(_: HomeViewModelType, didSelectItemWithViewModel viewModel: TrackDetailsViewModelType) {
+        performSegue(withIdentifier: Segue.trackDetails, sender: viewModel)
     }
 }
 
