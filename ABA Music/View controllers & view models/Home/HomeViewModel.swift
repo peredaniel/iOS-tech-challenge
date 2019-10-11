@@ -8,6 +8,7 @@ protocol HomeViewModelDelegate: AnyObject {
 
 protocol HomeViewModelType {
     var dataSource: DataSourceController { get }
+    var searchTerm: String { get }
     var searchScopeIndex: Int { get }
     func updateSearchTerm(_: String?)
     func updateSearchScope(_: Int)
@@ -28,7 +29,7 @@ class HomeViewModel {
         didSet { performSearch() }
     }
 
-    private var searchTerm: String {
+    private(set) var searchTerm: String {
         didSet { performSearch() }
     }
 

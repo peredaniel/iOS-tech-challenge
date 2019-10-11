@@ -28,7 +28,7 @@ You may install the framework through a dependency manager.
 
 To use CocoaPods, first make sure you have installed it and updated it to the latest version by following their instructions on [cocoapods.org](https://cocoapods.org). Then, you should complete the following steps
 
-1. Add DataSourceController to your `Podfile`:
+1. Add MathExpression to your `Podfile`:
 
 ```ruby
 pod 'DataSourceController', '~>1.0.0'
@@ -44,7 +44,7 @@ $ pod install --repo-update
 
 To use Carthage, first make sure you have installed it and updated it to the latest version by following their instructions on [their repo](https://github.com/Carthage/Carthage).
 
-1. Add DataSourceController to your `Cartfile`:
+1. Add MathExpression to your `Cartfile`:
 
 ```ruby
 github "peredaniel/DataSourceController" ~> 1.0.0
@@ -182,7 +182,7 @@ class Section {
 }
 ```
 Note that the `sectionData` parameter is optional and may be omitted when initializing a `Section` instance. The `SectionDataModelType` is any object conforming to the following protocol:
-```swift
+```
 protocol SectionDataModelType {
     var header: String? { get }
     var footer: String? { get }
@@ -205,7 +205,6 @@ The `delegate` parameter passed in the initializer of the `DataSourceController`
 ```swift
 protocol DataSourceControllerDelegate: AnyObject {
     func backgroundMessageLabel(for view: UIView) -> UILabel?
-    func backgroundEmptyView(for view: UIView) -> UIView?
     func dataSourceWasMutated(_: DataSourceController)
     func dataSourceWasMutated(_: DataSourceController, section: Int)
     func dataSourceWasMutated(_: DataSourceController, rows: [IndexPath])
@@ -215,12 +214,11 @@ All functions have a default empty implementation to make them optional protocol
 
 That is, the delegate mainly notifies of changes in the `DataSourceController` instance triggered by the mutating functions available in the API (see [API Reference](#api-reference) below for details). The delegate will usually be the object with the `UITableView` or `UICollectionView` instance, since most likely a part of the displayed list will need to be reloaded.
 
-In addition, in case the `totalRowCount` property of the `DataSourceController` instance is 0 (meaning that there are no rows), the controller will try to display either the `UIView` or the `UILabel` instances provided by the functions
+In addition, in case the `totalRowCount` property of the `DataSourceController` instance is 0 (meaning that there are no rows), the controller will try to display the `UILabel` instance provided by the function
 ```swift
 func backgroundMessageLabel(for view: UIView) -> UILabel?
-func backgroundEmptyView(for view: UIView) -> UIView?
 ```
-as the background. Note that both these functions are optional, and therefore it may be omitted. If both functions are implemented, the framework will prioritize the `backgroundEmptyView(for:)` function. The parameter `view` is either the `UITableView` or `UICollectionView` instance whose `dataSource` is the `DataSourceController`.
+as the background. Note that this function is optional, and therefore it may be omitted. The parameter `view` is either the `UITableView` or `UICollectionView` instance whose `dataSource` is the `DataSourceController`.
 
 ### UITableView header and footer
 
@@ -274,4 +272,4 @@ This will re-format every `*.swift` file inside the project folder to follow the
 
 ### Continuous Integration and Deployment
 
-We use [Travis CI](https://travis-ci.com/) as our continuous integration solution to run builds and tests on open pull requests and merges to `master`. Tests are required to pass in order to merge any pull request to `master`. Travis CI is also responsible for deploying the library to Cocoapods' Trunk repository when a new tag is pushed.
+We use [Travis CI](https://travis-ci.com/) as our continuous integration solution to run builds on open pull requests and merges to `master`. Builds are required to pass in order to merge any pull request to `master`. Travis CI is also responsible for deploying the library to Cocoapods' Trunk repository when a new tag is pushed.
