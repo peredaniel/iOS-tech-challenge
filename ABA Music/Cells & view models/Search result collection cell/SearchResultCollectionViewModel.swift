@@ -4,9 +4,14 @@ import Foundation
 protocol SearchResultCollectionViewModelType {
     var artworkUrl: URL? { get }
     var name: String { get }
+    var releaseDate: String? { get }
 }
 
 class SearchResultCollectionViewModel: SearchResultCollectionViewModelType {
+    private enum Constant {
+        static let dateFormat = "MMM dd, yyyy"
+    }
+
     private let track: Track
     let reuseIdentifier = SearchResultCollectionCell.identifier
 
@@ -20,6 +25,10 @@ class SearchResultCollectionViewModel: SearchResultCollectionViewModelType {
 
     var name: String {
         return track.name
+    }
+
+    var releaseDate: String? {
+        return DateFormatter(format: Constant.dateFormat).string(from: Date(timeIntervalSince1970: track.releaseDate))
     }
 }
 

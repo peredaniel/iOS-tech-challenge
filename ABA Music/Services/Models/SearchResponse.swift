@@ -1,4 +1,8 @@
 struct SearchResponse: Decodable {
+    enum Constant {
+        static let dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+    }
+
     struct Result: Decodable {
         let artistId: Int
         let artistName: String

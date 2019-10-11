@@ -1,4 +1,4 @@
-class Track: Equatable {
+class Track: Equatable, Comparable {
     var identifier: Int
     var artist: Artist
     var name: String
@@ -6,7 +6,7 @@ class Track: Equatable {
     var artworkUrl100: String
     var primaryGenreName: String
     var country: String
-    var releaseDate: String
+    var releaseDate: Double
 
     init(
         identifier: Int,
@@ -16,7 +16,7 @@ class Track: Equatable {
         artworkUrl100: String,
         primaryGenreName: String,
         country: String,
-        releaseDate: String
+        releaseDate: Double
     ) {
         self.identifier = identifier
         self.artist = artist
@@ -31,6 +31,10 @@ class Track: Equatable {
     static func == (lhs: Track, rhs: Track) -> Bool {
         return lhs.identifier == rhs.identifier
     }
+
+    static func < (lhs: Track, rhs: Track) -> Bool {
+        return lhs.releaseDate < rhs.releaseDate
+    }
 }
 
 extension Track {
@@ -43,7 +47,7 @@ extension Track {
             artworkUrl100: "",
             primaryGenreName: "",
             country: "",
-            releaseDate: ""
+            releaseDate: 0
         )
     }
 }
