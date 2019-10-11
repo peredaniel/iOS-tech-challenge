@@ -1,5 +1,6 @@
 # Uncomment the next line to define a global platform for your project
 platform :ios, '13.0'
+source 'https://cdn.cocoapods.org/'
 
 # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
 use_frameworks!
@@ -9,7 +10,7 @@ inhibit_all_warnings!
 
 def app_pods
   pod 'AlamofireImage',       '~>3.5.0'
-  pod 'DataSourceController', '~>1.0.0'
+  pod 'DataSourceController', '~>1.1.0'
 end
 
   # Pods for ABA Music
