@@ -45,6 +45,7 @@
 		9FA3960F234FBB3B00C7D9E8 /* Lady Madonna_songTerm.json in Resources */ = {isa = PBXBuildFile; fileRef = 9FA3960E234FBB3B00C7D9E8 /* Lady Madonna_songTerm.json */; };
 		9FA39611234FBB6900C7D9E8 /* EmptyResponse_songTerm.json in Resources */ = {isa = PBXBuildFile; fileRef = 9FA39610234FBB6900C7D9E8 /* EmptyResponse_songTerm.json */; };
 		9FAB224F23509034004324E2 /* EdgeInsetsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAB224E23509034004324E2 /* EdgeInsetsLabel.swift */; };
+		9FAB22512350A16A004324E2 /* UINavigationController+Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAB22502350A16A004324E2 /* UINavigationController+Rotation.swift */; };
 		9FC65DD1234CC7E000728BD0 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC65DD0234CC7E000728BD0 /* Reusable.swift */; };
 		9FE92AC2234C86C500BD4AA1 /* MockSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE92AC1234C86C500BD4AA1 /* MockSearchService.swift */; };
 		9FE92AC9234C86CD00BD4AA1 /* SearchRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE92AC4234C86CD00BD4AA1 /* SearchRepositoryTests.swift */; };
@@ -118,6 +119,7 @@
 		9FA3960E234FBB3B00C7D9E8 /* Lady Madonna_songTerm.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "Lady Madonna_songTerm.json"; sourceTree = "<group>"; };
 		9FA39610234FBB6900C7D9E8 /* EmptyResponse_songTerm.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = EmptyResponse_songTerm.json; sourceTree = "<group>"; };
 		9FAB224E23509034004324E2 /* EdgeInsetsLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeInsetsLabel.swift; sourceTree = "<group>"; };
+		9FAB22502350A16A004324E2 /* UINavigationController+Rotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Rotation.swift"; sourceTree = "<group>"; };
 		9FC65DD0234CC7E000728BD0 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		9FE92AC1234C86C500BD4AA1 /* MockSearchService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockSearchService.swift; sourceTree = "<group>"; };
 		9FE92AC4234C86CD00BD4AA1 /* SearchRepositoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchRepositoryTests.swift; sourceTree = "<group>"; };
@@ -373,6 +375,7 @@
 			isa = PBXGroup;
 			children = (
 				9FA39602234F3A3000C7D9E8 /* DateFormatter+Format.swift */,
+				9FAB22502350A16A004324E2 /* UINavigationController+Rotation.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -689,6 +692,7 @@
 				9F96461B234BCA5C00EAA3F2 /* Artist+Mapper.swift in Sources */,
 				9F6896F3234BB21E00502EC8 /* Track.swift in Sources */,
 				9F964616234BBC3E00EAA3F2 /* SearchRepository.swift in Sources */,
+				9FAB22512350A16A004324E2 /* UINavigationController+Rotation.swift in Sources */,
 				9F6896F0234BAF5F00502EC8 /* SearchService.swift in Sources */,
 				9F03E997234E60A5000E0BA6 /* SearchResultCollectionViewModel.swift in Sources */,
 				9F372DD3234E818500016EBB /* SearchResultCollectionCell.swift in Sources */,

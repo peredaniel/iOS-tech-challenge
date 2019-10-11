@@ -51,6 +51,10 @@ class HomeViewController: UIViewController {
         return label
     }
 
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "ABA Music"

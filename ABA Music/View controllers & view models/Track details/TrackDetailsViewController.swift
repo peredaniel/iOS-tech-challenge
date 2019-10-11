@@ -19,6 +19,10 @@ class TrackDetailsViewController: UIViewController {
 
     var viewModel: TrackDetailsViewModelType?
 
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .allButUpsideDown
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         refreshView()
