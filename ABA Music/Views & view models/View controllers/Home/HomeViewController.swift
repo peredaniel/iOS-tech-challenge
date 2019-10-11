@@ -91,6 +91,19 @@ private extension HomeViewController {
         searchBar.selectedScopeButtonIndex = viewModel.searchScopeIndex
         searchBarInitialLeftView = searchBar.searchTextField.leftView
     }
+
+    func refreshView() {
+        tableView.reloadData()
+        spinner.stopAnimating()
+        searchBar.searchTextField.leftView = searchBarInitialLeftView
+        if viewModel.dataSource.totalRowCount == 0 {
+            if viewModel.searchTerm.isEmpty {
+                tableView.backgroundView = initialEmptyLabel
+            } else {
+                tableView.backgroundView = emptySearchResults
+            }
+        }
+    }
 }
 
 extension HomeViewController: HomeViewModelDelegate {
@@ -123,16 +136,7 @@ extension HomeViewController: HomeViewModelDelegate {
 extension HomeViewController: DataSourceControllerDelegate {
     func dataSourceWasMutated(_: DataSourceController) {
         DispatchQueue.main.async { [weak self] in
-            self?.tableView.reloadData()
-            self?.spinner.stopAnimating()
-            self?.searchBar.searchTextField.leftView = self?.searchBarInitialLeftView
-            if (self?.viewModel.dataSource.totalRowCount) ?? 0 == 0 {
-                if self?.viewModel.searchTerm.isEmpty ?? true {
-                    self?.tableView.backgroundView = self?.initialEmptyLabel
-                } else {
-                    self?.tableView.backgroundView = self?.emptySearchResults
-                }
-            }
+            self?.refreshView()
         }
     }
 }

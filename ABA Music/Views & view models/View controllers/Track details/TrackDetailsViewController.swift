@@ -16,6 +16,7 @@ class TrackDetailsViewController: UIViewController {
     @IBOutlet private var genreLabel: UILabel!
     @IBOutlet private var countryLabel: UILabel!
     @IBOutlet private var releaseDateLabel: UILabel!
+    @IBOutlet private var errorLabel: UILabel!
 
     var viewModel: TrackDetailsViewModelType?
 
@@ -31,6 +32,8 @@ class TrackDetailsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
         guard let pvc = segue.destination as? TrackPlayerViewController,
             let previewUrl = viewModel?.previewUrl else {
+            spinner.stopAnimating()
+            errorLabel.isHidden = false
             return
         }
         pvc.viewModel = TrackPlayerViewModel(url: previewUrl)

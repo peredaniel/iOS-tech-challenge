@@ -48,6 +48,9 @@
 		9FAB22512350A16A004324E2 /* UINavigationController+Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAB22502350A16A004324E2 /* UINavigationController+Rotation.swift */; };
 		9FAB22552350BBB6004324E2 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAB22542350BBB6004324E2 /* AppConfiguration.swift */; };
 		9FAB22582350BCE6004324E2 /* AppConfiguration_production.json in Resources */ = {isa = PBXBuildFile; fileRef = 9FAB22572350BCE6004324E2 /* AppConfiguration_production.json */; };
+		9FAB225A2350D16C004324E2 /* HomeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAB22592350D16C004324E2 /* HomeViewControllerTests.swift */; };
+		9FAB225E2350DBF9004324E2 /* MockTrackDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAB225D2350DBF9004324E2 /* MockTrackDetailsViewModel.swift */; };
+		9FAB22602350DD23004324E2 /* TrackDetailsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAB225F2350DD23004324E2 /* TrackDetailsViewControllerTests.swift */; };
 		9FC65DD1234CC7E000728BD0 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC65DD0234CC7E000728BD0 /* Reusable.swift */; };
 		9FE92AC2234C86C500BD4AA1 /* MockSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE92AC1234C86C500BD4AA1 /* MockSearchService.swift */; };
 		9FE92AC9234C86CD00BD4AA1 /* SearchRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE92AC4234C86CD00BD4AA1 /* SearchRepositoryTests.swift */; };
@@ -124,6 +127,9 @@
 		9FAB22502350A16A004324E2 /* UINavigationController+Rotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Rotation.swift"; sourceTree = "<group>"; };
 		9FAB22542350BBB6004324E2 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		9FAB22572350BCE6004324E2 /* AppConfiguration_production.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AppConfiguration_production.json; sourceTree = "<group>"; };
+		9FAB22592350D16C004324E2 /* HomeViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerTests.swift; sourceTree = "<group>"; };
+		9FAB225D2350DBF9004324E2 /* MockTrackDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTrackDetailsViewModel.swift; sourceTree = "<group>"; };
+		9FAB225F2350DD23004324E2 /* TrackDetailsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailsViewControllerTests.swift; sourceTree = "<group>"; };
 		9FC65DD0234CC7E000728BD0 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		9FE92AC1234C86C500BD4AA1 /* MockSearchService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockSearchService.swift; sourceTree = "<group>"; };
 		9FE92AC4234C86CD00BD4AA1 /* SearchRepositoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchRepositoryTests.swift; sourceTree = "<group>"; };
@@ -414,6 +420,7 @@
 			isa = PBXGroup;
 			children = (
 				9FE92AC1234C86C500BD4AA1 /* MockSearchService.swift */,
+				9FAB225D2350DBF9004324E2 /* MockTrackDetailsViewModel.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -421,7 +428,9 @@
 		9FE92AC3234C86CD00BD4AA1 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				9FAB22592350D16C004324E2 /* HomeViewControllerTests.swift */,
 				9FE92AC4234C86CD00BD4AA1 /* SearchRepositoryTests.swift */,
+				9FAB225F2350DD23004324E2 /* TrackDetailsViewControllerTests.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -482,6 +491,7 @@
 				8BC33F5621944CDF00E3759C /* Sources */,
 				8BC33F5721944CDF00E3759C /* Frameworks */,
 				8BC33F5821944CDF00E3759C /* Resources */,
+				A5DF90A0ED8E7A47ADF76EAF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -699,6 +709,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A5DF90A0ED8E7A47ADF76EAF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ABA MusicTests/Pods-ABA MusicTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ABA MusicTests/Pods-ABA MusicTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ABA MusicTests/Pods-ABA MusicTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -740,7 +767,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FE92AC2234C86C500BD4AA1 /* MockSearchService.swift in Sources */,
+				9FAB225A2350D16C004324E2 /* HomeViewControllerTests.swift in Sources */,
 				9FE92AC9234C86CD00BD4AA1 /* SearchRepositoryTests.swift in Sources */,
+				9FAB225E2350DBF9004324E2 /* MockTrackDetailsViewModel.swift in Sources */,
+				9FAB22602350DD23004324E2 /* TrackDetailsViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

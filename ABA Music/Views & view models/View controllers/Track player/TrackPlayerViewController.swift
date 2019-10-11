@@ -15,7 +15,7 @@ class TrackPlayerViewController: AVPlayerViewController {
 
     private func preparePlayerAndStartPlayback() {
         guard let viewModel = viewModel else {
-            fatalError("This screen's view model should be provided by the previous screen")
+            return
         }
         if player?.currentItem != nil {
             player?.seek(to: .zero) { [weak self] _ in
