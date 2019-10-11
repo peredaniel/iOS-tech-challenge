@@ -44,6 +44,7 @@
 		9FA3960D234FB97800C7D9E8 /* Jackson_songTerm.json in Resources */ = {isa = PBXBuildFile; fileRef = 9FA3960C234FB97800C7D9E8 /* Jackson_songTerm.json */; };
 		9FA3960F234FBB3B00C7D9E8 /* Lady Madonna_songTerm.json in Resources */ = {isa = PBXBuildFile; fileRef = 9FA3960E234FBB3B00C7D9E8 /* Lady Madonna_songTerm.json */; };
 		9FA39611234FBB6900C7D9E8 /* EmptyResponse_songTerm.json in Resources */ = {isa = PBXBuildFile; fileRef = 9FA39610234FBB6900C7D9E8 /* EmptyResponse_songTerm.json */; };
+		9FAB224F23509034004324E2 /* EdgeInsetsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAB224E23509034004324E2 /* EdgeInsetsLabel.swift */; };
 		9FC65DD1234CC7E000728BD0 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC65DD0234CC7E000728BD0 /* Reusable.swift */; };
 		9FE92AC2234C86C500BD4AA1 /* MockSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE92AC1234C86C500BD4AA1 /* MockSearchService.swift */; };
 		9FE92AC9234C86CD00BD4AA1 /* SearchRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE92AC4234C86CD00BD4AA1 /* SearchRepositoryTests.swift */; };
@@ -116,6 +117,7 @@
 		9FA3960C234FB97800C7D9E8 /* Jackson_songTerm.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Jackson_songTerm.json; sourceTree = "<group>"; };
 		9FA3960E234FBB3B00C7D9E8 /* Lady Madonna_songTerm.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "Lady Madonna_songTerm.json"; sourceTree = "<group>"; };
 		9FA39610234FBB6900C7D9E8 /* EmptyResponse_songTerm.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = EmptyResponse_songTerm.json; sourceTree = "<group>"; };
+		9FAB224E23509034004324E2 /* EdgeInsetsLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeInsetsLabel.swift; sourceTree = "<group>"; };
 		9FC65DD0234CC7E000728BD0 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		9FE92AC1234C86C500BD4AA1 /* MockSearchService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockSearchService.swift; sourceTree = "<group>"; };
 		9FE92AC4234C86CD00BD4AA1 /* SearchRepositoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchRepositoryTests.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 		8BC33F4821944CDE00E3759C /* ABA Music */ = {
 			isa = PBXGroup;
 			children = (
+				9FAB224D23509022004324E2 /* Reusable views */,
 				8B0CEE4721B5723300C39C58 /* Application */,
 				9F0A2C0D234C9884008ECED3 /* Cells & view models */,
 				8B0CEE4621B54C8800C39C58 /* Domain models */,
@@ -372,6 +375,14 @@
 				9FA39602234F3A3000C7D9E8 /* DateFormatter+Format.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9FAB224D23509022004324E2 /* Reusable views */ = {
+			isa = PBXGroup;
+			children = (
+				9FAB224E23509034004324E2 /* EdgeInsetsLabel.swift */,
+			);
+			path = "Reusable views";
 			sourceTree = "<group>";
 		};
 		9FE92AC0234C86C500BD4AA1 /* Mocks */ = {
@@ -688,6 +699,7 @@
 				9F03E989234E2B13000E0BA6 /* TrackPlayerViewModel.swift in Sources */,
 				9F03E99E234E764A000E0BA6 /* SearchResultTableViewModel.swift in Sources */,
 				9F6896EE234BAF3000502EC8 /* iTunesService.swift in Sources */,
+				9FAB224F23509034004324E2 /* EdgeInsetsLabel.swift in Sources */,
 				9FA39603234F3A3000C7D9E8 /* DateFormatter+Format.swift in Sources */,
 				9F03E99B234E750F000E0BA6 /* SearchResultTableCell.swift in Sources */,
 				9F96461D234BCA7900EAA3F2 /* Track+Mapper.swift in Sources */,

@@ -1,3 +1,5 @@
+import Foundation
+
 extension Track {
     convenience init(searchResult: SearchResponse.Result) {
         self.init(
@@ -8,7 +10,7 @@ extension Track {
             artworkUrl100: searchResult.artworkUrl100,
             primaryGenreName: searchResult.primaryGenreName,
             country: searchResult.country,
-            releaseDate: searchResult.releaseDate
+            releaseDate: DateFormatter(format: SearchResponse.Constant.dateFormat).date(from: searchResult.releaseDate)?.timeIntervalSince1970 ?? 0.0
         )
     }
 }

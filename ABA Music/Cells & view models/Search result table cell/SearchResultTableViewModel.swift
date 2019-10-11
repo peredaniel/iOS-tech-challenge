@@ -17,7 +17,7 @@ class SearchResultTableViewModel: SearchResultTableViewModelType {
     private weak var delegate: SearchResultTableDelegate?
 
     lazy var dataSource: DataSourceController = {
-        let dataSource = DataSourceController(rows: artist.tracks)
+        let dataSource = DataSourceController(rows: artist.tracks.sorted().reversed())
         dataSource.register(
             dataController: SearchResultCollectionViewModel.self,
             for: Track.self

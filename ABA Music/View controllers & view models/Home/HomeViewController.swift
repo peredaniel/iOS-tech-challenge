@@ -27,6 +27,30 @@ class HomeViewController: UIViewController {
         HomeViewModel(delegate: self)
     }()
 
+    private lazy var initialEmptyLabel: EdgeInsetLabel = {
+        let label = EdgeInsetLabel(frame: tableView.bounds)
+        label.font = .systemFont(ofSize: 21.0)
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.leftTextInset = 20.0
+        label.rightTextInset = 20.0
+        label.text = "Search for your favorite artists, songs or albums and sing along!\n\n🎵"
+        label.textColor = .lightGray
+        return label
+    }()
+
+    private var emptySearchResults: EdgeInsetLabel {
+        let label = EdgeInsetLabel(frame: tableView.bounds)
+        label.font = .systemFont(ofSize: 19.0)
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.leftTextInset = 20.0
+        label.rightTextInset = 20.0
+        label.text = "No matches found for your search:\n'\(viewModel.searchTerm)'\n\n🤯"
+        label.textColor = .label
+        return label
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "ABA Music"
@@ -56,6 +80,8 @@ private extension HomeViewController {
         SearchResultTableCell.register(in: tableView)
         tableView.dataSource = viewModel.dataSource
         viewModel.dataSource.delegate = self
+        tableView.backgroundView = initialEmptyLabel
+        tableView.separatorStyle = .none
     }
 
     func configureSearchBar() {
@@ -97,6 +123,13 @@ extension HomeViewController: DataSourceControllerDelegate {
             self?.tableView.reloadData()
             self?.spinner.stopAnimating()
             self?.searchBar.searchTextField.leftView = self?.searchBarInitialLeftView
+            if (self?.viewModel.dataSource.totalRowCount) ?? 0 == 0 {
+                if self?.viewModel.searchTerm.isEmpty ?? true {
+                    self?.tableView.backgroundView = self?.initialEmptyLabel
+                } else {
+                    self?.tableView.backgroundView = self?.emptySearchResults
+                }
+            }
         }
     }
 }

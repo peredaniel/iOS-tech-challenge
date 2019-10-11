@@ -8,8 +8,8 @@ protocol HomeViewModelDelegate: AnyObject {
 
 protocol HomeViewModelType {
     var dataSource: DataSourceController { get }
+    var searchTerm: String { get }
     var searchScopeIndex: Int { get }
-    var searchTerm: String? { get }
     func updateSearchTerm(_: String?)
     func updateSearchScope(_: Int)
 }
@@ -29,7 +29,7 @@ class HomeViewModel {
         didSet { performSearch() }
     }
 
-    private(set) var searchTerm: String? {
+    private(set) var searchTerm: String {
         didSet { performSearch() }
     }
 
@@ -46,6 +46,7 @@ class HomeViewModel {
         self.delegate = delegate
         repository = SearchRepository(service: iTunesService())
         artists = []
+        searchTerm = ""
     }
 }
 
@@ -55,18 +56,17 @@ extension HomeViewModel: HomeViewModelType {
     }
 
     func performSearch() {
-        guard let term = searchTerm else { return }
         switch searchScope {
         case .album:
-            repository.searchMusicVideos(album: term) { [weak self] result in
+            repository.searchMusicVideos(album: searchTerm) { [weak self] result in
                 self?.handleSearchResult(result)
             }
         case .artist:
-            repository.searchMusicVideos(artist: term) { [weak self] result in
+            repository.searchMusicVideos(artist: searchTerm) { [weak self] result in
                 self?.handleSearchResult(result)
             }
         case .song:
-            repository.searchMusicVideos(song: term) { [weak self] result in
+            repository.searchMusicVideos(song: searchTerm) { [weak self] result in
                 self?.handleSearchResult(result)
             }
         }
