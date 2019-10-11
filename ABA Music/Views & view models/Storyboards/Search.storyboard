@@ -109,11 +109,23 @@
                                                 <rect key="frame" x="169" y="87" width="37" height="37"/>
                                                 <color key="color" cocoaTouchSystemColor="lightTextColor"/>
                                             </activityIndicatorView>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aP5-Om-HC0">
+                                                <rect key="frame" x="106" y="85" width="163.5" height="41"/>
+                                                <string key="text">Unable to load video.
+Please try again later.</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="Pb3-Uf-c8l" firstAttribute="centerX" secondItem="7BN-zj-Ghe" secondAttribute="centerX" id="8uJ-NJ-t3j"/>
+                                            <constraint firstItem="aP5-Om-HC0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7BN-zj-Ghe" secondAttribute="leading" constant="20" id="JY5-vI-iU3"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="aP5-Om-HC0" secondAttribute="trailing" constant="20" id="QIH-b4-Tw1"/>
+                                            <constraint firstItem="aP5-Om-HC0" firstAttribute="centerX" secondItem="Pb3-Uf-c8l" secondAttribute="centerX" id="Wid-41-fLS"/>
                                             <constraint firstItem="Pb3-Uf-c8l" firstAttribute="centerY" secondItem="7BN-zj-Ghe" secondAttribute="centerY" id="hzj-xo-QcL"/>
+                                            <constraint firstItem="aP5-Om-HC0" firstAttribute="centerY" secondItem="Pb3-Uf-c8l" secondAttribute="centerY" id="l0b-zq-QFp"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -207,6 +219,7 @@
                         <outlet property="artistNameLabel" destination="uVw-So-64K" id="1xR-Th-dnb"/>
                         <outlet property="containerView" destination="QuR-a1-mIi" id="i0Z-dw-N3p"/>
                         <outlet property="countryLabel" destination="15q-7O-Pzm" id="Ed3-sA-B1n"/>
+                        <outlet property="errorLabel" destination="aP5-Om-HC0" id="RC1-PZ-eyE"/>
                         <outlet property="genreLabel" destination="m2k-ow-wxu" id="86I-7j-MJL"/>
                         <outlet property="imageView" destination="BWR-KQ-IeN" id="ptI-v7-ReE"/>
                         <outlet property="releaseDateLabel" destination="69L-ru-yGk" id="S4A-DE-jfX"/>
