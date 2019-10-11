@@ -1,7 +1,7 @@
 @testable import ABA_Music
 import Foundation
 
-class MockSearchService: SearchService {
+class MockSearchService: SearchServiceType {
     func search(
         _ term: String,
         media _: String = "",
@@ -12,7 +12,7 @@ class MockSearchService: SearchService {
     ) {
         guard let data = loadFromBundle("\(term)_\(attribute)"),
             let response = try? JSONDecoder().decode(SearchResponse.self, from: data) else {
-            completion(.failure(SearchError.parsingError))
+            completion(.failure(SearchServiceError.parsingError))
             return
         }
         completion(.success(response))

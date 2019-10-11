@@ -8,6 +8,7 @@ protocol HomeViewModelDelegate: AnyObject {
 
 protocol HomeViewModelType {
     var dataSource: DataSourceController { get }
+    var delegate: HomeViewModelDelegate? { get set }
     var searchTerm: String { get }
     var searchScopeIndex: Int { get }
     func updateSearchTerm(_: String?)
@@ -23,7 +24,6 @@ class HomeViewModel {
         }
     }
 
-    private weak var delegate: HomeViewModelDelegate?
     private let repository: SearchRepositoryType
     private var searchScope: SearchRepository.SearchScope = .artist {
         didSet { performSearch() }
@@ -42,9 +42,10 @@ class HomeViewModel {
         return dataSource
     }()
 
-    init(delegate: HomeViewModelDelegate?) {
-        self.delegate = delegate
-        repository = SearchRepository(service: iTunesService())
+    weak var delegate: HomeViewModelDelegate?
+
+    init(repository: SearchRepositoryType) {
+        self.repository = repository
         artists = []
         searchTerm = ""
     }

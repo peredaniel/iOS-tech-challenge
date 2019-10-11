@@ -1,6 +1,12 @@
 import Foundation
 
-class iTunesService {
+enum SearchServiceError: Swift.Error {
+    case invalidURL
+    case invalidQueryParameters
+    case parsingError
+}
+
+class SearchService {
     private enum QueryItemKey: String {
         case attribute
         case entity
@@ -9,22 +15,29 @@ class iTunesService {
         case term
     }
 
-    private let baseUrl = "https://itunes.apple.com/search"
+    private let endpoint = "/search"
+    private let baseUrl: String
+
+    init(baseUrl: String) {
+        self.baseUrl = baseUrl
+    }
 }
 
-extension iTunesService: SearchService {
+extension SearchService: SearchServiceType {
     func search(
         _ term: String,
         media: String,
         entity: String,
         attribute: String,
         limit: Int,
-        completion: @escaping (Result<SearchResponse, Swift.Error>) -> Void
+        completion: @escaping (Result<SearchResponse, Error>) -> Void
     ) {
         guard var urlComponents = URLComponents(string: baseUrl) else {
-            completion(.failure(SearchError.invalidURL))
+            completion(.failure(SearchServiceError.invalidURL))
             return
         }
+
+        urlComponents.path = endpoint
 
         urlComponents.queryItems = [
             URLQueryItem(
@@ -38,7 +51,7 @@ extension iTunesService: SearchService {
         ]
 
         guard let url = urlComponents.url else {
-            completion(.failure(SearchError.invalidURL))
+            completion(.failure(SearchServiceError.invalidQueryParameters))
             return
         }
 
@@ -50,7 +63,7 @@ extension iTunesService: SearchService {
             if let result = try? JSONDecoder().decode(SearchResponse.self, from: data) {
                 completion(.success(result))
             } else {
-                completion(.failure(SearchError.parsingError))
+                completion(.failure(SearchServiceError.parsingError))
             }
         }.resume()
     }

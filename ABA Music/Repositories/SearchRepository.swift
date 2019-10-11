@@ -11,9 +11,9 @@ class SearchRepository {
         case song = "songTerm"
     }
 
-    private let service: SearchService
+    private let service: SearchServiceType
 
-    init(service: SearchService) {
+    init(service: SearchServiceType) {
         self.service = service
     }
 }
