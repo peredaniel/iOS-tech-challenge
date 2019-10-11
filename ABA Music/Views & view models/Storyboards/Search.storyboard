@@ -27,7 +27,7 @@
         <!--Home View Controller-->
         <scene sceneID="0b8-Ua-60v">
             <objects>
-                <viewController id="WR0-2g-Swi" customClass="HomeViewController" customModule="ABA_Music" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WR0-2g-Swi" customClass="HomeViewController" customModule="ABA_Music" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9qR-qb-zuN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -88,7 +88,7 @@
         <!--Track Details View Controller-->
         <scene sceneID="yfY-rD-tlj">
             <objects>
-                <viewController id="oRE-97-3qs" customClass="TrackDetailsViewController" customModule="ABA_Music" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TrackDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="oRE-97-3qs" customClass="TrackDetailsViewController" customModule="ABA_Music" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vIT-s9-hnY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

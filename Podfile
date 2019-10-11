@@ -19,7 +19,7 @@ end
 
 target 'ABA MusicTests' do
   inherit! :search_paths
-  # Pods for testing
+  pod 'SnapshotTesting', '~> 1.6.0'
 end
 
 target 'ABA MusicUITests' do
