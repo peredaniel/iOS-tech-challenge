@@ -70,7 +70,7 @@ class SearchRepositoryTests: XCTestCase {
                 // The result should not be a succes! If so, fail the test and fix it.
                 XCTAssertTrue(false)
             case .failure(let error):
-                XCTAssertEqual(error as? SearchError, SearchError.parsingError)
+                XCTAssertEqual(error as? SearchServiceError, SearchServiceError.parsingError)
             }
         }
     }
@@ -129,7 +129,7 @@ class SearchRepositoryTests: XCTestCase {
                 // The result should not be a succes! If so, fail the test and fix it.
                 XCTAssertTrue(false)
             case .failure(let error):
-                XCTAssertEqual(error as? SearchError, SearchError.parsingError)
+                XCTAssertEqual(error as? SearchServiceError, SearchServiceError.parsingError)
             }
         }
     }
@@ -192,7 +192,7 @@ class SearchRepositoryTests: XCTestCase {
                 // The result should not be a succes! If so, fail the test and fix it.
                 XCTAssertTrue(false)
             case .failure(let error):
-                XCTAssertEqual(error as? SearchError, SearchError.parsingError)
+                XCTAssertEqual(error as? SearchServiceError, SearchServiceError.parsingError)
             }
         }
     }

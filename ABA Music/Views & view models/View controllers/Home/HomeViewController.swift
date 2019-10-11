@@ -23,9 +23,7 @@ class HomeViewController: UIViewController {
         return spinner
     }()
 
-    private lazy var viewModel: HomeViewModelType = {
-        HomeViewModel(delegate: self)
-    }()
+    var viewModel: HomeViewModelType!
 
     private lazy var initialEmptyLabel: EdgeInsetLabel = {
         let label = EdgeInsetLabel(frame: tableView.bounds)
@@ -57,6 +55,7 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.delegate = self
         title = "ABA Music"
         configureSearchBar()
         configureTableView()
