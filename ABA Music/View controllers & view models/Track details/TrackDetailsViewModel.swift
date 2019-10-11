@@ -2,6 +2,7 @@ import Foundation
 
 protocol TrackDetailsViewModelType {
     var artistName: String { get }
+    var artworkUrl: URL? { get }
     var previewUrl: URL? { get }
     var releaseDate: String? { get }
     var trackCountry: String { get }
@@ -11,7 +12,7 @@ protocol TrackDetailsViewModelType {
 
 class TrackDetailsViewModel {
     private enum Constant {
-        static let dateFormat = "MMM dd, yyyy"
+        static let dateFormat = "MMMM dd, yyyy"
     }
 
     private let track: Track
@@ -24,6 +25,10 @@ class TrackDetailsViewModel {
 extension TrackDetailsViewModel: TrackDetailsViewModelType {
     var artistName: String {
         return track.artist.name
+    }
+
+    var artworkUrl: URL? {
+        return URL(string: track.artworkUrl100)
     }
 
     var previewUrl: URL? {
