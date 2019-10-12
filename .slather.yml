@@ -1,4 +1,5 @@
 coverage_service: coveralls
+xcodeproj: ABA\ Music.xcodeproj
 workspace: ABA\ Music.xcworkspace
 scheme: ABA\ Music
 source_directory: ABA\ Music/*
