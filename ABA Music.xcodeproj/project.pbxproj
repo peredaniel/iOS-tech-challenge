@@ -29,6 +29,12 @@
 		9F372DD4234E818500016EBB /* SearchResultCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F372DD2234E818500016EBB /* SearchResultCollectionCell.xib */; };
 		9F5CB4D72352031100E8D039 /* ApplicationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5CB4D62352031100E8D039 /* ApplicationUITests.swift */; };
 		9F5CB4D92352032D00E8D039 /* NavigationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5CB4D82352032D00E8D039 /* NavigationUITests.swift */; };
+		9F5CB4DB2352338600E8D039 /* MockSearchRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5CB4DA2352338600E8D039 /* MockSearchRepository.swift */; };
+		9F5CB4DD2352341B00E8D039 /* MockDataSourceControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5CB4DC2352341B00E8D039 /* MockDataSourceControllerDelegate.swift */; };
+		9F5CB4DF2352356E00E8D039 /* Artist+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5CB4DE2352356D00E8D039 /* Artist+Mock.swift */; };
+		9F5CB4E1235235AA00E8D039 /* Track+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5CB4E0235235AA00E8D039 /* Track+Mock.swift */; };
+		9F5CB4E32352382200E8D039 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5CB4E22352382200E8D039 /* HomeViewModelTests.swift */; };
+		9F5CB4E523523DB000E8D039 /* MockHomeViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5CB4E423523DB000E8D039 /* MockHomeViewModelDelegate.swift */; };
 		9F647DC72351FB160076D281 /* SearchStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F647DC62351FB160076D281 /* SearchStub.swift */; };
 		9F6896EE234BAF3000502EC8 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6896ED234BAF3000502EC8 /* SearchService.swift */; };
 		9F6896F0234BAF5F00502EC8 /* SearchServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6896EF234BAF5F00502EC8 /* SearchServiceType.swift */; };
@@ -116,6 +122,12 @@
 		9F372DD2234E818500016EBB /* SearchResultCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCollectionCell.xib; sourceTree = "<group>"; };
 		9F5CB4D62352031100E8D039 /* ApplicationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationUITests.swift; sourceTree = "<group>"; };
 		9F5CB4D82352032D00E8D039 /* NavigationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationUITests.swift; sourceTree = "<group>"; };
+		9F5CB4DA2352338600E8D039 /* MockSearchRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSearchRepository.swift; sourceTree = "<group>"; };
+		9F5CB4DC2352341B00E8D039 /* MockDataSourceControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataSourceControllerDelegate.swift; sourceTree = "<group>"; };
+		9F5CB4DE2352356D00E8D039 /* Artist+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Artist+Mock.swift"; sourceTree = "<group>"; };
+		9F5CB4E0235235AA00E8D039 /* Track+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Track+Mock.swift"; sourceTree = "<group>"; };
+		9F5CB4E22352382200E8D039 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		9F5CB4E423523DB000E8D039 /* MockHomeViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHomeViewModelDelegate.swift; sourceTree = "<group>"; };
 		9F647DC62351FB160076D281 /* SearchStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchStub.swift; sourceTree = "<group>"; };
 		9F6896ED234BAF3000502EC8 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		9F6896EF234BAF5F00502EC8 /* SearchServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchServiceType.swift; sourceTree = "<group>"; };
@@ -483,8 +495,13 @@
 		9FE92AC0234C86C500BD4AA1 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				9F5CB4DE2352356D00E8D039 /* Artist+Mock.swift */,
+				9F5CB4DC2352341B00E8D039 /* MockDataSourceControllerDelegate.swift */,
+				9F5CB4E423523DB000E8D039 /* MockHomeViewModelDelegate.swift */,
+				9F5CB4DA2352338600E8D039 /* MockSearchRepository.swift */,
 				9FE92AC1234C86C500BD4AA1 /* MockSearchService.swift */,
 				9FAB225D2350DBF9004324E2 /* MockTrackDetailsViewModel.swift */,
+				9F5CB4E0235235AA00E8D039 /* Track+Mock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -492,6 +509,7 @@
 		9FE92AC3234C86CD00BD4AA1 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				9F5CB4E22352382200E8D039 /* HomeViewModelTests.swift */,
 				9FAB22592350D16C004324E2 /* HomeViewControllerTests.swift */,
 				9FE92AC4234C86CD00BD4AA1 /* SearchRepositoryTests.swift */,
 				9FAB225F2350DD23004324E2 /* TrackDetailsViewControllerTests.swift */,
@@ -832,11 +850,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F5CB4DF2352356E00E8D039 /* Artist+Mock.swift in Sources */,
+				9F5CB4DD2352341B00E8D039 /* MockDataSourceControllerDelegate.swift in Sources */,
 				9FE92AC2234C86C500BD4AA1 /* MockSearchService.swift in Sources */,
 				9FAB225A2350D16C004324E2 /* HomeViewControllerTests.swift in Sources */,
 				9FE92AC9234C86CD00BD4AA1 /* SearchRepositoryTests.swift in Sources */,
+				9F5CB4E32352382200E8D039 /* HomeViewModelTests.swift in Sources */,
+				9F5CB4DB2352338600E8D039 /* MockSearchRepository.swift in Sources */,
 				9FAB225E2350DBF9004324E2 /* MockTrackDetailsViewModel.swift in Sources */,
 				9FAB22602350DD23004324E2 /* TrackDetailsViewControllerTests.swift in Sources */,
+				9F5CB4E523523DB000E8D039 /* MockHomeViewModelDelegate.swift in Sources */,
+				9F5CB4E1235235AA00E8D039 /* Track+Mock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
