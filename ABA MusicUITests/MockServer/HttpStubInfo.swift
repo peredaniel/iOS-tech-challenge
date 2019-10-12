@@ -1,7 +1,6 @@
 import Foundation
 
 struct HttpStubInfo {
-
     /// The endpoint to the API that is mocked. Only the endpoint is necessary.
     let endpoint: String
 

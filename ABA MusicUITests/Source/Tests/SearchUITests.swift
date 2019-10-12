@@ -1,7 +1,6 @@
 import XCTest
 
 class SearchUITests: BaseUITestCase {
-
     func testScrollingVerticallyAndHorizontallyWithMultipleResults() {
         mockServer.addMockedResponse(SearchStub.Artist.jackson)
         XCTAssertTrue(application.searchFields["Type in to search..."].waitForExistence(timeout: 5), "Application did not load to home screen!")

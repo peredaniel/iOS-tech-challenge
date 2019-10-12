@@ -1,6 +1,6 @@
 import Foundation
-import Swifter
 import os.log
+import Swifter
 
 public enum HttpMethod {
     case post
@@ -45,7 +45,7 @@ final class MockServer {
             return
         }
 
-        let response: ((HttpRequest) -> HttpResponse)
+        let response: (HttpRequest) -> HttpResponse
         if let responseBody = try? JSONSerialization.data(withJSONObject: json, options: .sortedKeys) {
             response = { _ in
                 .raw(
@@ -60,7 +60,7 @@ final class MockServer {
         }
 
         switch stub.method {
-        case .get : server.GET[stub.endpoint] = response
+        case .get: server.GET[stub.endpoint] = response
         case .post: server.POST[stub.endpoint] = response
         case .patch: server.PATCH[stub.endpoint] = response
         }
