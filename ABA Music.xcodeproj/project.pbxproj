@@ -26,6 +26,8 @@
 		9F0A2C13234C9A1B008ECED3 /* TrackDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0A2C12234C9A1B008ECED3 /* TrackDetailsViewModel.swift */; };
 		9F12F80B234E1E0800CECB1A /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F12F80A234E1E0800CECB1A /* Search.storyboard */; };
 		9F25A8AF23524C8F00EDA9D6 /* TrackMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F25A8AE23524C8F00EDA9D6 /* TrackMapperTests.swift */; };
+		9F25A8B123524F8200EDA9D6 /* SearchResultTableViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F25A8B023524F8200EDA9D6 /* SearchResultTableViewModelTests.swift */; };
+		9F25A8B32352528600EDA9D6 /* MockSearchResultTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F25A8B22352528600EDA9D6 /* MockSearchResultTableDelegate.swift */; };
 		9F372DD3234E818500016EBB /* SearchResultCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F372DD1234E818500016EBB /* SearchResultCollectionCell.swift */; };
 		9F372DD4234E818500016EBB /* SearchResultCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F372DD2234E818500016EBB /* SearchResultCollectionCell.xib */; };
 		9F5CB4D72352031100E8D039 /* ApplicationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5CB4D62352031100E8D039 /* ApplicationUITests.swift */; };
@@ -124,6 +126,8 @@
 		9F0A2C12234C9A1B008ECED3 /* TrackDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailsViewModel.swift; sourceTree = "<group>"; };
 		9F12F80A234E1E0800CECB1A /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		9F25A8AE23524C8F00EDA9D6 /* TrackMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackMapperTests.swift; sourceTree = "<group>"; };
+		9F25A8B023524F8200EDA9D6 /* SearchResultTableViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewModelTests.swift; sourceTree = "<group>"; };
+		9F25A8B22352528600EDA9D6 /* MockSearchResultTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSearchResultTableDelegate.swift; sourceTree = "<group>"; };
 		9F372DD1234E818500016EBB /* SearchResultCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCollectionCell.swift; sourceTree = "<group>"; };
 		9F372DD2234E818500016EBB /* SearchResultCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCollectionCell.xib; sourceTree = "<group>"; };
 		9F5CB4D62352031100E8D039 /* ApplicationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationUITests.swift; sourceTree = "<group>"; };
@@ -383,6 +387,7 @@
 				9F5CB4E623523FAC00E8D039 /* TrackDetailsViewModelTests.swift */,
 				9F5CB4E82352419600E8D039 /* TrackPlayerViewModelTests.swift */,
 				9F5CB4EA235243B100E8D039 /* SearchResultCollectionViewModelTests.swift */,
+				9F25A8B023524F8200EDA9D6 /* SearchResultTableViewModelTests.swift */,
 			);
 			path = "View models tests";
 			sourceTree = "<group>";
@@ -546,6 +551,7 @@
 				9F5CB4DC2352341B00E8D039 /* MockDataSourceControllerDelegate.swift */,
 				9F5CB4E423523DB000E8D039 /* MockHomeViewModelDelegate.swift */,
 				9F5CB4DA2352338600E8D039 /* MockSearchRepository.swift */,
+				9F25A8B22352528600EDA9D6 /* MockSearchResultTableDelegate.swift */,
 				9FE92AC1234C86C500BD4AA1 /* MockSearchService.swift */,
 				9FAB225D2350DBF9004324E2 /* MockTrackDetailsViewModel.swift */,
 				9F5CB4E0235235AA00E8D039 /* Track+Mock.swift */,
@@ -911,8 +917,10 @@
 				9FAB225E2350DBF9004324E2 /* MockTrackDetailsViewModel.swift in Sources */,
 				9FAB22602350DD23004324E2 /* TrackDetailsViewControllerTests.swift in Sources */,
 				9F5CB4E523523DB000E8D039 /* MockHomeViewModelDelegate.swift in Sources */,
+				9F25A8B32352528600EDA9D6 /* MockSearchResultTableDelegate.swift in Sources */,
 				9F5CB4E1235235AA00E8D039 /* Track+Mock.swift in Sources */,
 				9F5CB4F523524BB700E8D039 /* ArtistMapperTests.swift in Sources */,
+				9F25A8B123524F8200EDA9D6 /* SearchResultTableViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
