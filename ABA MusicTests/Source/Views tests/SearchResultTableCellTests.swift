@@ -17,6 +17,15 @@ class SearchResultTableCellTests: XCTestCase {
         super.tearDown()
     }
 
+    func testViewLoadsSuccessfully_InvalidViewModel() {
+        let track = Artist.generateArtist(index: 3).tracks.randomElement()!
+        let viewModel = SearchResultTableViewModel.populate(with: track)
+
+        cell.configure(with: viewModel)
+
+        assertSnapshot(matching: cell, as: .image)
+    }
+
     func testViewLoadsSuccessfully_NoTracks() {
         let artist = Artist.generateArtist(index: 3)
         artist.tracks.removeAll()
