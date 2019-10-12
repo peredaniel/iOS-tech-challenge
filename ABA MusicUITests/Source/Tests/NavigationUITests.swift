@@ -15,6 +15,16 @@ class NavigationUITests: BaseUITestCase {
         XCTAssertTrue(application.staticTexts["Country: USA"].waitForExistence(timeout: 5), "Failed to load track details screen")
         XCTAssertTrue(application.staticTexts["Release date: June 22, 2018"].waitForExistence(timeout: 5), "Failed to load track details screen")
 
+        XCUIDevice.shared.orientation = .landscapeLeft
+
+        XCTAssertFalse(application.staticTexts["Help!"].isHittable, "Failed to load track details screen")
+        XCTAssertFalse(application.staticTexts["The Beatles"].isHittable, "Failed to load track details screen")
+        XCTAssertFalse(application.staticTexts["Genre: Rock"].isHittable, "Failed to load track details screen")
+        XCTAssertFalse(application.staticTexts["Country: USA"].isHittable, "Failed to load track details screen")
+        XCTAssertFalse(application.staticTexts["Release date: June 22, 2018"].isHittable, "Failed to load track details screen")
+
+        XCUIDevice.shared.orientation = .portrait
+
         XCTAssertTrue(application.buttons.firstMatch.waitForExistence(timeout: 5), "A 'back' button should be available")
         application.buttons.firstMatch.tap()
         XCTAssertTrue(application.searchFields["Type in to search..."].waitForExistence(timeout: 5), "Failed to pop to home screen")
@@ -41,6 +51,16 @@ class NavigationUITests: BaseUITestCase {
         XCTAssertTrue(application.staticTexts["Country: USA"].waitForExistence(timeout: 5), "Failed to load track details screen")
         XCTAssertTrue(application.staticTexts["Release date: August 28, 2015"].waitForExistence(timeout: 5), "Failed to load track details screen")
 
+        XCUIDevice.shared.orientation = .landscapeLeft
+
+        XCTAssertFalse(application.staticTexts["Rebirth of a Nation"].isHittable, "Failed to load track details screen")
+        XCTAssertFalse(application.staticTexts["DJ Spooky & Kronos Quartet"].isHittable, "Failed to load track details screen")
+        XCTAssertFalse(application.staticTexts["Genre: Soundtrack"].isHittable, "Failed to load track details screen")
+        XCTAssertFalse(application.staticTexts["Country: USA"].isHittable, "Failed to load track details screen")
+        XCTAssertFalse(application.staticTexts["Release date: August 28, 2015"].isHittable, "Failed to load track details screen")
+
+        XCUIDevice.shared.orientation = .portrait
+
         XCTAssertTrue(application.buttons.firstMatch.waitForExistence(timeout: 5), "A 'back' button should be available")
         application.buttons.firstMatch.tap()
         XCTAssertTrue(application.searchFields["Type in to search..."].waitForExistence(timeout: 5), "Failed to pop to home screen")
@@ -66,6 +86,17 @@ class NavigationUITests: BaseUITestCase {
         XCTAssertTrue(application.staticTexts["Genre: Rock"].waitForExistence(timeout: 5), "Failed to load track details screen")
         XCTAssertTrue(application.staticTexts["Country: USA"].waitForExistence(timeout: 5), "Failed to load track details screen")
         XCTAssertTrue(application.staticTexts["Release date: March 15, 1968"].waitForExistence(timeout: 5), "Failed to load track details screen")
+
+        XCUIDevice.shared.orientation = .landscapeLeft
+
+        XCTAssertFalse(application.staticTexts["Lady Madonna"].isHittable, "Failed to load track details screen")
+        XCTAssertFalse(application.staticTexts["The Beatles"].isHittable, "Failed to load track details screen")
+        XCTAssertFalse(application.staticTexts["Genre: Rock"].isHittable, "Failed to load track details screen")
+        XCTAssertFalse(application.staticTexts["Country: USA"].isHittable, "Failed to load track details screen")
+        XCTAssertFalse(application.staticTexts["Release date: March 15, 1968"].isHittable, "Failed to load track details screen")
+
+        XCUIDevice.shared.orientation = .portrait
+
 
         XCTAssertTrue(application.buttons.firstMatch.waitForExistence(timeout: 5), "A 'back' button should be available")
         application.buttons.firstMatch.tap()
