@@ -38,6 +38,7 @@
 		9F5CB4E723523FAC00E8D039 /* TrackDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5CB4E623523FAC00E8D039 /* TrackDetailsViewModelTests.swift */; };
 		9F5CB4E92352419600E8D039 /* TrackPlayerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5CB4E82352419600E8D039 /* TrackPlayerViewModelTests.swift */; };
 		9F5CB4EB235243B100E8D039 /* SearchResultCollectionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5CB4EA235243B100E8D039 /* SearchResultCollectionViewModelTests.swift */; };
+		9F5CB4F523524BB700E8D039 /* ArtistMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5CB4F423524BB700E8D039 /* ArtistMapperTests.swift */; };
 		9F647DC72351FB160076D281 /* SearchStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F647DC62351FB160076D281 /* SearchStub.swift */; };
 		9F6896EE234BAF3000502EC8 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6896ED234BAF3000502EC8 /* SearchService.swift */; };
 		9F6896F0234BAF5F00502EC8 /* SearchServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6896EF234BAF5F00502EC8 /* SearchServiceType.swift */; };
@@ -134,6 +135,7 @@
 		9F5CB4E623523FAC00E8D039 /* TrackDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailsViewModelTests.swift; sourceTree = "<group>"; };
 		9F5CB4E82352419600E8D039 /* TrackPlayerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackPlayerViewModelTests.swift; sourceTree = "<group>"; };
 		9F5CB4EA235243B100E8D039 /* SearchResultCollectionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCollectionViewModelTests.swift; sourceTree = "<group>"; };
+		9F5CB4F423524BB700E8D039 /* ArtistMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistMapperTests.swift; sourceTree = "<group>"; };
 		9F647DC62351FB160076D281 /* SearchStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchStub.swift; sourceTree = "<group>"; };
 		9F6896ED234BAF3000502EC8 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		9F6896EF234BAF5F00502EC8 /* SearchServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchServiceType.swift; sourceTree = "<group>"; };
@@ -372,6 +374,42 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
+		9F5CB4EC235247DF00E8D039 /* View models tests */ = {
+			isa = PBXGroup;
+			children = (
+				9F5CB4E22352382200E8D039 /* HomeViewModelTests.swift */,
+				9F5CB4E623523FAC00E8D039 /* TrackDetailsViewModelTests.swift */,
+				9F5CB4E82352419600E8D039 /* TrackPlayerViewModelTests.swift */,
+				9F5CB4EA235243B100E8D039 /* SearchResultCollectionViewModelTests.swift */,
+			);
+			path = "View models tests";
+			sourceTree = "<group>";
+		};
+		9F5CB4EE235247F600E8D039 /* Views tests */ = {
+			isa = PBXGroup;
+			children = (
+				9FAB22592350D16C004324E2 /* HomeViewControllerTests.swift */,
+				9FAB225F2350DD23004324E2 /* TrackDetailsViewControllerTests.swift */,
+			);
+			path = "Views tests";
+			sourceTree = "<group>";
+		};
+		9F5CB4EF2352481F00E8D039 /* Repositories tests */ = {
+			isa = PBXGroup;
+			children = (
+				9FE92AC4234C86CD00BD4AA1 /* SearchRepositoryTests.swift */,
+			);
+			path = "Repositories tests";
+			sourceTree = "<group>";
+		};
+		9F5CB4F12352493700E8D039 /* Model mapper tests */ = {
+			isa = PBXGroup;
+			children = (
+				9F5CB4F423524BB700E8D039 /* ArtistMapperTests.swift */,
+			);
+			path = "Model mapper tests";
+			sourceTree = "<group>";
+		};
 		9F647DC32351FADA0076D281 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -515,13 +553,10 @@
 		9FE92AC3234C86CD00BD4AA1 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				9F5CB4E22352382200E8D039 /* HomeViewModelTests.swift */,
-				9FAB22592350D16C004324E2 /* HomeViewControllerTests.swift */,
-				9FE92AC4234C86CD00BD4AA1 /* SearchRepositoryTests.swift */,
-				9FAB225F2350DD23004324E2 /* TrackDetailsViewControllerTests.swift */,
-				9F5CB4E623523FAC00E8D039 /* TrackDetailsViewModelTests.swift */,
-				9F5CB4E82352419600E8D039 /* TrackPlayerViewModelTests.swift */,
-				9F5CB4EA235243B100E8D039 /* SearchResultCollectionViewModelTests.swift */,
+				9F5CB4F12352493700E8D039 /* Model mapper tests */,
+				9F5CB4EF2352481F00E8D039 /* Repositories tests */,
+				9F5CB4EC235247DF00E8D039 /* View models tests */,
+				9F5CB4EE235247F600E8D039 /* Views tests */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -873,6 +908,7 @@
 				9FAB22602350DD23004324E2 /* TrackDetailsViewControllerTests.swift in Sources */,
 				9F5CB4E523523DB000E8D039 /* MockHomeViewModelDelegate.swift in Sources */,
 				9F5CB4E1235235AA00E8D039 /* Track+Mock.swift in Sources */,
+				9F5CB4F523524BB700E8D039 /* ArtistMapperTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
