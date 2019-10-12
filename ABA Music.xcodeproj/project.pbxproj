@@ -25,6 +25,7 @@
 		9F0A2C11234C9A10008ECED3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0A2C10234C9A10008ECED3 /* HomeViewModel.swift */; };
 		9F0A2C13234C9A1B008ECED3 /* TrackDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0A2C12234C9A1B008ECED3 /* TrackDetailsViewModel.swift */; };
 		9F12F80B234E1E0800CECB1A /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F12F80A234E1E0800CECB1A /* Search.storyboard */; };
+		9F25A8AF23524C8F00EDA9D6 /* TrackMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F25A8AE23524C8F00EDA9D6 /* TrackMapperTests.swift */; };
 		9F372DD3234E818500016EBB /* SearchResultCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F372DD1234E818500016EBB /* SearchResultCollectionCell.swift */; };
 		9F372DD4234E818500016EBB /* SearchResultCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F372DD2234E818500016EBB /* SearchResultCollectionCell.xib */; };
 		9F5CB4D72352031100E8D039 /* ApplicationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5CB4D62352031100E8D039 /* ApplicationUITests.swift */; };
@@ -122,6 +123,7 @@
 		9F0A2C10234C9A10008ECED3 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		9F0A2C12234C9A1B008ECED3 /* TrackDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailsViewModel.swift; sourceTree = "<group>"; };
 		9F12F80A234E1E0800CECB1A /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		9F25A8AE23524C8F00EDA9D6 /* TrackMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackMapperTests.swift; sourceTree = "<group>"; };
 		9F372DD1234E818500016EBB /* SearchResultCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCollectionCell.swift; sourceTree = "<group>"; };
 		9F372DD2234E818500016EBB /* SearchResultCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCollectionCell.xib; sourceTree = "<group>"; };
 		9F5CB4D62352031100E8D039 /* ApplicationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationUITests.swift; sourceTree = "<group>"; };
@@ -406,6 +408,7 @@
 			isa = PBXGroup;
 			children = (
 				9F5CB4F423524BB700E8D039 /* ArtistMapperTests.swift */,
+				9F25A8AE23524C8F00EDA9D6 /* TrackMapperTests.swift */,
 			);
 			path = "Model mapper tests";
 			sourceTree = "<group>";
@@ -901,6 +904,7 @@
 				9FAB225A2350D16C004324E2 /* HomeViewControllerTests.swift in Sources */,
 				9FE92AC9234C86CD00BD4AA1 /* SearchRepositoryTests.swift in Sources */,
 				9F5CB4E32352382200E8D039 /* HomeViewModelTests.swift in Sources */,
+				9F25A8AF23524C8F00EDA9D6 /* TrackMapperTests.swift in Sources */,
 				9F5CB4EB235243B100E8D039 /* SearchResultCollectionViewModelTests.swift in Sources */,
 				9F5CB4E723523FAC00E8D039 /* TrackDetailsViewModelTests.swift in Sources */,
 				9F5CB4DB2352338600E8D039 /* MockSearchRepository.swift in Sources */,
