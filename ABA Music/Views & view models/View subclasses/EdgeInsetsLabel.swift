@@ -11,10 +11,12 @@ class EdgeInsetLabel: UILabel {
     ) -> CGRect {
         let insetRect = bounds.inset(by: textInsets)
         let textRect = super.textRect(forBounds: insetRect, limitedToNumberOfLines: numberOfLines)
-        let invertedInsets = UIEdgeInsets(top: -textInsets.top,
-                left: -textInsets.left,
-                bottom: -textInsets.bottom,
-                right: -textInsets.right)
+        let invertedInsets = UIEdgeInsets(
+            top: -textInsets.top,
+            left: -textInsets.left,
+            bottom: -textInsets.bottom,
+            right: -textInsets.right
+        )
         return textRect.inset(by: invertedInsets)
     }
 

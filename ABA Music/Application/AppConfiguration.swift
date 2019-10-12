@@ -2,6 +2,7 @@ import Foundation
 
 enum Environment: String {
     case production
+    case uiTests
 }
 
 struct AppConfiguration: Decodable {

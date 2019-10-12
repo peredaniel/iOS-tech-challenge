@@ -4,11 +4,13 @@ PODS:
     - Alamofire (~> 4.8)
   - DataSourceController (1.0.0)
   - SnapshotTesting (1.6.0)
+  - Swifter (1.4.7)
 
 DEPENDENCIES:
   - AlamofireImage (~> 3.5.0)
   - DataSourceController (~> 1.0.0)
   - SnapshotTesting (~> 1.6.0)
+  - Swifter (~> 1.4.7)
 
 SPEC REPOS:
   trunk:
@@ -16,13 +18,15 @@ SPEC REPOS:
     - AlamofireImage
     - DataSourceController
     - SnapshotTesting
+    - Swifter
 
 SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
   AlamofireImage: 1aea346f4dda2f6c67622fa5a89fcbb80d79cc16
   DataSourceController: e115e0f3f0faeaed7c3754d7e2ede799f7b2bec2
   SnapshotTesting: 9f478335073a830eafb7dc1fcd526c5e90143991
+  Swifter: 2327ef5d872c638aebab79646ce494af508b0c8f
 
-PODFILE CHECKSUM: 81e0eaffdd4d96f091a8f9887701ac1d2422005d
+PODFILE CHECKSUM: ea6327f51119cec0290a203b7db5455e9e45e214
 
 COCOAPODS: 1.8.3
