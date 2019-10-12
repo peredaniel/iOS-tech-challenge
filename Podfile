@@ -19,6 +19,7 @@ end
 
 target 'ABA MusicTests' do
   inherit! :search_paths
+  pod 'DataSourceController', '~>1.0.0'
   pod 'SnapshotTesting', '~> 1.6.0'
 end
 

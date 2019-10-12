@@ -97,7 +97,6 @@ class NavigationUITests: BaseUITestCase {
 
         XCUIDevice.shared.orientation = .portrait
 
-
         XCTAssertTrue(application.buttons.firstMatch.waitForExistence(timeout: 5), "A 'back' button should be available")
         application.buttons.firstMatch.tap()
         XCTAssertTrue(application.searchFields["Type in to search..."].waitForExistence(timeout: 5), "Failed to pop to home screen")

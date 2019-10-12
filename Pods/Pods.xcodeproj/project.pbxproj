@@ -28,12 +28,11 @@
 		25F5D821614EED49E47CC1816057F3D9 /* Scopes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41D6B53DD3AA6DC9501545697957FAF /* Scopes.swift */; };
 		2A1C57B3A5D16F19AF0B0E1FF5450294 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72685F5B0D04E861A6554FADB28E1380 /* HttpRequest.swift */; };
 		2C61B040BA6A9A7AE66C4D9BA26D5520 /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103005F0FCEF0DA62521B84E2CB91066 /* SessionDelegate.swift */; };
-		30A163539A953E30F711ACF0770BEDB4 /* Pods-ABA MusicTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D2E76A9C325A9705A5A18B6425F2FB /* Pods-ABA MusicTests-dummy.m */; };
 		3123B111C91B4E80CF939ACAA86317A4 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC19662002F11DEE2DDF21131193184 /* CALayer.swift */; };
 		32992A3BFDAB9C40EC3DE9D0AFB16F7A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 718374D0F539EBA744DA1AF563203CF9 /* Foundation.framework */; };
 		3571F958A3907B3A806E62D50C2550D4 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321A0B72F5827B49C608B716C5C1282E /* NetworkReachabilityManager.swift */; };
 		3E2F0824381F0903E32524E7B700B3F1 /* Socket+Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EAA764BA1FD21E953B7350F164D6CC /* Socket+Server.swift */; };
-		402EE2B724FDB2A30E8B8C63D274F63E /* Pods-ABA MusicTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 655E3B6A56506B14CE66E2922B12C9F3 /* Pods-ABA MusicTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F99CC31C9936D06CC6A2EB390DDAE6A /* Pods-ABA MusicTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D2E76A9C325A9705A5A18B6425F2FB /* Pods-ABA MusicTests-dummy.m */; };
 		45299BEC6F8E864DAA4D3F46CC4350D0 /* Errno.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF53B13B56B48227F7B9D852865CA21 /* Errno.swift */; };
 		46358A27605474241721C43FB4E8F7D6 /* UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC774BDAED880ED449AF8C2C9A6387C /* UITableViewDataSource.swift */; };
 		46C1549B816BBA0D22AEC7860C5D99C7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E6DA5EA8A14C5FF983E7D2D270AD1A3 /* XCTest.framework */; };
@@ -60,11 +59,11 @@
 		75C7A60D8FA8F39F14599593E137981C /* ImageFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D790A5ACF9DFF30B36948891D2F65 /* ImageFilter.swift */; };
 		7664FD4F59A0C00866CBAE60B0A3AD64 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 718374D0F539EBA744DA1AF563203CF9 /* Foundation.framework */; };
 		7669C017A62DD60F8F8D8F4B2808C2F5 /* Pods-ABA MusicUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E1200EF8B11F1415E99046E26229E77 /* Pods-ABA MusicUITests-dummy.m */; };
-		7D34A5D86CADE8B8DB8580B37EB54AAF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 718374D0F539EBA744DA1AF563203CF9 /* Foundation.framework */; };
 		7EC450AE540A9EB81D1312D2C1799719 /* SectionDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961AE7580FB6FFF5D0668360B10E6368 /* SectionDataModel.swift */; };
 		80847029C583EB65720510EF410EF906 /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3881A34AB583CCCFE4AC3043BE22C5DF /* HttpResponse.swift */; };
 		8316C684AB8719C80557E0DD0FDBC7D2 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E71A955885F2CB0C63FC7E38C79B8A5 /* UIView.swift */; };
 		83956E20859CDBBE7BC38ABADE0170FB /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D7F897D7296C7F7325B927FD6AFF5E /* AFError.swift */; };
+		83B4052C4A3FF71C5D0706231E50E8F8 /* Pods-ABA MusicTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 655E3B6A56506B14CE66E2922B12C9F3 /* Pods-ABA MusicTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		864FE0D2F740396DBA4D83AB6CEE3288 /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52586C8E9AB3EEAFF8BC8DAA43976C28 /* Process.swift */; };
 		894A715631AFFAE4FFFC7D08B268EDC2 /* AssertInlineSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63A6FD7778095EA05CD588B06DFCF31 /* AssertInlineSnapshot.swift */; };
 		8C001EEE82631ABCF747A19C1E9CB3FD /* DataSourceController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B4F15C24E8F63BBEE394A848159F18A /* DataSourceController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -81,6 +80,7 @@
 		9DADDE4FD61D576245AECE8E40A756A5 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208C30E5082E1BD355059D911703D2B7 /* View.swift */; };
 		A714F43DEB2FBB3E858495FAFC1834E8 /* DemoServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49BF844D653EDC101B53EDFCB611FBA /* DemoServer.swift */; };
 		AB7A8EF031FA5C25FB196D1D6D212C4C /* Diffing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8EF0564FD3FB06ADF6D1944996AE4F /* Diffing.swift */; };
+		AC6149625C129953D72F7775A2781066 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 718374D0F539EBA744DA1AF563203CF9 /* Foundation.framework */; };
 		ADFD32817294069E030DDC1F237A4753 /* HttpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA68E578C3113CB09E599C636794BC25 /* HttpRouter.swift */; };
 		AFC64B1097F7355FF423D6A73E9C7210 /* TaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C594B12DE8272DBCB903E4224619E0D7 /* TaskDelegate.swift */; };
 		B033456D8DF2D4465993D4AC36A9F45A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 718374D0F539EBA744DA1AF563203CF9 /* Foundation.framework */; };
@@ -121,12 +121,26 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		07DF08FCF6BBF3D39B45A8BAAAA112FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D5098CBAF2B4D888FF0356E2D8C4D566;
+			remoteInfo = DataSourceController;
+		};
 		0FC7646791B182368D6B5D5A3E0EC06E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = EAAA1AD3A8A1B59AB91319EE40752C6D;
 			remoteInfo = Alamofire;
+		};
+		4F89A3E9A424A1DB9A04031460382777 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ADEAE7CDD604DE4F3072E6021A314487;
+			remoteInfo = SnapshotTesting;
 		};
 		627DDEA84FE71197B99A9FB8741B48EF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -169,13 +183,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = C9778AE8394BE451567650E0B239BA21;
 			remoteInfo = AlamofireImage;
-		};
-		E89978F547F5F3B7C67831F2CB6244CB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = ADEAE7CDD604DE4F3072E6021A314487;
-			remoteInfo = SnapshotTesting;
 		};
 		F34517A57E9524C4657A94F78AABB939 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -386,11 +393,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BA5AB4B1EEA338FBF7D0F0674E49FC8D /* Frameworks */ = {
+		B723D4C7979C49C2B6FFC10C7FD97B48 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D34A5D86CADE8B8DB8580B37EB54AAF /* Foundation.framework in Frameworks */,
+				AC6149625C129953D72F7775A2781066 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -782,19 +789,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AD65D6A2AF60CAD7F5B3F20F2192FA60 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				402EE2B724FDB2A30E8B8C63D274F63E /* Pods-ABA MusicTests-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		AF6091A0917D97150BF06EC477C017BC /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				496439E8A911880F91B2A6FD65D8FA3C /* Pods-ABA MusicUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7F30ACED74CE5424CC12549BCE90950 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83B4052C4A3FF71C5D0706231E50E8F8 /* Pods-ABA MusicTests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -919,17 +926,18 @@
 		};
 		D5B611245DAFE67946DEE894BEC9FF5E /* Pods-ABA MusicTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DD145282B25C3E6A437E05A5EFB79A2C /* Build configuration list for PBXNativeTarget "Pods-ABA MusicTests" */;
+			buildConfigurationList = 63513D03C314E01223E5B03AF146F3E4 /* Build configuration list for PBXNativeTarget "Pods-ABA MusicTests" */;
 			buildPhases = (
-				AD65D6A2AF60CAD7F5B3F20F2192FA60 /* Headers */,
-				06CFE4C240ABDFA5CED898F156A100E1 /* Sources */,
-				BA5AB4B1EEA338FBF7D0F0674E49FC8D /* Frameworks */,
-				D63F517FBEE769BEE976D8D1CE1E2B74 /* Resources */,
+				C7F30ACED74CE5424CC12549BCE90950 /* Headers */,
+				01CA66F06370CD08DA7675D605029D40 /* Sources */,
+				B723D4C7979C49C2B6FFC10C7FD97B48 /* Frameworks */,
+				10E1B89D449EA4D28289B5E6C28947C3 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				8FC4227EBFF5253403B9E5946F15535E /* PBXTargetDependency */,
+				ACB833E61AEB73B6E1B3F6ADA1828A06 /* PBXTargetDependency */,
+				C89178E6E279B8EDA63B1607ADCC13A3 /* PBXTargetDependency */,
 			);
 			name = "Pods-ABA MusicTests";
 			productName = "Pods-ABA MusicTests";
@@ -988,6 +996,13 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		10E1B89D449EA4D28289B5E6C28947C3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		473D3E892ABB6C798CFF290644259B34 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1030,13 +1045,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D63F517FBEE769BEE976D8D1CE1E2B74 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		DD6C1886B6AD48CA9530DA0EB508A5ED /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1047,11 +1055,11 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		06CFE4C240ABDFA5CED898F156A100E1 /* Sources */ = {
+		01CA66F06370CD08DA7675D605029D40 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30A163539A953E30F711ACF0770BEDB4 /* Pods-ABA MusicTests-dummy.m in Sources */,
+				3F99CC31C9936D06CC6A2EB390DDAE6A /* Pods-ABA MusicTests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1210,17 +1218,17 @@
 			target = EAAA1AD3A8A1B59AB91319EE40752C6D /* Alamofire */;
 			targetProxy = 0FC7646791B182368D6B5D5A3E0EC06E /* PBXContainerItemProxy */;
 		};
-		8FC4227EBFF5253403B9E5946F15535E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SnapshotTesting;
-			target = ADEAE7CDD604DE4F3072E6021A314487 /* SnapshotTesting */;
-			targetProxy = E89978F547F5F3B7C67831F2CB6244CB /* PBXContainerItemProxy */;
-		};
 		A7A23DA2DF288F153C73145F11F07E41 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Alamofire;
 			target = EAAA1AD3A8A1B59AB91319EE40752C6D /* Alamofire */;
 			targetProxy = 8D8B96E405D99719910FEA09917004FB /* PBXContainerItemProxy */;
+		};
+		ACB833E61AEB73B6E1B3F6ADA1828A06 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DataSourceController;
+			target = D5098CBAF2B4D888FF0356E2D8C4D566 /* DataSourceController */;
+			targetProxy = 07DF08FCF6BBF3D39B45A8BAAAA112FA /* PBXContainerItemProxy */;
 		};
 		BF36D3678939EC354DDE868DFED90E16 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1233,6 +1241,12 @@
 			name = AlamofireImage;
 			target = C9778AE8394BE451567650E0B239BA21 /* AlamofireImage */;
 			targetProxy = B2869B9DCF2C09C54CE697BE3A57B0BB /* PBXContainerItemProxy */;
+		};
+		C89178E6E279B8EDA63B1607ADCC13A3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SnapshotTesting;
+			target = ADEAE7CDD604DE4F3072E6021A314487 /* SnapshotTesting */;
+			targetProxy = 4F89A3E9A424A1DB9A04031460382777 /* PBXContainerItemProxy */;
 		};
 		DD60FCD1F5000067551AF74859B049D7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1680,6 +1694,85 @@
 			};
 			name = Release;
 		};
+		60A9D55BF894CCAA4971E5053D1F0F79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED0A8458CAC6658E55F94F77C4E01B25 /* Pods-ABA MusicTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ABA MusicTests/Pods-ABA MusicTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ABA MusicTests/Pods-ABA MusicTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		986CFF3EA565EC6BFE02FFA53F7750BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 34F97651D655C347777CC4746414E45B /* Pods-ABA MusicTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ABA MusicTests/Pods-ABA MusicTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ABA MusicTests/Pods-ABA MusicTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		A57DB753DB2DEE480C40E866EEA57D11 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B91CFBF5138748521B7C9E0451A2BE02 /* Swifter.xcconfig */;
@@ -1741,85 +1834,6 @@
 				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-ABA Music/Pods-ABA Music.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		B29EEA238E7EA443590B2BCD4FC5D6D8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 34F97651D655C347777CC4746414E45B /* Pods-ABA MusicTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-ABA MusicTests/Pods-ABA MusicTests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-ABA MusicTests/Pods-ABA MusicTests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		B4C85D036B04B045CD2DF09E16AEF519 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = ED0A8458CAC6658E55F94F77C4E01B25 /* Pods-ABA MusicTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-ABA MusicTests/Pods-ABA MusicTests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-ABA MusicTests/Pods-ABA MusicTests.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -2012,6 +2026,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		63513D03C314E01223E5B03AF146F3E4 /* Build configuration list for PBXNativeTarget "Pods-ABA MusicTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				60A9D55BF894CCAA4971E5053D1F0F79 /* Debug */,
+				986CFF3EA565EC6BFE02FFA53F7750BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		669B52521CDA826539A3741FECDB9DCB /* Build configuration list for PBXNativeTarget "Pods-ABA MusicUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -2026,15 +2049,6 @@
 			buildConfigurations = (
 				24BB3D69847BDE940D84E8C3E0445487 /* Debug */,
 				36E702FDF157EA7344804B8818F4C234 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DD145282B25C3E6A437E05A5EFB79A2C /* Build configuration list for PBXNativeTarget "Pods-ABA MusicTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B4C85D036B04B045CD2DF09E16AEF519 /* Debug */,
-				B29EEA238E7EA443590B2BCD4FC5D6D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
