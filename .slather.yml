@@ -1,9 +1,9 @@
 coverage_service: coveralls
-xcodeproj: ABA\ Music.xcodeproj
-workspace: ABA\ Music.xcworkspace
-scheme: ABA\ Music
-source_directory: ABA\ Music/*
+xcodeproj: ABA Music.xcodeproj
+workspace: ABA Music.xcworkspace
+scheme: ABA Music
+source_directory: ABA Music/*
 ignore:
-  - ABA\ MusicTests/*
-  - ABA\ MusicUITests/*
+  - ABA MusicTests/*
+  - ABA MusicUITests/*
   - Pods/*
