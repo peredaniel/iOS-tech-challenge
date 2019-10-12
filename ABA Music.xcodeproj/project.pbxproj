@@ -36,6 +36,7 @@
 		9F5CB4E32352382200E8D039 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5CB4E22352382200E8D039 /* HomeViewModelTests.swift */; };
 		9F5CB4E523523DB000E8D039 /* MockHomeViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5CB4E423523DB000E8D039 /* MockHomeViewModelDelegate.swift */; };
 		9F5CB4E723523FAC00E8D039 /* TrackDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5CB4E623523FAC00E8D039 /* TrackDetailsViewModelTests.swift */; };
+		9F5CB4E92352419600E8D039 /* TrackPlayerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5CB4E82352419600E8D039 /* TrackPlayerViewModelTests.swift */; };
 		9F647DC72351FB160076D281 /* SearchStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F647DC62351FB160076D281 /* SearchStub.swift */; };
 		9F6896EE234BAF3000502EC8 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6896ED234BAF3000502EC8 /* SearchService.swift */; };
 		9F6896F0234BAF5F00502EC8 /* SearchServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6896EF234BAF5F00502EC8 /* SearchServiceType.swift */; };
@@ -130,6 +131,7 @@
 		9F5CB4E22352382200E8D039 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
 		9F5CB4E423523DB000E8D039 /* MockHomeViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHomeViewModelDelegate.swift; sourceTree = "<group>"; };
 		9F5CB4E623523FAC00E8D039 /* TrackDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailsViewModelTests.swift; sourceTree = "<group>"; };
+		9F5CB4E82352419600E8D039 /* TrackPlayerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackPlayerViewModelTests.swift; sourceTree = "<group>"; };
 		9F647DC62351FB160076D281 /* SearchStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchStub.swift; sourceTree = "<group>"; };
 		9F6896ED234BAF3000502EC8 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		9F6896EF234BAF5F00502EC8 /* SearchServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchServiceType.swift; sourceTree = "<group>"; };
@@ -516,6 +518,7 @@
 				9FE92AC4234C86CD00BD4AA1 /* SearchRepositoryTests.swift */,
 				9FAB225F2350DD23004324E2 /* TrackDetailsViewControllerTests.swift */,
 				9F5CB4E623523FAC00E8D039 /* TrackDetailsViewModelTests.swift */,
+				9F5CB4E82352419600E8D039 /* TrackPlayerViewModelTests.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -855,6 +858,7 @@
 			files = (
 				9F5CB4DF2352356E00E8D039 /* Artist+Mock.swift in Sources */,
 				9F5CB4DD2352341B00E8D039 /* MockDataSourceControllerDelegate.swift in Sources */,
+				9F5CB4E92352419600E8D039 /* TrackPlayerViewModelTests.swift in Sources */,
 				9FE92AC2234C86C500BD4AA1 /* MockSearchService.swift in Sources */,
 				9FAB225A2350D16C004324E2 /* HomeViewControllerTests.swift in Sources */,
 				9FE92AC9234C86CD00BD4AA1 /* SearchRepositoryTests.swift in Sources */,
