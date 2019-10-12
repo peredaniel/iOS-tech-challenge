@@ -8,10 +8,12 @@ jobs:
   - stage: test
     name: "Running unit tests"
     script: bundle exec fastlane unit_test device:'iPhone 8' ios_version:'13.1'
+    after_success: bundle exec slather
 
   - stage: test
     name: "Running UI tests"
     script: bundle exec fastlane ui_test device:'iPhone 8' ios_version:'13.1'
+    after_success: bundle exec slather
 
 stages:
 - name: test
