@@ -2,3 +2,4 @@ ${PODS_ROOT}/Target Support Files/Pods-ABA MusicUITests/Pods-ABA MusicUITests-fr
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework
 ${BUILT_PRODUCTS_DIR}/DataSourceController/DataSourceController.framework
+${BUILT_PRODUCTS_DIR}/Swifter/Swifter.framework

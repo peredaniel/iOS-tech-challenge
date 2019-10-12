@@ -12,7 +12,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let homeViewController = navigationController.viewControllers.first as? HomeViewController else {
             fatalError("The initial view controller should be set to a HomeViewController embedded into a UINavigationController!")
         }
-        guard let configuration = AppConfiguration.init(environment: .production) else {
+        let environment: Environment
+        if ProcessInfo.processInfo.environment["RUNNING_UI_TESTS"] == "1" {
+            environment = .uiTests
+        } else {
+            environment = .production
+        }
+        guard let configuration = AppConfiguration(environment: environment) else {
             fatalError("The app can not run without the proper configuration parameters!")
         }
         let searchService = SearchService(baseUrl: configuration.baseUrl)

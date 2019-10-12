@@ -32,6 +32,7 @@ class HomeViewController: UIViewController {
         label.numberOfLines = 0
         label.leftTextInset = 20.0
         label.rightTextInset = 20.0
+        label.accessibilityIdentifier = "welcomeLabel"
         label.text = "Search for your favorite artists, songs or albums and sing along!\n\n🎵"
         label.textColor = .lightGray
         return label
@@ -44,6 +45,7 @@ class HomeViewController: UIViewController {
         label.numberOfLines = 0
         label.leftTextInset = 20.0
         label.rightTextInset = 20.0
+        label.accessibilityIdentifier = "emptyResponseLabel"
         label.text = "No matches found for your search:\n'\(viewModel.searchTerm)'\n\n🤯"
         label.textColor = .label
         return label
@@ -75,6 +77,10 @@ class HomeViewController: UIViewController {
             return
         }
         tdvc.viewModel = viewModel
+    }
+
+    @IBAction func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
 
@@ -110,7 +116,7 @@ extension HomeViewController: HomeViewModelDelegate {
     func viewModelFailedToFetchData(_: HomeViewModelType) {
         let alertController = UIAlertController(
             title: nil,
-            message: "An error occurred while executing your search. Do you wish to try again?",
+            message: "An error occurred while executing your search. Please try again later.",
             preferredStyle: .alert
         )
         let retryAction = UIAlertAction(
@@ -121,6 +127,8 @@ extension HomeViewController: HomeViewModelDelegate {
         }
         alertController.addAction(retryAction)
         DispatchQueue.main.async {
+            self.spinner.stopAnimating()
+            self.searchBar.searchTextField.leftView = self.searchBarInitialLeftView
             self.present(alertController, animated: true, completion: nil)
         }
     }
@@ -156,6 +164,10 @@ extension HomeViewController: UISearchBarDelegate {
             self?.viewModel.updateSearchTerm(searchText)
             self?.timer?.invalidate()
         }
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
     }
 
     func searchBar(
