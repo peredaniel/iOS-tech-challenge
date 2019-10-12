@@ -1,0 +1,8 @@
+coverage_service: coveralls
+workspace: ABA\ Music.xcworkspace
+scheme: ABA\ Music
+source_directory: ABA\ Music/*
+ignore:
+  - ABA\ MusicTests/*
+  - ABA\ MusicUITests/*
+  - Pods/*
