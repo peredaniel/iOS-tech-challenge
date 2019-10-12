@@ -28,6 +28,7 @@
 		9F25A8AF23524C8F00EDA9D6 /* TrackMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F25A8AE23524C8F00EDA9D6 /* TrackMapperTests.swift */; };
 		9F25A8B123524F8200EDA9D6 /* SearchResultTableViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F25A8B023524F8200EDA9D6 /* SearchResultTableViewModelTests.swift */; };
 		9F25A8B32352528600EDA9D6 /* MockSearchResultTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F25A8B22352528600EDA9D6 /* MockSearchResultTableDelegate.swift */; };
+		9F25A8B52352584E00EDA9D6 /* EdgeInsetLabelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F25A8B42352584E00EDA9D6 /* EdgeInsetLabelTests.swift */; };
 		9F372DD3234E818500016EBB /* SearchResultCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F372DD1234E818500016EBB /* SearchResultCollectionCell.swift */; };
 		9F372DD4234E818500016EBB /* SearchResultCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F372DD2234E818500016EBB /* SearchResultCollectionCell.xib */; };
 		9F5CB4D72352031100E8D039 /* ApplicationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5CB4D62352031100E8D039 /* ApplicationUITests.swift */; };
@@ -128,6 +129,7 @@
 		9F25A8AE23524C8F00EDA9D6 /* TrackMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackMapperTests.swift; sourceTree = "<group>"; };
 		9F25A8B023524F8200EDA9D6 /* SearchResultTableViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewModelTests.swift; sourceTree = "<group>"; };
 		9F25A8B22352528600EDA9D6 /* MockSearchResultTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSearchResultTableDelegate.swift; sourceTree = "<group>"; };
+		9F25A8B42352584E00EDA9D6 /* EdgeInsetLabelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeInsetLabelTests.swift; sourceTree = "<group>"; };
 		9F372DD1234E818500016EBB /* SearchResultCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCollectionCell.swift; sourceTree = "<group>"; };
 		9F372DD2234E818500016EBB /* SearchResultCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCollectionCell.xib; sourceTree = "<group>"; };
 		9F5CB4D62352031100E8D039 /* ApplicationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationUITests.swift; sourceTree = "<group>"; };
@@ -397,6 +399,7 @@
 			children = (
 				9FAB22592350D16C004324E2 /* HomeViewControllerTests.swift */,
 				9FAB225F2350DD23004324E2 /* TrackDetailsViewControllerTests.swift */,
+				9F25A8B42352584E00EDA9D6 /* EdgeInsetLabelTests.swift */,
 			);
 			path = "Views tests";
 			sourceTree = "<group>";
@@ -909,6 +912,7 @@
 				9FE92AC2234C86C500BD4AA1 /* MockSearchService.swift in Sources */,
 				9FAB225A2350D16C004324E2 /* HomeViewControllerTests.swift in Sources */,
 				9FE92AC9234C86CD00BD4AA1 /* SearchRepositoryTests.swift in Sources */,
+				9F25A8B52352584E00EDA9D6 /* EdgeInsetLabelTests.swift in Sources */,
 				9F5CB4E32352382200E8D039 /* HomeViewModelTests.swift in Sources */,
 				9F25A8AF23524C8F00EDA9D6 /* TrackMapperTests.swift in Sources */,
 				9F5CB4EB235243B100E8D039 /* SearchResultCollectionViewModelTests.swift in Sources */,
