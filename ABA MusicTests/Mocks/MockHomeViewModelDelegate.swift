@@ -14,6 +14,4 @@ class MockHomeViewModelDelegate: HomeViewModelDelegate {
     ) {
         return
     }
-
-
 }

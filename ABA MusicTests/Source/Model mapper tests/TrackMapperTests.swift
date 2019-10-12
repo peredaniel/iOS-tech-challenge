@@ -15,7 +15,6 @@ class TrackMapperTests: XCTestCase {
         XCTAssertEqual(track.primaryGenreName, "Rock")
         XCTAssertEqual(track.country, "USA")
         XCTAssertEqual(track.releaseDate, -56736000.0)
-
     }
 
     private func loadMockFromBundle() -> SearchResponse? {

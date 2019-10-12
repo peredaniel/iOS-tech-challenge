@@ -3,7 +3,6 @@ import SnapshotTesting
 import XCTest
 
 class SearchResultTableCellTests: XCTestCase {
-
     var cell: SearchResultTableCell!
 
     override func setUp() {

@@ -79,35 +79,35 @@ class HomeViewModelTests: XCTestCase {
     }
 
     func testAlbumSearch() {
-         let searchTerm = "Search this song"
-         let searchScopeIndex = 2
+        let searchTerm = "Search this song"
+        let searchScopeIndex = 2
 
-         let searchScopeExpectation = expectation(description: "dataSourceWasMutated(_:) has been called")
-         let delegate = MockDataSourceControllerDelegate()
-         delegate.didMutateDataSource = { [weak self] in
-             guard let self = self else { return }
-             XCTAssertEqual(self.viewModel.dataSource.totalRowCount, 0)
-             XCTAssertNil(self.viewModel.delegate)
-             XCTAssertEqual(self.viewModel.searchTerm, "")
-             XCTAssertEqual(self.viewModel.searchScopeIndex, searchScopeIndex)
-             searchScopeExpectation.fulfill()
-         }
-         viewModel.dataSource.delegate = delegate
-         viewModel.updateSearchScope(searchScopeIndex)
-         waitForExpectations(timeout: 1.0)
+        let searchScopeExpectation = expectation(description: "dataSourceWasMutated(_:) has been called")
+        let delegate = MockDataSourceControllerDelegate()
+        delegate.didMutateDataSource = { [weak self] in
+            guard let self = self else { return }
+            XCTAssertEqual(self.viewModel.dataSource.totalRowCount, 0)
+            XCTAssertNil(self.viewModel.delegate)
+            XCTAssertEqual(self.viewModel.searchTerm, "")
+            XCTAssertEqual(self.viewModel.searchScopeIndex, searchScopeIndex)
+            searchScopeExpectation.fulfill()
+        }
+        viewModel.dataSource.delegate = delegate
+        viewModel.updateSearchScope(searchScopeIndex)
+        waitForExpectations(timeout: 1.0)
 
-         let searchTermExpectation = expectation(description: "dataSourceWasMutated(_:) has been called")
-         delegate.didMutateDataSource = { [weak self] in
-             guard let self = self else { return }
-             XCTAssertEqual(self.viewModel.dataSource.totalRowCount, 3)
-             XCTAssertNil(self.viewModel.delegate)
-             XCTAssertEqual(self.viewModel.searchTerm, searchTerm)
-             XCTAssertEqual(self.viewModel.searchScopeIndex, searchScopeIndex)
-             searchTermExpectation.fulfill()
-         }
-         viewModel.updateSearchTerm(searchTerm)
-         waitForExpectations(timeout: 1.0)
-     }
+        let searchTermExpectation = expectation(description: "dataSourceWasMutated(_:) has been called")
+        delegate.didMutateDataSource = { [weak self] in
+            guard let self = self else { return }
+            XCTAssertEqual(self.viewModel.dataSource.totalRowCount, 3)
+            XCTAssertNil(self.viewModel.delegate)
+            XCTAssertEqual(self.viewModel.searchTerm, searchTerm)
+            XCTAssertEqual(self.viewModel.searchScopeIndex, searchScopeIndex)
+            searchTermExpectation.fulfill()
+        }
+        viewModel.updateSearchTerm(searchTerm)
+        waitForExpectations(timeout: 1.0)
+    }
 
     // MARK: Delegate triggered by error
 
@@ -149,14 +149,13 @@ class HomeViewModelTests: XCTestCase {
         viewModel.delegate = delegate
         viewModel.updateSearchTerm(searchTerm)
         waitForExpectations(timeout: 1.0)
-
     }
 
     func testAlbumSearchError() {
-         let searchTerm = "error"
-         let searchScopeIndex = 2
+        let searchTerm = "error"
+        let searchScopeIndex = 2
 
-         viewModel.updateSearchScope(searchScopeIndex)
+        viewModel.updateSearchScope(searchScopeIndex)
 
         let searchTermExpectation = expectation(description: "viewModelFailedToFetchData(_:) has been called")
         let delegate = MockHomeViewModelDelegate()

@@ -3,7 +3,6 @@ import SnapshotTesting
 import XCTest
 
 class SearchResultCollectionCellTests: XCTestCase {
-
     var cell: SearchResultCollectionCell!
 
     override func setUp() {
