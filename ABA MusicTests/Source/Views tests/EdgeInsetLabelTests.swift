@@ -23,10 +23,10 @@ class EdgeInsetLabelTests: XCTestCase {
         label.numberOfLines = 0
         label.backgroundColor = .white
         label.font = .systemFont(ofSize: 15)
-        label.textInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
+        label.leftTextInset = 10
         label.sizeToFit()
 
-        XCTAssertEqual(label.leftTextInset, 10)
+        XCTAssertEqual(label.textInsets, UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0))
         assertSnapshot(matching: label, as: .image)
     }
 
@@ -38,10 +38,10 @@ class EdgeInsetLabelTests: XCTestCase {
         label.numberOfLines = 0
         label.backgroundColor = .white
         label.font = .systemFont(ofSize: 15)
-        label.textInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
+        label.rightTextInset = 10
         label.sizeToFit()
 
-        XCTAssertEqual(label.rightTextInset, 10)
+        XCTAssertEqual(label.textInsets, UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10))
         assertSnapshot(matching: label, as: .image)
     }
 
@@ -53,10 +53,10 @@ class EdgeInsetLabelTests: XCTestCase {
         label.numberOfLines = 0
         label.backgroundColor = .white
         label.font = .systemFont(ofSize: 15)
-        label.textInsets = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
+        label.topTextInset = 10
         label.sizeToFit()
 
-        XCTAssertEqual(label.topTextInset, 10)
+        XCTAssertEqual(label.textInsets, UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0))
         assertSnapshot(matching: label, as: .image)
     }
 
@@ -68,10 +68,10 @@ class EdgeInsetLabelTests: XCTestCase {
         label.numberOfLines = 0
         label.backgroundColor = .white
         label.font = .systemFont(ofSize: 15)
-        label.textInsets = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
+        label.bottomTextInset = 10
         label.sizeToFit()
 
-        XCTAssertEqual(label.bottomTextInset, 10)
+        XCTAssertEqual(label.textInsets, UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0))
         assertSnapshot(matching: label, as: .image)
     }
 
