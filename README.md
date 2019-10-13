@@ -21,8 +21,7 @@ In this manuscript we explain and discuss the changes that have been implemented
     + [Storyboards and XIB files](#storyboards-and-xib-files)
     + [Dependency injection](#dependency-injection)
   * [Feature implementation](#feature-implementation)
-    + [Home screen](#home-screen)
-    + [Track details screen](#track-details-screen)
+    + [iOS 13 and dark mode](#ios-13-and-dark-mode)
   * [Tests](#tests)
     + [Unit tests](#unit-tests)
     + [Snapshot tests](#snapshot-tests)
@@ -103,9 +102,33 @@ As for the rest of the navigation, dependency injection is performed at the view
 
 ## Feature implementation
 
-### Home screen
+As part of this assignment we have been required to implement a new feature. The requirements, as specified in the originally included *README.md* file, read as follows:
+> Users would be able to search content by artist name and enjoy it while singing.
+> Results should be presented in a modern fashion way.
+> Usability is a most for us and we would like to have a fresh user experience.
 
-### Track details screen
+With these requirements in mind, we outlined the specifications for our task development:
+* Home screen must not rotate (only portrait mode is available).
+* Search must be performed in the home screen using the native `UISearchBar` from `UIKit`.
+* Search bar must always be visible, not hiding under any circumstance.
+* Search must have three scopes: *artist* (by requirement), *album* and *song*. These scopes must be presented as part of the search bar using the native API of `UISearchBar` component.
+* Search results must be updated automatically as the user types in into the search bar or changes the search scope. A delay of 0.5 seconds must be respected between the last key stroke and the search execution to avoid performing unnecessary calls to the backend.
+* Search results (tracks) must be grouped by artist, and artists must be displayed in *alphabetical* order in a list.
+* Tracks belonging to the same artist must be presented as a *horizontal rail*.
+* In case of error, an alert must be displayed to inform the user. A single button to close the alert must be included.
+* In case of a result not returning any result, the user must be informed without disturbing normal app usage (so, no alerts).
+* Details screen must play the video music preview automatically and stop when it ends. No controls must be displayed in the player.
+* Details sceen must enable rotation to landscape.
+
+These requirements lead to the final implementation and design that we show in the following GIF:
+
+<center><img src="Tour.gif" width="300"></center>
+
+### iOS 13 and dark mode
+
+An important note, not included in the requirements, is that we raised the deployment target to iOS 13.0 or higher. The reasoning behind this is that iOS 13 included a lot of API changes, mainly due to the addition of *dark mode* in iOS, and therefore it was simpler to raise the deployment target to that version rather than handling every single non-compatible API.
+
+As a consequence, it is worth mentioning that the app is compatible with dark mode. Don't hesitate on giving it a try by [turning on dark mode in the simulator!](https://technikales.com/how-to-turn-on-dark-mode-in-ios-13-simulator/)
 
 ## Tests
 
