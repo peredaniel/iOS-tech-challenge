@@ -1,0 +1,31 @@
+language: swift
+osx_image: xcode11.1
+
+cache: bundler
+
+jobs:
+  include:
+  - stage: build
+    name: "Building app"
+    script: bundle exec fastlane compile_app ios_version:'13.1'
+
+  - stage: test
+    name: "Running unit tests"
+    script: bundle exec fastlane unit_test device:'iPhone 8' ios_version:'13.1'
+
+  - stage: test
+    name: "Running UI tests"
+    script: bundle exec fastlane ui_test device:'iPhone 8' ios_version:'13.1'
+
+  - stage: coverage
+    name: "Running full set of tests and gathering coverage data"
+    script: bundle exec fastlane full_test device:'iPhone 8' ios_version:'13.1'
+    after_success: bundle exec slather
+
+stages:
+- name: build
+  if: (type = pull_request) AND (branch = master OR branch = develop)
+- name: test
+  if: (type = pull_request) AND (branch = master OR branch = develop)
+- name: coverage
+  if: (type = push) AND (branch = master OR branch = develop)

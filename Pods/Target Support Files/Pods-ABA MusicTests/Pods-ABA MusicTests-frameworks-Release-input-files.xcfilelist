@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-ABA MusicTests/Pods-ABA MusicTests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/DataSourceController/DataSourceController.framework
+${BUILT_PRODUCTS_DIR}/SnapshotTesting/SnapshotTesting.framework

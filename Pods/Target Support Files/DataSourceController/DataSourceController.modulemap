@@ -1,0 +1,6 @@
+framework module DataSourceController {
+  umbrella header "DataSourceController-umbrella.h"
+
+  export *
+  module * { export * }
+}
