@@ -63,7 +63,7 @@ class SearchUITests: BaseUITestCase {
         application.searchFields.firstMatch.clearText()
         application.searchFields.firstMatch.typeText("Jackson")
         XCTAssertTrue(application.staticTexts["Alan Jackson"].waitForExistence(timeout: 5), "Failed to load search results")
-        application.staticTexts["Alan Jackson"].tap()
+        application.buttons["Search"].tap()
         XCTAssertFalse(application.keyboards.firstMatch.waitForExistence(timeout: 2), "Keyboard was not dismissed when supposed to")
     }
 
@@ -88,7 +88,7 @@ class SearchUITests: BaseUITestCase {
         XCTAssertTrue(application.staticTexts["3T"].waitForExistence(timeout: 5), "Failed to load search results")
         XCTAssertFalse(application.staticTexts["APEK & Shanahan"].waitForExistence(timeout: 1), "Loaded wrong results! Check the MockServer stubs!")
 
-        application.staticTexts["3T"].tap()
+        application.buttons["Search"].tap()
         XCTAssertFalse(application.keyboards.firstMatch.waitForExistence(timeout: 2), "Keyboard was not dismissed when supposed to")
     }
 
@@ -109,7 +109,7 @@ class SearchUITests: BaseUITestCase {
         application.searchFields.firstMatch.clearText()
         application.searchFields.firstMatch.typeText("Jackson")
         XCTAssertTrue(application.staticTexts["APEK & Shanahan"].waitForExistence(timeout: 5), "Failed to load search results")
-        application.staticTexts["3T"].tap()
+        application.buttons["Search"].tap()
         XCTAssertFalse(application.keyboards.firstMatch.waitForExistence(timeout: 2), "Keyboard was not dismissed when supposed to")
     }
 
