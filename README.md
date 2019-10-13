@@ -1,31 +1,75 @@
 # iOS Tech Challenge
 
-Here at ABA English we love Music and we know our users do it also!
+<!-- **TODO: Change badges to point to master branch** -->
 
-We want to give them the opportunity to learn English while singing their favourite songs.
+[![Build Status](https://travis-ci.com/peredaniel/iOS-tech-challenge.svg?branch=develop)](https://travis-ci.com/peredaniel/iOS-tech-challenge)
+[![Coverage Status](https://coveralls.io/repos/github/peredaniel/iOS-tech-challenge/badge.svg?branch=develop)](https://coveralls.io/github/peredaniel/iOS-tech-challenge)
+[![OS Version: iOS 13.0](https://img.shields.io/badge/iOS-13.0-green.svg)](https://www.apple.com/es/ios/ios-13/)
 
-Actually we have a current section that we would like to improve and restyle.
+In this manuscript we explain and discuss the changes that have been implemented, along with some additional tools that have been added to the project or the repository.
 
-Users would be able to search content by artist name and enjoy it while singing.
+## Table of contents
 
-Results should be presented in a modern fashion way.
+{{TOC}}
 
-Usability is a most for us and we would like to have a fresh user experience.
+## Code refactor
 
-Feel free to modify anything you think would improve the section.
+### Code styling
 
-You can find some inspiration in the Apple Music application.
+Ray Wenderlich code style guide: [https://github.com/raywenderlich/swift-style-guide](https://github.com/raywenderlich/swift-style-guide)
 
-Aspects that we are going to value:
+SwiftFormat: [https://github.com/nicklockwood/SwiftFormat](https://github.com/nicklockwood/SwiftFormat)
 
-* Clean code
+### Architecture and design pattern
 
-* Dependency injection
+### Storyboards and XIB files
 
-* Testing
+### Dependency injection
 
-It should be App Store ready.
+## Feature implementation
 
-We expect you to fork our repository to share your solution with us.
+### Home screen
 
-![Minion](https://octodex.github.com/images/daftpunktocat-guy.gif)
+### Track details screen
+
+## Tests
+
+### Unit tests
+
+### Snapshot tests
+
+### UI tests
+
+## Third-party frameworks
+
+### AlamofireImage
+
+[https://github.com/Alamofire/AlamofireImage](https://github.com/Alamofire/AlamofireImage)
+
+### DataSourceController
+
+[https://github.com/peredaniel/DataSourceController/](https://github.com/peredaniel/DataSourceController/)
+
+### SnapshotTesting
+
+[https://github.com/pointfreeco/swift-snapshot-testing](https://github.com/pointfreeco/swift-snapshot-testing)
+
+### Swifter
+
+[https://github.com/httpswift/swifter](https://github.com/httpswift/swifter)
+
+## Tools
+
+### Continuous Integration server
+
+Travis CI instance: [https://travis-ci.com/peredaniel/iOS-tech-challenge](https://travis-ci.com/peredaniel/iOS-tech-challenge)
+
+### Code coverage reports
+
+Coveralls instance: [https://coveralls.io/github/peredaniel/iOS-tech-challenge](https://coveralls.io/github/peredaniel/iOS-tech-challenge)
+
+## Branching strategy
+
+GitFlow variant: [https://datasift.github.io/gitflow/IntroducingGitFlow.html](https://datasift.github.io/gitflow/IntroducingGitFlow.html)
+
+## Further improvements
