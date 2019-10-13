@@ -103,9 +103,9 @@ As for the rest of the navigation, dependency injection is performed at the view
 ## Feature implementation
 
 As part of this assignment we have been required to implement a new feature. The requirements, as specified in the originally included *README.md* file, read as follows:
-> Users would be able to search content by artist name and enjoy it while singing.
-> Results should be presented in a modern fashion way.
-> Usability is a most for us and we would like to have a fresh user experience.
+> * Users would be able to search content by artist name and enjoy it while singing.
+> * Results should be presented in a modern fashion way.
+> * Usability is a most for us and we would like to have a fresh user experience.
 
 With these requirements in mind, we outlined the specifications for our task development:
 * Home screen must not rotate (only portrait mode is available).
@@ -122,11 +122,11 @@ With these requirements in mind, we outlined the specifications for our task dev
 
 These requirements lead to the final implementation and design that we show in the following GIF:
 
-<center><img src="Tour.gif" width="300"></center>
+<img src="Tour.gif" width="300">
 
 ### iOS 13 and dark mode
 
-An important note, not included in the requirements, is that we raised the deployment target to iOS 13.0 or higher. The reasoning behind this is that iOS 13 included a lot of API changes, mainly due to the addition of *dark mode* in iOS, and therefore it was simpler to raise the deployment target to that version rather than handling every single non-compatible API.
+An important note, not included in the requirements, is that we raised the deployment target to iOS 13.0 or higher. The reasoning behind this is that iOS 13 included a lot of API changes, mainly due to the addition of *dark mode* in iOS, and therefore it was simpler to raise the deployment target to that version rather than handling every single non-compatible API invoked.
 
 As a consequence, it is worth mentioning that the app is compatible with dark mode. Don't hesitate on giving it a try by [turning on dark mode in the simulator!](https://technikales.com/how-to-turn-on-dark-mode-in-ios-13-simulator/)
 
