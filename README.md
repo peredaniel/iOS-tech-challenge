@@ -1,5 +1,8 @@
 # iOS Tech Challenge
 
+[![Build Status](https://travis-ci.com/peredaniel/iOS-tech-challenge.svg?branch=master)](https://travis-ci.com/peredaniel/iOS-tech-challenge)
+[![Coverage Status](https://coveralls.io/repos/github/peredaniel/iOS-tech-challenge/badge.svg)](https://coveralls.io/github/peredaniel/iOS-tech-challenge)
+
 Here at ABA English we love Music and we know our users do it also!
 
 We want to give them the opportunity to learn English while singing their favourite songs.

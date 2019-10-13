@@ -7,7 +7,7 @@ jobs:
   include:
   - stage: build
     name: "Building app"
-    script: bundle exec fatlane compile_app os_version:'13.1'
+    script: bundle exec fastlane compile_app ios_version:'13.1'
 
   - stage: test
     name: "Running unit tests"

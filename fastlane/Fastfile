@@ -58,9 +58,9 @@ end
 
 desc "Builds the app for the specified iOS version."
 desc "This lane is to make sure that the app builds correctly before running any test, thus catching compilation errors early."
-desc "Usage example: fastlane build_app ios_version:'12.4'"
+desc "Usage example: fastlane compile_app ios_version:'12.4'"
 lane :compile_app do |options|
-	raise "Missing 'ios_version' parameter. Usage: fastlane build_app ios_version:IOS_VERSION" unless options[:ios_version]
+	raise "Missing 'ios_version' parameter. Usage: fastlane compile_app ios_version:IOS_VERSION" unless options[:ios_version]
 	ios_version = options[:ios_version]
 	xcbuild(
 		scheme: "ABA Music",
