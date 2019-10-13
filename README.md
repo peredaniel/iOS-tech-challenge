@@ -15,8 +15,8 @@ In this manuscript we explain and discuss the changes that have been implemented
   * [Code refactor](#code-refactor)
     + [Code styling](#code-styling)
     + [Architecture and design pattern](#architecture-and-design-pattern)
-      - [Service and repository layer](#service-and-repository-layer)
-      - [MVVM architecture](#mvvm-architecture)
+      - [Service and repository layers](#service-and-repository-layers)
+      - [Model-View-ViewModel architecture](#model-view-viewmodel-architecture)
       - [A comment on reactive programming](#a-comment-on-reactive-programming)
     + [Storyboards and XIB files](#storyboards-and-xib-files)
     + [Dependency injection](#dependency-injection)
@@ -36,10 +36,6 @@ In this manuscript we explain and discuss the changes that have been implemented
     + [Continuous Integration server](#continuous-integration-server)
     + [Code coverage reports](#code-coverage-reports)
   * [Branching strategy](#branching-strategy)
-  * [Further improvements](#further-improvements)
-    + [Lyrics](#lyrics)
-    + [Local storage](#local-storage)
-    + [Favorites](#favorites)
 
 ## Code refactor
 
@@ -58,7 +54,7 @@ Next step in our refactor consisted in adding some architecture. The original co
 #### Service and repository layers
 
 Our first goal consisted in removing the backend calls from the view controllers and create a devoted layer for them. For this, we created two layers:
-* Service layer: The services are responsible for calling and notify to whoever is using them of the success or failure of the call, additionally returning the fetched data or the error, if any.
+* Service layer: The services are responsible for performing requests and notifying to whoever is using them of the success or failure of the call, additionally returning the fetched data or the error, if any.
 * Repository layer: The repositories contain use cases of the functions implemented in the service layer, and are responsible for calling those function and convert the model objects returned by the services into *domain* model objects.
 
 In addition, we implemented a new class of model object, `SearchResponse`, which was the model returned from the services. The previously implemented model objects, `Artist` and `Track`, were converted into domain model objects to which the `SearchResponse` could be mapped.
@@ -71,7 +67,7 @@ With these changes, the usage of network calls is summarized as follows:
 4. When the remote task completes, wether with success or failure, the service relays the result to the repository along with any data downloaded parsed into some model object or error message triggered.
 5. The repository receives the response from the service and relays it to whoever invoked the use case. If any object is attached, the repository converts the model object into a domain model object.
 
-#### MVVM architecture
+#### Model-View-ViewModel architecture
 
 Our next step after implementing the service and repository layers consisted in adopting a MVVM design pattern and refactor the code accordingly. This task included the implementation of view model classes for any view or view controller in the app, and move any logic not directly related to view creation, view refresh or user interaction handling to the view model. In particular, the following classes were added:
 * `HomeViewModel` for the `HomeViewController` (formerly the `ViewController` class).
@@ -91,9 +87,9 @@ We gave a deep thought on wether to use reactive programming or not during this 
 
 ### Storyboards and XIB files
 
-Altough I am aware that here at ABA we implement views by code, in the last year almost every project I took part on did use storyboards and XIB files, which may me used to them. Therefore, I decided to use them in this assignment to further remove code from the view classes and keep them *clean* and as short as possible.
+Altough I am aware that here at ABA we implement views by code, in the last year almost every project I took part on did use storyboards and XIB files, which made me being used to use them. Therefore, I decided to use them in this assignment to further remove code from the view classes and keep them *clean* and as short as possible.
 
-Furthermore, navigation is now driven by segues which are located in the file *Search.storyboard*, thus having a clear picture of the flow of the app.
+Furthermore, navigation is now driven by segues which are located in the file `Search.storyboard`, thus having a clear picture of the flow of the app.
 
 ### Dependency injection
 
@@ -128,7 +124,7 @@ These requirements lead to the final implementation and design that we show in t
 
 ### iOS 13 and dark mode
 
-An important note, not included in the requirements, is that we raised the deployment target to iOS 13.0 or higher. The reasoning behind this is that iOS 13 included a lot of API changes, mainly due to the addition of *dark mode* in iOS, and therefore it was simpler to raise the deployment target to that version rather than handling every single non-compatible API invoked.
+An important note, not included in the requirements, is that we raised the deployment target to iOS 13.0 or higher. The reasoning behind this is that iOS 13 included a lot of API changes, mainly due to the addition of *dark mode* in iOS, and therefore it was simpler to raise the deployment target to that version rather than handling every single non-compatible API function invoked.
 
 As a consequence, it is worth mentioning that the app is compatible with dark mode. Don't hesitate on giving it a try by [turning on dark mode in the simulator!](https://technikales.com/how-to-turn-on-dark-mode-in-ios-13-simulator/)
 
@@ -154,14 +150,14 @@ By means of the framework **SnapshotTesting** (see [the corresponding section](#
 * `SearchResultTableCell`
 * `EdgeInsetLabel`
 
-The only view without snapshot tests is the *TrackPlayerViewController*, which is a straighforward subclass of *AVPlayerViewController* and we considered unnecessary since it's usage is already covered by UITests.
+The only view without snapshot tests is the `TrackPlayerViewController` since it is a straighforward subclass of `AVPlayerViewController` and we considered unnecessary: it's usage is already covered by UITests.
 
 Snapshots can be found in the subfolders of `ABA MusicTests/Source/Views tests/__Snapshots__/`.
 
 ### UI tests
 
 Contrary to unit tests, UITests run the app and perform an already implemented set actions from the point of view of a user. Therefore, there is no access to the code: we can only access to what is on screen. Bearing this in mind, we used UITests to test user journeys in several use cases. In particular, we grouped the UITests as follows:
-* **ApplicationUITests**: These are general tests with a non-specific scope. In this case, there is a single UITest to run the app until we reach the home screen. This is to make sure that the app normal initialization process does not brake when introducing changes.
+* **ApplicationUITests**: These are general tests with a non-specific scope. In this case, there is a single UITest to run the app until we reach the home screen. This is to make sure that the app normal initialization process does not break when introducing changes.
 * **NavigationUITests**: These are tests devoted to navigation between different screens. No feature is tested in these tests unless it is necessary to trigger the navigation. In this case, we implemented the navigation from the home screen to the track details screen and back to the home screen in all three search scopes: artist, song and album. They also include device rotation while in the track details screen.
 * **SearchUITests**: These are the particular UITests for the search feature. They include several scenarios, including:
   - Perform a search and obtain an error. Then perform a search again and obtain a successful response (in all three search scopes).
@@ -170,13 +166,13 @@ Contrary to unit tests, UITests run the app and perform an already implemented s
   - Perform a search and obtain a successful *non-empty* response. Then change scope and obtain a new successful *non-empty* response without changing search term (in all possible combinations: artist -> song, artist -> album, song -> artist, song -> album, album -> artist and album -> song).
   - Perform a search and obtain a successful *non-empty* response. Then perform a new search and obtain a new successful *non-empty* response (in all three search scopes).
 
-Of course, there are more scenarios to take into account, but most will be combinations of the above.
+Of course, there are more scenarios to take into account, but most of them will be combinations of the above.
 
 #### MockServer
 
-Using [Swifter](#swifter)'s `HttpServer` class as a basis we implemented a `MockServer` which enables us to register JSON responses to a specific endpoint and get those responses when the app performs a "remote" call to that endpoint. Furthermore, the endpoint response may be modified at runtime, and therefore this class behaves as a real server running in our localhost.
+Using [Swifter](#swifter)'s `HttpServer` class as a basis we implemented a `MockServer` class which enables us to register JSON responses to a specific endpoint and get those responses when the app performs a "remote" call to that endpoint. This enables us to remove the unknown component of remote calls from UITests. Furthermore, the endpoint response may be modified at runtime, and therefore this class behaves as a real server running in our localhost.
 
-In our subclass we added some helper functions and struct to easily register responses and log a detailed warning message in the debugger when a response is missing from the mock server. Note that you may not need to register every response to the mock server if your tests aren't using it, and thus a missing response does not stop the test execution unless the user journey is blocked by the missing data. The complete implementation may be found in the files `MockServer.swift` and `HttpStubInfo.swift` within the `ABA MusicUITests/MockServer` folder.
+In our implementatio we added some helper functions and structs to easily register responses and log a detailed warning message in the debugger when a response is missing from the mock server. Note that you may not need to register every response to the mock server if your tests aren't using it, and thus a missing response does not stop the test execution unless the user journey is blocked by the missing data. The complete implementation may be found in the files `MockServer.swift` and `HttpStubInfo.swift` within the `ABA MusicUITests/MockServer` folder.
 
 The only catch to use this `MockServer` class (and, in general, the `HttpServer` from Swifter) is that we must set our app to perform calls only to `http://localhost` (to any port we specify). Therefore, there are several points to take into account:
 * We must open our app to use a non-secure connection in our localhost (since it's `http` and not `https`). This is usually not a problem, but it must be considered.
@@ -222,27 +218,29 @@ In addition to the feature implementation, the code refactor and the tests imple
 
 ### Continuous Integration server
 
-Since this repository is *public* (since it's forked from a *public* repository), we created a Travis CI instance attached to it to run tests and perform additional tasks automatically. In combination with our [Branching strategy](#branching-strategy) and some protection rules on `master` and `develop`, we ensure that no code was ever merged to these branches without passing the proper tests.
+Since this repository is *public* (since it's forked from a *public* repository), we created a Travis CI instance attached to it to run tests and perform additional tasks automatically when several conditions met. In combination with our [Branching strategy](#branching-strategy) and some protection rules on `master` and `develop`, we ensure that no code was ever merged to these branches without passing the proper tests.
 
 The current jobs and triggers are the following:
-- **Compile**: Just compiles the app. This job is executed when a PR to `master` or `develop` is opened, to prevent merging any change that breaks the app build. If this job fails, no further jobs are executed.
-- **Run unit tests**: Runs the unit tests suite. This job is executed when a PR to `master` or `develop` is opened.
-- **Run UI tests**: Runs the UI tests suite. This job is executed when a PR to `master` or `develop` is opened.
-- **Gather code coverage data**: Runs the complete tests suites. If all test succeed, the coverage data is uploaded to Coveralls using Slather (see [Code coverage reports](#code-coverage-reports) below). This job is executed when a commit is pushed to either `master` or `develop`. Note that since both braches are protected and only pushes by means of PRs are allowed, tests should always succeed (since they must succeed to enable merging).
+- **Compile**: Just compiles the app. This job is executed when a pull request to `master` or `develop` is opened, to prevent merging any change that breaks the app build. If this job fails, no further jobs are executed.
+- **Run unit tests**: Runs the unit tests suite. This job is executed when a pull request to `master` or `develop` is opened.
+- **Run UI tests**: Runs the UI tests suite. This job is executed when a pull request to `master` or `develop` is opened.
+- **Gather code coverage data**: Runs the complete tests suites. If all test succeed, the coverage data is uploaded to Coveralls using Slather (see [Code coverage reports](#code-coverage-reports) below). This job is executed when a commit is pushed to either `master` or `develop`. Note that since both branches are protected and only pushes by means of pull requests are allowed, tests should always succeed (since they must succeed to enable merging).
 
 You may take a look at all the jobs execute, and to the Travis CI instance, by following this link:
+
 [https://travis-ci.com/peredaniel/iOS-tech-challenge](https://travis-ci.com/peredaniel/iOS-tech-challenge)
 
 ### Code coverage reports
 
-Since this repository is *public* (since it's forked from a *public* repository), we created a Coveralls instance attached to it to gather code coverage data and display it as a report. This code coverage data is generate automatically by Xcode when running tests, and gathered and uploaded to Coveralls using [Slather](https://github.com/SlatherOrg/slather).
+Since this repository is *public* (since it's forked from a *public* repository), we created a Coveralls instance attached to it to gather code coverage data and display it as a report. This code coverage data is generated automatically by Xcode command line tools when running tests if properly set, and gathered and uploaded to Coveralls using [Slather](https://github.com/SlatherOrg/slather).
 
 You may take a look at the code coverage reports for `master` in Coveralls by following this link:
+
 [https://coveralls.io/github/peredaniel/iOS-tech-challenge](https://coveralls.io/github/peredaniel/iOS-tech-challenge)
 
 ## Branching strategy
 
-In order to illustrate our usage of good practices in Git, we used a variant of [GitFlow](https://datasift.github.io/gitflow/IntroducingGitFlow.html) during this assignment. In pure GitFlow, a feature is implemented in a single branch named `feature/name-of-feature`. In our case we had a single feature to implement, and therefore made not much sense, so we made a branch for every *task* instead of evert *feature*. These tasks have been grouped in folders by topics, which include:
+In order to illustrate our usage of good practices in Git, we used a variant of [GitFlow](https://datasift.github.io/gitflow/IntroducingGitFlow.html) during this assignment. In pure GitFlow, a feature is implemented in a single branch named `feature/name-of-feature`. In our case we had a single feature to implement, and therefore made not much sense, so we made a branch for every *task* instead of every *feature*. These tasks have been grouped in folders by topics, which include:
 * Documentation: Writing this README file.
 * Feature: Implementation of the requested feature.
 * Frameworks: Clean-up of dependencies and fixing linking errors.
@@ -254,13 +252,6 @@ In order to illustrate our usage of good practices in Git, we used a variant of 
 Although I usually delete my active branches once they have been merged, I kept them for this assignment so that anyone may take a look:
 [https://github.com/peredaniel/iOS-tech-challenge/branches/active](https://github.com/peredaniel/iOS-tech-challenge/branches/active)
 
-In addition, altough it was not required (and not necessary, since I was the only developer), I always merged my changes using Pull Requests, which in turn triggered builds in Travis CI that prevented me from merging any breaking changes. You may find the list of merged pull requests in the following link:
+In addition, altough it was not required (and not necessary, since I was the only developer), I always merged my changes using pull requests, which in turn triggered builds in Travis CI that prevented me from merging any breaking changes. You may find the list of merged pull requests in the following link:
+
 [https://github.com/peredaniel/iOS-tech-challenge/pulls?q=is%3Apr+is%3Aclosed](https://github.com/peredaniel/iOS-tech-challenge/pulls?q=is%3Apr+is%3Aclosed)
-
-## Further improvements
-
-### Lyrics
-
-### Local storage
-
-### Favorites
