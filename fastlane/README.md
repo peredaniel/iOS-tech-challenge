@@ -29,6 +29,22 @@ fastlane ui_test
 Runs app's UI tests in the specified device.
 
 Usage example: fastlane ui_test device:'iPhone 8' ios_version:'12.4'
+### full_test
+```
+fastlane full_test
+```
+Runs app's full test suite in the specified device.
+
+Usage example: fastlane full_test device:'iPhone 8' ios_version:'12.4'
+### compile_app
+```
+fastlane compile_app
+```
+Builds the app for the specified iOS version.
+
+This lane is to make sure that the app builds correctly and that breaking API changes are detected before deployment.
+
+Usage example: fastlane build_app ios_version:'12.4'
 
 ----
 

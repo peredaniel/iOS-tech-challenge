@@ -36,3 +36,35 @@ lane :ui_test do |options|
 	    disable_concurrent_testing: true
   	)
 end
+
+desc "Runs app's full test suite in the specified device."
+desc "Usage example: fastlane full_test device:'iPhone 8' ios_version:'12.4'"
+lane :full_test do |options| 
+	raise "Missing 'device' parameter. Usage: fastlane full_test device:DEVICE ios_version:IOS_VERSION" unless options[:device]
+	raise "Missing 'ios_version' parameter. Usage: fastlane full_test device:DEVICE ios_version:IOS_VERSION" unless options[:ios_version]
+	ios_version = options[:ios_version]
+	scan(
+	    scheme: "ABA Music",
+	    device: options[:device],
+	    sdk: "iphonesimulator" + "#{ios_version}",
+	    clean: true,
+	    disable_concurrent_testing: true
+  	)
+end
+
+###############
+# Build lanes #
+###############
+
+desc "Builds the app for the specified iOS version."
+desc "This lane is to make sure that the app builds correctly before running any test, thus catching compilation errors early."
+desc "Usage example: fastlane build_app ios_version:'12.4'"
+lane :compile_app do |options|
+	raise "Missing 'ios_version' parameter. Usage: fastlane build_app ios_version:IOS_VERSION" unless options[:ios_version]
+	ios_version = options[:ios_version]
+	xcbuild(
+		scheme: "ABA Music",
+		sdk: "iphonesimulator" + "#{ios_version}",
+		clean: true
+	)
+end
