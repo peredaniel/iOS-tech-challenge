@@ -173,7 +173,7 @@ Of course, there are more scenarios to take into account, but most will be combi
 
 #### MockServer
 
-Using [Swifter](#swifter)' `HttpServer` class as a basis we implemented a `MockServer` which enables us to register JSON responses to a specific endpoint and get those responses when the app performs a "remote" call to that endpoint. Furthermore, the endpoint response may be modified at runtime, and therefore this class behaves as a real server running in our localhost.
+Using [Swifter](#swifter)'s `HttpServer` class as a basis we implemented a `MockServer` which enables us to register JSON responses to a specific endpoint and get those responses when the app performs a "remote" call to that endpoint. Furthermore, the endpoint response may be modified at runtime, and therefore this class behaves as a real server running in our localhost.
 
 In our subclass we added some helper functions and struct to easily register responses and log a detailed warning message in the debugger when a response is missing from the mock server. Note that you may not need to register every response to the mock server if your tests aren't using it, and thus a missing response does not stop the test execution unless the user journey is blocked by the missing data. The complete implementation may be found in the files `MockServer.swift` and `HttpStubInfo.swift` within the `ABA MusicUITests/MockServer` folder.
 
@@ -183,21 +183,37 @@ The only catch to use this `MockServer` class (and, in general, the `HttpServer`
 
 ## Third-party frameworks
 
+Since the frameworks were not included in the original repository, one of the first things we had to do is perform a `pod install --repo-update` in the root folder to install dependencies. After that, we reviewed all the dependencies included in the `Podfile` and their usage in the code. As a consequence, we remove all of the dependencies except for `AlamofireImage`, which was the only one under use.
+
+During the implementation of the search feature and the tests we decided to use some additional dependencies, which we discuss in the following.
+
+**Note:** The `Pods/` folder in now checked into the repository, so that we can just download and press `Run` to execute the app in the simulator.
+
 ### AlamofireImage
 
-[https://github.com/Alamofire/AlamofireImage](https://github.com/Alamofire/AlamofireImage)
+`AlamofireImage` is a library that enables to easily manage downloading and setting images from the internet. It has a simple and clear API, and includes a built-in cache system to avoid downloading the same image again and again.
+
+**Source:** [https://github.com/Alamofire/AlamofireImage](https://github.com/Alamofire/AlamofireImage)
 
 ### DataSourceController
 
-[https://github.com/peredaniel/DataSourceController](https://github.com/peredaniel/DataSourceController/)
+`DataSourceController` is an OpenSource library developed and maintained by myself which provides an implementation of both `UITableViewDataSource` and `UICollectionViewDataSource`. In addition, it provides a more declarative API by using `Section` instances to defines the list sections. It enables us to remove a lot of boilerplate code from our classes by removing the conformance to the above mentioned protocols.
+
+**Source:** [https://github.com/peredaniel/DataSourceController](https://github.com/peredaniel/DataSourceController/)
 
 ### SnapshotTesting
 
-[https://github.com/pointfreeco/swift-snapshot-testing](https://github.com/pointfreeco/swift-snapshot-testing)
+`SnapshotTesting` is a library similar to [iOSSnapshotTestCase](https://github.com/uber/ios-snapshot-test-case) (formerly maintained by Facebook, now maintained by Uber) developed by the awesome team of Point-Free. Contratry to `iOSSnapshotTestCase`, `SnapshotTesting` is written purely in Swift and is compatible with [Nimble](https://github.com/Quick/Nimble) using a plugin.
+
+This library enables us to snapshot test views, server responses and more in several formats, from images to plain text files, which makes it outstandingly versatile.
+
+**Source:** [https://github.com/pointfreeco/swift-snapshot-testing](https://github.com/pointfreeco/swift-snapshot-testing)
 
 ### Swifter
 
-[https://github.com/httpswift/swifter](https://github.com/httpswift/swifter)
+`Swifter` is a library providing a tiny http server engine written in Swift. Documentation is short at the very best in their GitHub, but the repository does include several examples and use cases which are really helpful. This is the base for the [MockServer](#mockserver) class introduced previously.
+
+**Source:** [https://github.com/httpswift/swifter](https://github.com/httpswift/swifter)
 
 ## Tools
 
