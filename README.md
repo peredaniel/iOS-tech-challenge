@@ -91,7 +91,15 @@ We gave a deep thought on wether to use reactive programming or not during this 
 
 ### Storyboards and XIB files
 
+Altough I am aware that here at ABA we implement views by code, in the last year almost every project I took part on did use storyboards and XIB files, which may me used to them. Therefore, I decided to use them in this assignment to further remove code from the view classes and keep them *clean* and as short as possible.
+
+Furthermore, navigation is now driven by segues which are located in the file *Search.storyboard*, thus having a clear picture of the flow of the app.
+
 ### Dependency injection
+
+Dependency injection to the initial view controller was already present in the original code base. We removed it as part of the initial refactor, and re-added it after the feature implementation since it was required for our UI tests (see [UI tests](#ui-tests) below).
+
+As for the rest of the navigation, dependency injection is performed at the view model layer. That is, any dependency necessary for a view model is injected during initialization by the view model of the previous screen. The only exception are the view models of cells, which are handled by the DataSourceController framework (see [DataSourceController](#datasourcecontroller) below).
 
 ## Feature implementation
 
