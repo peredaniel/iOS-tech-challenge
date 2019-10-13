@@ -26,6 +26,7 @@ In this manuscript we explain and discuss the changes that have been implemented
     + [Unit tests](#unit-tests)
     + [Snapshot tests](#snapshot-tests)
     + [UI tests](#ui-tests)
+      - [MockServer](#mockserver)
   * [Third-party frameworks](#third-party-frameworks)
     + [AlamofireImage](#alamofireimage)
     + [DataSourceController](#datasourcecontroller)
@@ -132,11 +133,53 @@ As a consequence, it is worth mentioning that the app is compatible with dark mo
 
 ## Tests
 
+Although both the unit tests and the UI tests target were already included in the original code base, there were no tests implemented besides the default empty tests that are created when the test bundles are added to a Xcode project. We extensively expanded both testing targets to raise code coverage to nearly 100% and cover several user journeys when using this section of the app.
+
 ### Unit tests
+
+Unit tests are tests of isolated components or business logic using mock objects. Therefore, as a general basis, at the very least every view model should include unit tests when using the MVVM architecture. Furthermore, when using repositories in Android Clean Architecture, all of the repositories should include unit tests too. Therefore we have implemented unit tests for the following components:
+* Mappers from server model object `SearchResponse` to domain model objects `Artist` and `Track`
+* Repository `SearchRepository`
+* View models `HomeViewModel`, `SearchResultCollectionViewModel`, `SearchResultTableViewModel`, `TrackDetailsViewModel` and `TrackPlayerViewModel`.
+
+As usual, all of these tests use mock objects to pass data or receive delegate calls and perform validations.
 
 ### Snapshot tests
 
+By means of the framework **SnapshotTesting** (see [the corresponding section](#snapshottesting) below) we included snapshot tests of almost every view in the app, from the simplest cell to a whole view controller. In particular, we implemented snapshot tests for the following classes:
+* `HomeViewController`
+* `TrackDetailsViewController`
+* `SearchResultCollectionCell`
+* `SearchResultTableCell`
+* `EdgeInsetLabel`
+
+The only view without snapshot tests is the *TrackPlayerViewController*, which is a straighforward subclass of *AVPlayerViewController* and we considered unnecessary since it's usage is already covered by UITests.
+
+Snapshots can be found in the subfolders of `ABA MusicTests/Source/Views tests/__Snapshots__/`.
+
 ### UI tests
+
+Contrary to unit tests, UITests run the app and perform an already implemented set actions from the point of view of a user. Therefore, there is no access to the code: we can only access to what is on screen. Bearing this in mind, we used UITests to test user journeys in several use cases. In particular, we grouped the UITests as follows:
+* **ApplicationUITests**: These are general tests with a non-specific scope. In this case, there is a single UITest to run the app until we reach the home screen. This is to make sure that the app normal initialization process does not brake when introducing changes.
+* **NavigationUITests**: These are tests devoted to navigation between different screens. No feature is tested in these tests unless it is necessary to trigger the navigation. In this case, we implemented the navigation from the home screen to the track details screen and back to the home screen in all three search scopes: artist, song and album. They also include device rotation while in the track details screen.
+* **SearchUITests**: These are the particular UITests for the search feature. They include several scenarios, including:
+  - Perform a search and obtain an error. Then perform a search again and obtain a successful response (in all three search scopes).
+  - Perform a search and obtain a successful *empty* response (in all three search scopes).
+  - Perform a search and obtain a successful *non-empty* response (in all three search scopes).
+  - Perform a search and obtain a successful *non-empty* response. Then change scope and obtain a new successful *non-empty* response without changing search term (in all possible combinations: artist -> song, artist -> album, song -> artist, song -> album, album -> artist and album -> song).
+  - Perform a search and obtain a successful *non-empty* response. Then perform a new search and obtain a new successful *non-empty* response (in all three search scopes).
+
+Of course, there are more scenarios to take into account, but most will be combinations of the above.
+
+#### MockServer
+
+Using [Swifter](#swifter)' `HttpServer` class as a basis we implemented a `MockServer` which enables us to register JSON responses to a specific endpoint and get those responses when the app performs a "remote" call to that endpoint. Furthermore, the endpoint response may be modified at runtime, and therefore this class behaves as a real server running in our localhost.
+
+In our subclass we added some helper functions and struct to easily register responses and log a detailed warning message in the debugger when a response is missing from the mock server. Note that you may not need to register every response to the mock server if your tests aren't using it, and thus a missing response does not stop the test execution unless the user journey is blocked by the missing data. The complete implementation may be found in the files `MockServer.swift` and `HttpStubInfo.swift` within the `ABA MusicUITests/MockServer` folder.
+
+The only catch to use this `MockServer` class (and, in general, the `HttpServer` from Swifter) is that we must set our app to perform calls only to `http://localhost` (to any port we specify). Therefore, there are several points to take into account:
+* We must open our app to use a non-secure connection in our localhost (since it's `http` and not `https`). This is usually not a problem, but it must be considered.
+* We must implement some way to change the base url of our remote calls to `http://localhost` **only** when running UITests.
 
 ## Third-party frameworks
 
@@ -146,7 +189,7 @@ As a consequence, it is worth mentioning that the app is compatible with dark mo
 
 ### DataSourceController
 
-[https://github.com/peredaniel/DataSourceController/](https://github.com/peredaniel/DataSourceController/)
+[https://github.com/peredaniel/DataSourceController](https://github.com/peredaniel/DataSourceController/)
 
 ### SnapshotTesting
 
@@ -165,6 +208,8 @@ Travis CI instance: [https://travis-ci.com/peredaniel/iOS-tech-challenge](https:
 ### Code coverage reports
 
 Coveralls instance: [https://coveralls.io/github/peredaniel/iOS-tech-challenge](https://coveralls.io/github/peredaniel/iOS-tech-challenge)
+
+Slather: [https://github.com/SlatherOrg/slather](https://github.com/SlatherOrg/slather)
 
 ## Branching strategy
 
