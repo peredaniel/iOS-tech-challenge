@@ -230,21 +230,32 @@ The current jobs and triggers are the following:
 - **Run UI tests**: Runs the UI tests suite. This job is executed when a PR to `master` or `develop` is opened.
 - **Gather code coverage data**: Runs the complete tests suites. If all test succeed, the coverage data is uploaded to Coveralls using Slather (see [Code coverage reports](#code-coverage-reports) below). This job is executed when a commit is pushed to either `master` or `develop`. Note that since both braches are protected and only pushes by means of PRs are allowed, tests should always succeed (since they must succeed to enable merging).
 
-You may take a look at all the jobs execute, and to the Travis CI instance, by following this link: [https://travis-ci.com/peredaniel/iOS-tech-challenge](https://travis-ci.com/peredaniel/iOS-tech-challenge)
+You may take a look at all the jobs execute, and to the Travis CI instance, by following this link:
+[https://travis-ci.com/peredaniel/iOS-tech-challenge](https://travis-ci.com/peredaniel/iOS-tech-challenge)
 
 ### Code coverage reports
 
 Since this repository is *public* (since it's forked from a *public* repository), we created a Coveralls instance attached to it to gather code coverage data and display it as a report. This code coverage data is generate automatically by Xcode when running tests, and gathered and uploaded to Coveralls using [Slather](https://github.com/SlatherOrg/slather).
 
-You may take a look at the code coverage reports for `master` in Coveralls by following this link: [https://coveralls.io/github/peredaniel/iOS-tech-challenge](https://coveralls.io/github/peredaniel/iOS-tech-challenge)
+You may take a look at the code coverage reports for `master` in Coveralls by following this link:
+[https://coveralls.io/github/peredaniel/iOS-tech-challenge](https://coveralls.io/github/peredaniel/iOS-tech-challenge)
 
 ## Branching strategy
 
-GitFlow variant: [https://datasift.github.io/gitflow/IntroducingGitFlow.html](https://datasift.github.io/gitflow/IntroducingGitFlow.html)
+In order to illustrate our usage of good practices in Git, we used a variant of [GitFlow](https://datasift.github.io/gitflow/IntroducingGitFlow.html) during this assignment. In pure GitFlow, a feature is implemented in a single branch named `feature/name-of-feature`. In our case we had a single feature to implement, and therefore made not much sense, so we made a branch for every *task* instead of evert *feature*. These tasks have been grouped in folders by topics, which include:
+* Documentation: Writing this README file.
+* Feature: Implementation of the requested feature.
+* Frameworks: Clean-up of dependencies and fixing linking errors.
+* Refactor: Code styling, migration to MVVM architecture, service and repository layers, migration to storyboards and XIB files, and a final clean-up of the code.
+* Re-skin: Anything related to view changes, mainly in the storyboards and XIB files.
+* Testing: Implementation of unit, snapshot and UI tests, improvement of code coverage.
+* Tooling: Initial CI setup, code coverage reports and CI setup improvements.
 
-Active branches: [https://github.com/peredaniel/iOS-tech-challenge/branches/active](https://github.com/peredaniel/iOS-tech-challenge/branches/active)
+Although I usually delete my active branches once they have been merged, I kept them for this assignment so that anyone may take a look:
+[https://github.com/peredaniel/iOS-tech-challenge/branches/active](https://github.com/peredaniel/iOS-tech-challenge/branches/active)
 
-Pull requests: [https://github.com/peredaniel/iOS-tech-challenge/pulls?q=is%3Apr+is%3Aclosed](https://github.com/peredaniel/iOS-tech-challenge/pulls?q=is%3Apr+is%3Aclosed)
+In addition, altough it was not required (and not necessary, since I was the only developer), I always merged my changes using Pull Requests, which in turn triggered builds in Travis CI that prevented me from merging any breaking changes. You may find the list of merged pull requests in the following link:
+[https://github.com/peredaniel/iOS-tech-challenge/pulls?q=is%3Apr+is%3Aclosed](https://github.com/peredaniel/iOS-tech-challenge/pulls?q=is%3Apr+is%3Aclosed)
 
 ## Further improvements
 
@@ -252,4 +263,4 @@ Pull requests: [https://github.com/peredaniel/iOS-tech-challenge/pulls?q=is%3Apr
 
 ### Local storage
 
-### Favorites
+### Favorites
