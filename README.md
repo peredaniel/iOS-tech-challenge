@@ -2,8 +2,8 @@
 
 <!-- **TODO: Change badges to point to master branch** -->
 
-[![Build Status](https://travis-ci.com/peredaniel/iOS-tech-challenge.svg?branch=develop)](https://travis-ci.com/peredaniel/iOS-tech-challenge)
-[![Coverage Status](https://coveralls.io/repos/github/peredaniel/iOS-tech-challenge/badge.svg?branch=develop)](https://coveralls.io/github/peredaniel/iOS-tech-challenge)
+[![Build Status](https://travis-ci.com/peredaniel/iOS-tech-challenge.svg?branch=master)](https://travis-ci.com/peredaniel/iOS-tech-challenge)
+[![Coverage Status](https://coveralls.io/repos/github/peredaniel/iOS-tech-challenge/badge.svg?branch=master)](https://coveralls.io/github/peredaniel/iOS-tech-challenge)
 [![OS Version: iOS 13.0](https://img.shields.io/badge/iOS-13.0-green.svg)](https://www.apple.com/es/ios/ios-13/)
 
 In this manuscript we explain and discuss the changes that have been implemented, along with some additional tools that have been added to the project or the repository.
